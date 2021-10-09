@@ -2,12 +2,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  width: 100vw;
-  color: #202124;
-  font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
-  direction: ltr;
-  font-size: 14px;
-  line-height: 1.4286;
+  width: 100vw;  
   background: #fff;
 }
 
@@ -38,12 +33,60 @@ body {
   top: 30%;
   left: 28%;
   width: 25vw;
-  font-size: 1rem;
+  color: #000;
 }
 
 .user_name {
   position: absolute;
   top: 40%;
   left: 28%;
-  width: 50vw;
+  color: #000;
+}
+
+.helper_text {
+  font-size: 0.75rem;
+  margin-left: 2%;
+  color: gray;
+}
+
+.button1 {
+  position: absolute;
+  top: 52%;
+  left: 28%;
+}
+
+button {
+  background-color: #fff;
+  border: 0px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: lightblue;
+}
+
+.password_text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2%;
+  width: 25vw;
+  position: absolute;
+  top: 60%;
+  left: 28%;
+}
+
+.para {
+  position: absolute;
+  top: 66.5%;
+  left: 28.4%;
+  font-size: 0.75rem;
+  color:gray;
+  width: 25%;
+}
+
+.account_logo {
+  height: 30vh;
+  width: 20vw;
+  position: relative;
+  top: 20%;
 }
