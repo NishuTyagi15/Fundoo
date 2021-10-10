@@ -13,9 +13,11 @@ const SignUp = () => {
                 <TextField id="last_name" label="Last name" variant="outlined" size='small'/>
             </div>
             <div className='user_name'>
-                <TextField style={{ width: '25vw'}} id="username" label="Username" variant="outlined" size='small' value='@gmail.com' />
+                <TextField style={{ width: '25vw'}} id="username" label="Username" variant="outlined" size='small'>
+                </TextField>
                 <div className='helper_text'>You can use letters, numbers & periods</div>
             </div>
+            <span className="helper" id="domainSuffix">@gmail.com</span>
             <div>
                 <button className='button1'>Use my current email address instead</button>
             </div>

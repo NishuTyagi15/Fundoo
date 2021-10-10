@@ -50,8 +50,11 @@ body {
   color: #000;
 }
 
-input {
-  text-align: right;
+.helper {
+  font-size: 0.81rem;
+  position: absolute;
+  top: 41.8%;
+  right: 47.5%;
 }
 
 .helper_text {
