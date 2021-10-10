@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
         <img src={fundoo_logo} className="App_logo" alt="logo" />
+        <img src={account} className='Account_logo' alt="acc_logo" />
         <SignUp/>
-        <img src={account} className='account_logo' alt="acc_logo" />
     </div>
   );
 }
