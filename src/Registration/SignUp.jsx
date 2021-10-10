@@ -30,7 +30,7 @@ const SignUp = () => {
             </div>
             <div className='checkbox'>
             <FormGroup>
-                <FormControlLabel control={<Checkbox defaultChecked />} label="Show password" />
+                <FormControlLabel control={<Checkbox />} label="Show password" />
             </FormGroup>
             </div>
 
