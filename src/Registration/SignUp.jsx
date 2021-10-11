@@ -1,23 +1,39 @@
 import React from 'react'
+import '../css/SignUp.css';
+import account from '../Assets/account.svg';
 import TextField from '@mui/material/TextField';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import InputAdornment from '@mui/material/InputAdornment';
+import OutlinedInput from '@mui/material/OutlinedInput';
+
 
 const SignUp = () => {
     return (
         <div className='signup_main'>
+            <div className='Fundoo_logo'>
+                <p className='first'>F</p>
+                <p className='second'>u</p>
+                <p className='third'>n</p>
+                <p className='first'>d</p>
+                <p className='fifth'>o</p>
+                <p className='second'>o</p>
+            </div>
             <div className='title'>Create your Fundoo Account</div>
+            <img src={account} className='Account_logo' alt="acc_logo" />
             <div className='name_textbox'>
-                <TextField id="first_name" label="First name" variant="outlined" size='small' />
-                <TextField id="last_name" label="Last name" variant="outlined" size='small'/>
+                <TextField className="name" id="first_name" label="First name" variant="outlined" size='small' />
+                <TextField className="name" id="last_name" label="Last name" variant="outlined" size='small'/>
             </div>
             <div className='user_name'>
-                <TextField style={{ width: '25vw'}} id="username" label="Username" variant="outlined" size='small'>
-                </TextField>
+                <OutlinedInput className="user" id="user" label= "Username"
+                    endAdornment={<InputAdornment position="end">@gmail.com</InputAdornment>} />
+
+                {/* <TextField style={{ width: '25vw'}} id="username" label="Username" variant="outlined" size='small'>
+                </TextField> */}
                 <div className='helper_text'>You can use letters, numbers & periods</div>
             </div>
-            <span className="helper" id="domainSuffix">@gmail.com</span>
             <div>
                 <button className='button1'>Use my current email address instead</button>
             </div>
