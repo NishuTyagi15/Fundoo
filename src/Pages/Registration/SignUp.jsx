@@ -1,6 +1,6 @@
 import React from 'react'
-import '../css/SignUp.css';
-import account from '../Assets/account.svg';
+import '../Registration/SignUp.css'
+import account from '../Registration/account.svg'
 import TextField from '@mui/material/TextField';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';

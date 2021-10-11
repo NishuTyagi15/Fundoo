@@ -1,7 +1,7 @@
 .signup_main {
     display: flex;
     border: 1px solid lightgray;
-    height: 90vh;
+    height: 92vh;
     width: 50vw;
     border-radius: 2%;
     margin-left: 26%;
@@ -123,11 +123,11 @@
   .options {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 38%;
+    grid-gap: 40%;
     position: absolute;
     top: 85%;
     left: 28%;
-    width: 28%;
+    width: 25%;
   }
   
   .text {
@@ -143,13 +143,13 @@
   }
   
   .next {
-    padding: 9px;
+    padding: 10px;
     background-color: #0b69e4;
     color: #fff;
     border: 0;
     border-radius: 5px;
     cursor: pointer;
-    width: 70%;
+    /* width: 70%; */
   }
   
   .next:hover {
@@ -223,14 +223,15 @@
   }
   .options {
     top: 74%;
-    left: 24%;
-    width: 56%;
+    left: 25%;
+    width: 49%;
+    grid-gap: 37%;
   }
   .text {
     font-size: 1rem;
   }
   .next {
-    padding: 12px;
+    padding: 14px;
   }
 }
 
@@ -265,40 +266,40 @@
     left: 6%;
   }
   .user {
-    height: 5vh;
+    height: 5.5vh;
     width: 86vw;
   }
   .button1 {
     left: 5%;
-    top: 47%;
+    top: 48%;
     font-size: 1rem;
   }
   .password_text {
     width: 86vw;
-    top: 55%;
+    top: 57%;
     left: 6%;
     grid-template-columns: 1fr;
     grid-gap: 30%;
 }
   .para {
-    top: 70%;
+    top: 72%;
     left: 9%;
     width: 84%;
   }
   .checkbox {
-    top: 75%;
+    top: 77%;
     left: 6%;
   }
-  .options {
-    top: 84%;
-    left: 3%;
-    width: 100%;
-    grid-gap: 31%;
+  .options {   
+    top: 88%;
+    left: 4%;
+    width: 89%;
+    grid-gap: 26%;
   }
   .text {
     font-size: 1rem;
   }
   .next {
-    padding: 12px;
+    padding: 14px;
   }
 }
