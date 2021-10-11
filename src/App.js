@@ -7,9 +7,9 @@ import ForgotEmail from './Pages/ForgotEmail/ForgotEmail';
 function App() {
   return (
     <div className="App">
-      <SignUp/>
-      <SignIn/>
-      <ForgotPass/>
+      {/* <SignUp/> */}
+      {/* <SignIn/> */}
+      {/* <ForgotPass/> */}
       <ForgotEmail/>
     </div>
   );
