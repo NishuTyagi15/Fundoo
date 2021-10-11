@@ -49,7 +49,8 @@ const SignUp = () => {
                 </FormGroup>
                 </div>
                 <div className="options">
-                    <button className="text">Sign in instead</button>
+                    <a href='../Login/SignIn.jsx'>
+                        <button className="text">Sign in instead</button></a>
                     <button className="next">Next</button>
                 </div>
             </div>
