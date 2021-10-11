@@ -1,4 +1,5 @@
 .signup_main {
+    display: flex;
     border: 1px solid lightgray;
     height: 90vh;
     width: 50vw;
@@ -163,3 +164,141 @@
     font-size: 1rem;
     font-weight: lighter;
   }
+
+
+/* media queries */
+
+@media only screen and (min-width: 768px) and (max-width:1024px) {
+  body {
+    overflow: hidden;
+  }
+  .right_div {
+    display: none;
+  }
+  .signup_main {
+    height: 66vh;
+    width: 60vw;
+    margin-left: 20%;
+    margin-top: 23%;
+  }
+  .Fundoo_logo {
+    top: 21%;
+    left: 26%;
+  }
+  .title {
+    top: 29%;
+    left: 26%;
+  }
+  .name_textbox {
+    top: 36%;
+    left: 26%;
+    width: 48vw;
+  }
+  .user_name {
+    top: 44%;
+    left: 26%;
+  }
+  .user {
+    height: 4vh;
+    width: 48vw;
+  }
+  .button1 {
+    left: 26%;
+    top: 51%;
+    font-size: 0.9rem;
+  }
+  .password_text {
+    width: 48vw;
+    top: 57%;
+    left: 26%;
+  }
+  .para {
+    top: 62%;
+    left: 28%;
+    width: 46%;
+  }
+  .checkbox {
+    top: 65%;
+    left: 26%;
+  }
+  .options {
+    top: 74%;
+    left: 24%;
+    width: 56%;
+  }
+  .text {
+    font-size: 1rem;
+  }
+  .next {
+    padding: 12px;
+  }
+}
+
+@media only screen and (min-width: 360px) and (max-width:640px) {
+  .right_div {
+    display: none;
+  }
+  .signup_main {
+    border: none;
+    height: 66vh;
+    width: 60vw;
+    margin-left: 21%;
+    margin-top: 23%;
+  }
+  .Fundoo_logo {
+    top: -1%;
+    left: 6%;
+  }
+  .title {
+    top: 9%;
+    left: 6%;
+  }
+  .name_textbox {
+    top: 20%;
+    left: 6%;
+    width: 86vw;
+    grid-gap: 30%;
+    grid-template-columns: 1fr;
+  }
+  .user_name {
+    top: 38%;
+    left: 6%;
+  }
+  .user {
+    height: 5vh;
+    width: 86vw;
+  }
+  .button1 {
+    left: 5%;
+    top: 47%;
+    font-size: 1rem;
+  }
+  .password_text {
+    width: 86vw;
+    top: 55%;
+    left: 6%;
+    grid-template-columns: 1fr;
+    grid-gap: 30%;
+}
+  .para {
+    top: 70%;
+    left: 9%;
+    width: 84%;
+  }
+  .checkbox {
+    top: 75%;
+    left: 6%;
+  }
+  .options {
+    top: 84%;
+    left: 3%;
+    width: 100%;
+    grid-gap: 31%;
+  }
+  .text {
+    font-size: 1rem;
+  }
+  .next {
+    padding: 12px;
+  }
+}
