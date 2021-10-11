@@ -1,0 +1,143 @@
+.forgot_pass {
+    display: flex;
+    border: 1px solid lightgray;
+    height: 80vh;
+    width: 34vw;
+    border-radius: 2%;
+    margin-left: 33%;
+    margin-top: 4%;
+}
+  
+.Fundoo_logo {
+    display: flex;
+    position: absolute;
+    top: 12%;
+    left: 47%;
+    font-family: cursive;
+    font-size: 1.5rem;
+}
+  
+.first {
+    color: #1a73e8;
+}
+  
+.second {
+    color: red;
+}
+  
+.third {
+    color: rgb(255, 166, 0);
+}
+  
+.fifth {
+    color: darkgreen;
+}
+
+.heading {
+    color: #202124;
+    font-size: 1.65rem;
+    position: absolute;
+    top: 23%;
+    left: 40%;
+}
+
+.sub_heading {
+    font-size: 1rem;
+    font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+    font-weight: 600;
+    position: absolute;
+    top: 30%;
+    left: 39%;
+    color: #202124;
+    letter-spacing: 0.1px;
+}
+
+.pass_confirm {
+    position: absolute;
+    top: 40%;
+    left: 37%;
+}
+
+.confirm_pass {
+    width: 27vw;
+}
+
+.next {
+    position: absolute;
+    top: 70%;
+    left: 72%;
+}
+
+/* media queries */
+
+@media only screen and (min-width: 768px) and (max-width:1024px) {
+    .forgot_pass {
+        margin-top: 28%;
+        margin-left: 21%;
+        height: 58vh;
+        width: 58vw;
+    }
+    .Fundoo_logo {
+        top: 26%;
+        left: 45%;
+        font-size: 1.3rem;
+    }
+    .heading {
+        top: 33%;
+        left: 33%;
+    }
+    .sub_heading {
+        top: 38%;
+        left: 27%;
+        font-size: 1.2rem;    
+    }
+    .pass_confirm {
+        top: 47%;
+        left: 26%;
+    }   
+    .pass {
+        width: 48vw;
+        height: 5vh;
+    }
+    .confirm_pass {
+        width: 48vw;
+    }   
+    .next {
+        top: 73%;
+        left: 73%;
+    }
+}
+
+@media only screen and (min-width: 360px) and (max-width:640px) {
+    .forgot_pass {
+        border: none;
+    }
+    .Fundoo_logo {
+        top: -1%;
+        left: 35%;
+    }
+    .heading {
+        top: 9%;
+        left: 16%;
+        font-size: 1.5rem;
+    }
+    .sub_heading {
+        top: 16%;
+        left: 8%;
+    }
+    .pass_confirm {
+        top: 28%;
+        left: 9%;
+    }   
+    .pass {
+        width: 80vw;
+        height: 8vh;
+    }
+    .confirm_pass {
+        width: 80vw;
+    }   
+    .next {
+        top: 63%;
+        left: 107%;
+    }
+}
