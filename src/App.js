@@ -6,8 +6,8 @@ import ForgotPass from './Pages/ForgotPassword/ForgotPass';
 function App() {
   return (
     <div className="App">
-      {/* <SignUp/> */}
-      {/* <SignIn/> */}
+      <SignUp/>
+      <SignIn/>
       <ForgotPass/>
     </div>
   );
