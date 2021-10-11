@@ -19,8 +19,10 @@ const SignIn = () => {
             <div className="heading">Sign in</div>
             <div className="sub_heading">Use your Fundoo Account</div>
             <div className="email_phone">
-                <TextField className="email" id="email" label="Email or phone" variant="outlined" />
+                <TextField className="email" id="email" label="Email or phone" variant="outlined" size="small"/>
                 <div className="blue_text">Forgot email?</div>
+                <TextField className="pass" id="pass" label="Password" variant="outlined" size="small"/>
+                <div className="blue_text">Forgot password?</div>
                 <div className="para_guest">Not your computer? Use Guest mode to sign in privately.</div>
                 <div className="para_private">Not your computer? Use a private browsing window to sign in.</div>
                 <div className="blue_text">Learn more</div>

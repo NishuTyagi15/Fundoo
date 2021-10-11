@@ -61,17 +61,22 @@
     width: 27vw;
 }
 
+.pass {
+    width: 27vw;
+}
+
 .blue_text {
+    font-size: 0.9rem;
     font-weight: 600;
     color: #1a73e8;
     cursor: pointer;
+    margin-bottom: 6%;
 }
 
 .para_guest {
     font-size: 0.9rem;
     font-weight: 600;
     color: #5f6368;
-    margin-top: 10%;
 }
 
 .para_private {
@@ -83,9 +88,9 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 40%;
     position: absolute;
-    top: 70%;
-    left: 37%;
-    width: 30%;
+    top: 75%;
+    left: 36.5%;
+    width: 31%;
 }
   
 .text {
@@ -116,7 +121,7 @@
     .signin_main {
         margin-top: 28%;
         margin-left: 21%;
-        height: 54vh;
+        height: 58vh;
         width: 58vw;
     }
     .Fundoo_logo {
@@ -141,6 +146,9 @@
     .email {
         width: 50.5vw;
     }
+    .pass {
+        width: 50.5vw;
+    }
     .para_guest {
         display: none;
     }
@@ -151,11 +159,11 @@
         color: #5f6368;
     }
     .blue_text {
-        margin-bottom: 14%;
+        margin-bottom: 8%;
     }
     .options {     
         grid-gap: 47%;
-        top: 72%;
+        top: 74%;
         left: 24%;
         width: 58vw;
     }
@@ -185,8 +193,12 @@
     .email_phone {
         top: 25%;
         left: 7%;
+        width: 90vw;
     }
     .email {
+        width: 85vw;
+    }
+    .pass {
         width: 85vw;
     }
     .para_guest {
@@ -197,15 +209,14 @@
         font-size: 0.9rem;
         font-weight: 600;
         color: #5f6368;
-        margin-top: 50%;
     }
     .blue_text {
-        margin-bottom: 15%;
+        margin-bottom: 7%;
     }
     .options {
-        grid-gap: 30%;
-        top: 60%;
-        left: 7%;
+        grid-gap: 36%;
+        top: 67%;
+        left: 6%;
         width: 100vw;
     }
 }
