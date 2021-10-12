@@ -8,7 +8,7 @@
     margin-top: 4%;
 }
   
-.Fundoo_logo {
+.Fundoo_forgot {
     display: flex;
     position: absolute;
     top: 12%;
@@ -33,7 +33,7 @@
     color: darkgreen;
 }
 
-.heading {
+.heading4 {
     color: #202124;
     font-size: 1.65rem;
     position: absolute;
@@ -41,7 +41,7 @@
     left: 43%;
 }
 
-.sub_heading {
+.sub_heading4 {
     font-size: 1rem;
     font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
     font-weight: 600;
@@ -52,17 +52,17 @@
     letter-spacing: 0.1px;
 }
 
-.email_confirm {
+.email_confirm4 {
     position: absolute;
     top: 40%;
     left: 37%;
 }
 
-.email {
+.email4 {
     width: 27vw;
 }
 
-.next {
+.next4 {
     position: absolute;
     top: 58%;
     left: 75%;
@@ -79,28 +79,28 @@
         height: 58vh;
         width: 58vw;
     }
-    .Fundoo_logo {
+    .Fundoo_forgot {
         top: 26%;
         left: 45%;
         font-size: 1.3rem;
     }
-    .heading {
+    .heading4 {
         top: 33%;
         left: 39%;
     }
-    .sub_heading {
+    .sub_heading4 {
         top: 38%;
         left: 27%;
         font-size: 1.2rem;    
     }
-    .email_confirm {
+    .email_confirm4 {
         top: 47%;
         left: 26%;
     }   
-    .email {
+    .email4 {
         width: 48vw;
     }   
-    .next {
+    .next4 {
         top: 58%;
         left: 76%;
         height: 4vh;
@@ -112,27 +112,27 @@
     .forgot_email {
         border: none;
     }
-    .Fundoo_logo {
+    .Fundoo_forgot {
         top: -1%;
         left: 35%;
     }
-    .heading {
+    .heading4 {
         top: 9%;
         left: 16%;
         font-size: 1.5rem;
     }
-    .sub_heading {
+    .sub_heading4 {
         top: 16%;
         left: 8%;
     }
-    .email_confirm {
+    .email_confirm4 {
         top: 28%;
         left: 9%;
     }   
-    .email {
+    .email4 {
         width: 80vw;
     }   
-    .next {
+    .next4 {
         top: 50%;
         left: 100%;
         width: 22vw;

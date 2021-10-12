@@ -8,7 +8,7 @@
     margin-top: 2%;
   }
   
-  .Fundoo_logo {
+  .Fundoo_signup {
     display: flex;
     position: absolute;
     top: 9%;
@@ -64,25 +64,26 @@
 
   .user_name {
     position: absolute;
-    top: 40%;
+    top: 42%;
     left: 28%;
     color: #000;
   }
 
-  .user {
+  .user2 {
     width : 25vw;
     height: 6.3vh;
   }
   
   .helper_text {
     font-size: 0.75rem;
+    margin-top: 4%;
     margin-left: 2%;
     color: gray;
   }
   
   .button1 {
     position: absolute;
-    top: 52%;
+    top: 54%;
     left: 27.8%;
     color: #1a73e8;
     background-color: #fff;
@@ -105,9 +106,9 @@
     left: 28%;
   }
   
-  .para {
+  .para2 {
     position: absolute;
-    top: 66.5%;
+    top: 70%;
     left: 28.4%;
     font-size: 0.75rem;
     color:gray;
@@ -116,33 +117,33 @@
   
   .checkbox {
     position: absolute;
-    top: 72%;
+    top: 75%;
     left: 28%;
   }
   
-  .options {
+  .options2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 40%;
     position: absolute;
     top: 85%;
     left: 28%;
-    width: 25%;
+    width: 27%;
   }
   
-  .text {
+  .text2 {
     color: #1a73e8;
     background-color: #fff;
     border: 0px;
     cursor: pointer;
   }
   
-  .text:hover {
+  .text2:hover {
     background-color: lightblue;
     color: blue;
   }
   
-  .next {
+  .next2 {
     padding: 10px;
     background-color: #0b69e4;
     color: #fff;
@@ -153,7 +154,7 @@
     width: 6vw;
   }
   
-  .next:hover {
+  .next2:hover {
     background-color: #0e60cc;
   }
   
@@ -182,7 +183,7 @@
     margin-left: 20%;
     margin-top: 23%;
   }
-  .Fundoo_logo {
+  .Fundoo_signup {
     top: 21%;
     left: 26%;
   }
@@ -196,16 +197,16 @@
     width: 48vw;
   }
   .user_name {
-    top: 44%;
+    top: 45%;
     left: 26%;
   }
-  .user {
+  .user2 {
     height: 4vh;
     width: 48vw;
   }
   .button1 {
     left: 26%;
-    top: 51%;
+    top: 53%;
     font-size: 0.9rem;
   }
   .password_text {
@@ -213,25 +214,25 @@
     top: 57%;
     left: 26%;
   }
-  .para {
-    top: 62%;
-    left: 28%;
+  .para2 {
+    top: 64%;
+    left: 27%;
     width: 46%;
   }
   .checkbox {
-    top: 65%;
+    top: 66%;
     left: 26%;
   }
-  .options {
+  .options2 {
     top: 74%;
-    left: 25%;
+    left: 26%;
     width: 55%;
     grid-gap: 37%;
   }
-  .text {
+  .text2 {
     font-size: 1rem;
   }
-  .next {
+  .next2 {
     width: 10vw;
     height: 4.5vh;
   }
@@ -248,7 +249,7 @@
     margin-left: 21%;
     margin-top: 23%;
   }
-  .Fundoo_logo {
+  .Fundoo_signup {
     top: -1%;
     left: 6%;
   }
@@ -260,20 +261,20 @@
     top: 20%;
     left: 6%;
     width: 86vw;
-    grid-gap: 30%;
+    grid-gap: 10%;
     grid-template-columns: 1fr;
   }
   .user_name {
-    top: 38%;
+    top: 41%;
     left: 6%;
   }
-  .user {
+  .user2 {
     height: 5.5vh;
     width: 86vw;
   }
   .button1 {
     left: 5%;
-    top: 48%;
+    top: 52%;
     font-size: 1rem;
   }
   .password_text {
@@ -281,27 +282,27 @@
     top: 57%;
     left: 6%;
     grid-template-columns: 1fr;
-    grid-gap: 30%;
+    grid-gap: 10%;
 }
-  .para {
-    top: 72%;
+  .para2 {
+    top: 74%;
     left: 9%;
     width: 84%;
   }
   .checkbox {
-    top: 77%;
+    top: 79%;
     left: 6%;
   }
-  .options {   
+  .options2 {   
     top: 88%;
     left: 5%;
     width: 105%;
     grid-gap: 26%;
   }
-  .text {
+  .text2 {
     font-size: 1rem;
   }
-  .next {
+  .next2 {
     /* padding: 14px; */
     width: 18vw;
     height: 5vh;
