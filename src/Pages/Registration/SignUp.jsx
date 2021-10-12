@@ -147,7 +147,7 @@ export class SignUp extends Component {
                 </FormGroup>
                 </div>
                 <div className="options2">
-                    <Link to={'/SignIn'} className="text2" underline="none">Sign in instead</Link>
+                    <Link to={'/'} className="text2" underline="none">Sign in instead</Link>
                     <Button className="next2" variant="contained" onClick={this.next}>Next</Button>
                 </div>
             </div>
