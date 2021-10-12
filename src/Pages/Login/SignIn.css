@@ -88,7 +88,7 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 40%;
     position: absolute;
-    top: 75%;
+    top: 80%;
     left: 36.5%;
     width: 31%;
 }
@@ -121,7 +121,7 @@
     .signin_main {
         margin-top: 28%;
         margin-left: 21%;
-        height: 58vh;
+        height: 60vh;
         width: 58vw;
     }
     .Fundoo_signin {
@@ -163,7 +163,7 @@
     }
     .options1 {     
         grid-gap: 47%;
-        top: 74%;
+        top: 77%;
         left: 24%;
         width: 58vw;
     }

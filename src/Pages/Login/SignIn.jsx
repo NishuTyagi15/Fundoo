@@ -5,6 +5,43 @@ import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 
 export class SignIn extends Component {
+
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            email: "",
+            password: "",
+            emailError: false,
+            passError: false,
+        }
+    }
+    
+    isValidated = () => {
+        let isError = false;
+        const errors = this.state;
+        errors.emailError = this.state.email !=='' ? false : true;
+        errors.passError = this.state.password !=='' ? false : true;
+
+        this.setState({
+            ...errors
+        })
+        return isError = errors.emailError || errors.passError
+    }
+    
+    next = () => {
+        var isValid = this.isValidated();
+        if(!isValid) {
+            console.log("Validation Sucessfull!");
+        }
+    }
+
+    change = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+
     render() {
         return (
         <div className="signin_main">
@@ -19,9 +56,29 @@ export class SignIn extends Component {
             <div className="heading1">Sign in</div>
             <div className="sub_heading1">Use your Fundoo Account</div>
             <div className="email_phone1">
-                <TextField className="email1" id="email" label="Email or phone" variant="outlined" size="small"/>
+                <TextField 
+                    className="email1" 
+                    name="email"
+                    id="email" 
+                    label="Email or phone" 
+                    variant="outlined" 
+                    size="small"
+                    error={this.state.emailError}
+                    onChange={e => this.change(e)}
+                    helperText={this.state.emailError ? "Enter email or phone" : ''} 
+                    />
                 <div className="blue_text1">Forgot email?</div>
-                <TextField className="pass1" id="pass" label="Password" variant="outlined" size="small"/>
+                <TextField 
+                    className="pass1" 
+                    name="password"
+                    id="pass" 
+                    label="Password" 
+                    variant="outlined" 
+                    size="small"
+                    error={this.state.passError}
+                    onChange={e => this.change(e)}
+                    helperText={this.state.passError ? "Enter a password" : ''} 
+                    />
                 <div className="blue_text1">Forgot password?</div>
                 <div className="para_guest">Not your computer? Use Guest mode to sign in privately.</div>
                 <div className="para_private">Not your computer? Use a private browsing window to sign in.</div>
@@ -29,7 +86,7 @@ export class SignIn extends Component {
             </div>
             <div className="options1">
                 <Link to= '../src/pages/Registration/SignUp' className="text1" underline="none">Create account</Link>
-                <Button className="next1" variant = "contained">Next</Button>
+                <Button className="next1" variant = "contained" onClick={this.next}>Next</Button>
             </div>
         </div>
         )
