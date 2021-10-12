@@ -1,16 +1,16 @@
 import './App.css';
-import SignUp from '../src/Pages/Registration/SignUp';
-import SignIn from '../src/Pages/Login/SignIn';
-import ForgotPass from './Pages/ForgotPassword/ForgotPass';
-import ForgotEmail from './Pages/ForgotEmail/ForgotEmail';
+// import SignUp from '../src/Pages/Registration/SignUp';
+// import SignIn from '../src/Pages/Login/SignIn';
+import ResetPass from './pages/ResetPassword/ResetPass';
+// import ForgotEmail from './Pages/ForgotEmail/ForgotEmail';
 
 function App() {
   return (
     <div className="App">
       {/* <SignUp/> */}
       {/* <SignIn/> */}
-      {/* <ForgotPass/> */}
-      <ForgotEmail/>
+      <ResetPass/>
+      {/* <ForgotEmail/> */}
     </div>
   );
 }

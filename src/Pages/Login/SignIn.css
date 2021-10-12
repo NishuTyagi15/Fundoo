@@ -107,8 +107,8 @@
 }
   
 .next {
-    height:6vh;
-    width:6vw;
+    height: 5vh;
+    width: 5vw;
 }
   
 .next:hover {
@@ -168,7 +168,7 @@
         width: 58vw;
     }
     .next {
-        width: 10vw;
+        /* width: 6vw; */
         height: 4vh;
     }
 }

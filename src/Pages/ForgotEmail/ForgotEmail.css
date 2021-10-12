@@ -65,7 +65,9 @@
 .next {
     position: absolute;
     top: 58%;
-    left: 72%;
+    left: 75%;
+    height: 5.5vh;
+    width: 5vw;
 }
 
 /* media queries */
@@ -99,8 +101,10 @@
         width: 48vw;
     }   
     .next {
-        top: 65%;
-        left: 73%;
+        top: 58%;
+        left: 76%;
+        height: 4vh;
+        width: 5vh;
     }
 }
 

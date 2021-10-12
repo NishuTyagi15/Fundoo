@@ -17,7 +17,7 @@ const ForgotEmail = () => {
             <div className="heading">Find your email</div>
             <div className="sub_heading">Enter your phone number or recovery email</div>
             <div className="email_confirm">
-                <TextField className="email" id="email" label="Phone number or email" variant="outlined"/>
+                <TextField className="email" id="email" label="Phone number or email" variant="outlined" />
             </div>
             <Button className="next" variant = "contained">Next</Button>
         </div>
