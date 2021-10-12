@@ -1,7 +1,8 @@
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 import React, { Component } from 'react'
 import '../Login/SignIn.css';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 
 export class SignIn extends Component {
@@ -67,7 +68,8 @@ export class SignIn extends Component {
                     onChange={e => this.change(e)}
                     helperText={this.state.emailError ? "Enter email or phone" : ''} 
                     />
-                <div className="blue_text1">Forgot email?</div>
+                    {/* <div>  <br/>   </div>] */}
+                <Link to= {'/ForgotEmail'} className="blue_text1" underline="none">Forgot email?</Link>
                 <TextField 
                     className="pass1" 
                     name="password"
@@ -85,7 +87,7 @@ export class SignIn extends Component {
                 <div className="blue_text1">Learn more</div>
             </div>
             <div className="options1">
-                <Link to= '../src/pages/Registration/SignUp' className="text1" underline="none">Create account</Link>
+                <Link to= {'/SignUp'} className="text1" underline="none">Create account</Link>
                 <Button className="next1" variant = "contained" onClick={this.next}>Next</Button>
             </div>
         </div>

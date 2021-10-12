@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 import React, { Component } from 'react'
 import '../Registration/SignUp.css'
 import account from '../Registration/account.svg'
@@ -7,7 +9,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 
 const emailValidator = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i;
@@ -146,7 +147,7 @@ export class SignUp extends Component {
                 </FormGroup>
                 </div>
                 <div className="options2">
-                    <Link className="text2" href="#" underline="none">Sign in instead</Link>
+                    <Link to={'/SignIn'} className="text2" underline="none">Sign in instead</Link>
                     <Button className="next2" variant="contained" onClick={this.next}>Next</Button>
                 </div>
             </div>

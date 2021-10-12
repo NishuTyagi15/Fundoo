@@ -52,6 +52,7 @@
 }
 
 .email_phone1 {
+    display: grid;
     position: absolute;
     top: 39%;
     left: 37%;
