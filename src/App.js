@@ -10,16 +10,12 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Route exact path="/" component={SignIn} />
-      </Router>
-      <Router>
-        <Route exact path="/resetpassword" component={ResetPass} />
-      </Router>
-      <Router>
-        <Route path="/signup" component={SignUp} />
-      </Router>
-      <Router>
-        <Route path="/forgotemail" component={ForgotEmail} />
+        <Switch>
+          <Route exact path="/" component={SignIn} />
+          <Route exact path="/resetpassword" component={ResetPass} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/forgotemail" component={ForgotEmail} />
+        </Switch>
       </Router>
     </div>
   );
