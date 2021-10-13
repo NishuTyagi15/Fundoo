@@ -136,6 +136,7 @@
     background-color: #fff;
     border: 0px;
     cursor: pointer;
+    padding-top: 3.5%;
   }
   
   .text2:hover {
@@ -283,7 +284,7 @@
     left: 6%;
     grid-template-columns: 1fr;
     grid-gap: 10%;
-}
+  }
   .para2 {
     top: 74%;
     left: 9%;

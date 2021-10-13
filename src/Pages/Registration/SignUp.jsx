@@ -11,9 +11,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Button from '@mui/material/Button';
 
-const emailValidator = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i;
-const passValidator= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
-
 export class SignUp extends Component {
     constructor(props) {
         super(props)
@@ -37,13 +34,14 @@ export class SignUp extends Component {
         const errors = this.state;
         errors.fNameError = this.state.fName !=='' ? false : true;
         errors.lNameError = this.state.lName !=='' ? false : true;
-        errors.emailError = this.state.email !== (emailValidator.test(errors)) ? true : false; 
-        errors.passError = this.state.password !== (passValidator.test(errors)) ? true : false; 
+        errors.emailError = this.state.email !== '' ? false : true; 
+        errors.passError = this.state.password !== '' ? false : true; 
+        errors.confirmPasswordError = this.state.confirmPassword !== '' ? false : true; 
 
         this.setState({
             ...errors
         })
-        return isError = errors.fNameError || errors.lNameError || errors.emailError || errors.passError
+        return isError = errors.fNameError || errors.lNameError || errors.emailError || errors.passError || errors.confirmPasswordError
     }
     
     next = () => {
@@ -75,7 +73,8 @@ export class SignUp extends Component {
                 <div className='title'>Create your Fundoo Account</div>
                 <div className='name_textbox'>
                     <TextField 
-                        className="name" 
+                        className="name"
+                        autoFocus={true} 
                         name="fName" 
                         type="text" 
                         id="first_name" 
@@ -106,10 +105,11 @@ export class SignUp extends Component {
                         id="user" 
                         name="email"
                         label= "Username"
+                        placeholder="Username"
                         endAdornment={<InputAdornment position="end">@gmail.com</InputAdornment>}
                         error={this.state.emailError}
                         onChange={e => this.change(e)}
-                        helperText={this.state.emailError ? "Sorry, your username must be between 6 and 30 characters long" : ''} 
+                        FormHelperText={this.state.emailError ? "Sorry, your username must be between 6 and 30 characters long" : ''} 
                         />
                     <div className='helper_text'>You can use letters, numbers & periods</div>
                 </div>
@@ -123,9 +123,12 @@ export class SignUp extends Component {
                         label="Password" 
                         variant="outlined" 
                         size='small'
+                        inputProps={{
+                            minLength: 8,
+                        }}                    
                         error={this.state.passError}
                         onChange={e => this.change(e)}
-                        helperText={this.state.passError ? "Enter a password" : ''} 
+                        helperText={this.state.passError ? "Enter min 8 characters" : ''} 
                         />
                     <TextField 
                         id="confirm"
