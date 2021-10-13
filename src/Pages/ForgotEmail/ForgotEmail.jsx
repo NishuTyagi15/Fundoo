@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import '../ForgotEmail/ForgotEmail.css';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import forgot from '../../services/Axiosforgot';
 
 export class ForgotEmail extends Component {
 
     constructor(props) {
         super(props)
-    
+
         this.state = {
             email: "",
             emailError: "",
@@ -29,6 +30,16 @@ export class ForgotEmail extends Component {
         if(!isValid) {
             console.log("Validation Sucessfull!");
         }
+        let forgotObj = {
+            "email": this.state.email,
+            "service": "advance"
+        }
+        console.log(forgotObj);
+        forgot(forgotObj).then(function(response){
+            console.log(response);
+        }).catch(function(error){
+            console.log(error);
+        })
     }
 
     change = (e) => {

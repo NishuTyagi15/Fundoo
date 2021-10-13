@@ -8,8 +8,8 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import InputAdornment from '@mui/material/InputAdornment';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import Button from '@mui/material/Button';
+import signup from '../../services/AxiosService';
 
 export class SignUp extends Component {
     constructor(props) {
@@ -49,6 +49,20 @@ export class SignUp extends Component {
         if(!isValid) {
             console.log("Validation Sucessfull!");
         }
+        let signupObj = {
+            "firstName": this.state.fName,
+            "lastName": this.state.lName, 
+            "email": this.state.email,
+            "password": this.state.password,
+            "confirmpassword": this.state.confirmPassword,
+            "service": "advance"
+        }
+        console.log(signupObj);
+        signup(signupObj).then(function(response){
+            console.log(response);
+        }).catch(function(error){
+            console.log(error);
+        })
     }
 
     change = (e) => {
@@ -99,17 +113,17 @@ export class SignUp extends Component {
                         />
                 </div>
                 <div className='user_name'>
-                    <OutlinedInput 
+                    <TextField 
                         className="user2"
                         type="text" 
                         id="user" 
                         name="email"
                         label= "Username"
-                        placeholder="Username"
+                        size='small'
                         endAdornment={<InputAdornment position="end">@gmail.com</InputAdornment>}
                         error={this.state.emailError}
                         onChange={e => this.change(e)}
-                        FormHelperText={this.state.emailError ? "Enter your Username" : ''} 
+                        helperText={this.state.emailError ? "Enter your Username" : ''} 
                         />
                     <div className='helper_text'>You can use letters, numbers & periods</div>
                 </div>
