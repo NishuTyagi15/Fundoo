@@ -53,3 +53,11 @@
 .MuiBadge-root {
     margin-right: 22px !important;
 }
+
+.MuiTypography-displayBlock {
+    /* display: none !important; */
+}
+
+.ForwardRef\(AppBar\)-root-3 {
+    /* width: calc(100% - 89px) !important; */
+}

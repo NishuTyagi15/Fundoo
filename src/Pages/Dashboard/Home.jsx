@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import '../Dashboard/Home.css'
 import Box from '@mui/material/Box';
 import keep from '../Dashboard/keep.png'
@@ -8,32 +8,30 @@ import Toolbar from '@mui/material/Toolbar';
 import CssBaseline from '@mui/material/CssBaseline';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import MenuIcon from '@material-ui/icons/Menu';
 import Divider from '@mui/material/Divider';
-import ChevronRight from '@material-ui/icons/ChevronRight'
-import ChevronLeft from '@material-ui/icons/ChevronLeft'
-import InboxIcon from '@material-ui/icons/MoveToInbox'
-import { Drawer as SideNav,
-        ListItem, 
-        ListItemIcon, 
-        ListItemText  
-} from "@material-ui/core";
 import MuiAppBar from '@mui/material/AppBar';
+import InputBase from '@mui/material/InputBase';
+import Badge from '@material-ui/core/Badge';
+import SideNav from '@material-ui/core/Drawer';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronRight from '@material-ui/icons/ChevronRight';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
 import ModeEditOutlineOutlinedIcon from '@material-ui/icons/EditOutlined';
-import LightbulbOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
+import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined'
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import SearchIcon from '@material-ui/icons/Search';
-import InputBase from '@mui/material/InputBase';
 import Clear from '@material-ui/icons/Clear';
-import Badge from '@material-ui/core/Badge';
 import Refresh from '@material-ui/icons/Refresh';
 import ViewStreamSharp from '@material-ui/icons/ViewStreamSharp';
 import SettingsOutlined from '@material-ui/icons/SettingsOutlined';
 
-
-    
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -172,7 +170,7 @@ const Home = () => {
                   </IconButton>
                   <img src={keep} className='keep_logo' alt="keep image" />
                   <Typography variant="h5" noWrap component="div" className="keep">
-                    Keep
+                    Fundoo
                   </Typography>
                   <Search>
                     <SearchIconWrapper>
@@ -185,12 +183,11 @@ const Home = () => {
                     <SearchIconWrapper className="clear">
                       <Clear />
                     </SearchIconWrapper>
-
                   </Search>
                   <Box sx={{ flexGrow: 1 }} />
                   <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                     <IconButton size="large" color="inherit">
-                      <Badge className="refresh">
+                      <Badge>
                         <Refresh />
                       </Badge>
                     </IconButton>
@@ -198,7 +195,7 @@ const Home = () => {
                       size="large"
                       color="inherit"
                     >
-                      <Badge className="view">
+                      <Badge >
                         <ViewStreamSharp />
                       </Badge>
                     </IconButton>
@@ -206,7 +203,6 @@ const Home = () => {
                       size="large"
                       edge="end"
                       color="inherit"
-                      className="settings"
                     >
                       <SettingsOutlined />
                     </IconButton>
@@ -234,10 +230,6 @@ const Home = () => {
                 ))}
             </List>
             </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-              <DrawerHeader />
-       
-            </Box>
         </Box>
     );
 };
