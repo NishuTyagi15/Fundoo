@@ -3,9 +3,53 @@
     height: 40px;
     margin-left: 1.2%;
 }
+
 .keep {
     color: #5f6368;
     padding-left: 0.8%;
     font-family: 'Product Sans',Arial,sans-serif;
     font-size: 22px;
+}
+
+.MuiAppBar-root {
+    background-color: white !important;
+}
+
+.css-10hburv-MuiTypography-root {
+    font-size: -.85rem !important;
+}
+
+.css-19z1ozs-MuiPaper-root-MuiAppBar-root {
+    color:black !important;
+}
+
+.div-root-9 {
+    left: -1% !important;
+}
+
+.div-root-6 {
+    position: absolute !important;
+    left: 19% !important;
+    width: 49vw !important;
+    height: 7vh !important;
+    margin-left: 0px !important;
+    background-color: rgb(241, 238, 238) !important;
+    text-indent: 8%;
+    border-radius: 8px !important;
+    padding-top: 0.2%;
+}
+
+.clear {
+    position: absolute !important;
+    top: 1.5% !important;
+    right: 0% !important;
+}
+
+.css-1guk29 {
+    position: absolute !important;
+    right: 14% !important;
+}
+
+.MuiBadge-root {
+    margin-right: 22px !important;
 }

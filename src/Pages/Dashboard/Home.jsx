@@ -2,7 +2,7 @@ import React from 'react'
 import '../Dashboard/Home.css'
 import Box from '@mui/material/Box';
 import keep from '../Dashboard/keep.png'
-import { styled, useTheme } from '@material-ui/core/styles'
+import { styled, useTheme, alpha } from '@material-ui/core/styles'
 import List from '@mui/material/List';
 import Toolbar from '@mui/material/Toolbar';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,13 +13,26 @@ import Divider from '@mui/material/Divider';
 import ChevronRight from '@material-ui/icons/ChevronRight'
 import ChevronLeft from '@material-ui/icons/ChevronLeft'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
-import MailIcon from '@material-ui/icons/Mail'
 import { Drawer as SideNav,
         ListItem, 
         ListItemIcon, 
         ListItemText  
 } from "@material-ui/core";
 import MuiAppBar from '@mui/material/AppBar';
+import ModeEditOutlineOutlinedIcon from '@material-ui/icons/EditOutlined';
+import LightbulbOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
+import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
+import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
+import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@mui/material/InputBase';
+import Clear from '@material-ui/icons/Clear';
+import Badge from '@material-ui/core/Badge';
+import Refresh from '@material-ui/icons/Refresh';
+import ViewStreamSharp from '@material-ui/icons/ViewStreamSharp';
+import SettingsOutlined from '@material-ui/icons/SettingsOutlined';
+
+
     
 const drawerWidth = 240;
 
@@ -78,14 +91,55 @@ const AppBar = styled(MuiAppBar, {
       boxSizing: 'border-box',
       ...(open && {
         ...openedMixin(theme),
-        '& .MuiDrawer-paper': openedMixin(theme),
+        '& .SideNav-paper': openedMixin(theme),
       }),
       ...(!open && {
         ...closedMixin(theme),
-        '& .MuiDrawer-paper': closedMixin(theme),
+        '& .SideNav-paper': closedMixin(theme),
       }),
     }),
   );
+
+  const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(3),
+      width: 'auto',
+    },
+  }));
+  
+  const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }));
+
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create('width'),
+      width: '100%',
+      [theme.breakpoints.up('md')]: {
+        width: '20ch',
+      },
+    },
+  }));
+  
 
 const Home = () => {
     const theme = useTheme();
@@ -104,42 +158,86 @@ const Home = () => {
             <CssBaseline />
             <AppBar position="fixed" open={open}>
                 <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        sx={{
-                            marginRight: '36px',
-                            ...(open && { display: 'none' }),
-                        }}
+                  <IconButton
+                    color="inherit"
+                      aria-label="open drawer"
+                      onClick={handleDrawerOpen} 
+                      edge="start"
+                      sx={{
+                        marginRight: '36px',
+                        ...(open && { display: 'none' }),
+                      }}
+                  >
+                  <MenuIcon/>
+                  </IconButton>
+                  <img src={keep} className='keep_logo' alt="keep image" />
+                  <Typography variant="h5" noWrap component="div" className="keep">
+                    Keep
+                  </Typography>
+                  <Search>
+                    <SearchIconWrapper>
+                      <SearchIcon />
+                    </SearchIconWrapper>
+                    <StyledInputBase
+                      placeholder="Search…"
+                      inputProps={{ 'aria-label': 'search' }}
                     />
-                    <MenuIcon/>
-                    <IconButton position="fixed"/>
-                    <img src={keep} className='keep_logo' alt="keep image" />
-                    <Typography variant="h5" noWrap component="div" className="keep">
-                        Keep
-                    </Typography>
+                    <SearchIconWrapper className="clear">
+                      <Clear />
+                    </SearchIconWrapper>
+
+                  </Search>
+                  <Box sx={{ flexGrow: 1 }} />
+                  <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <IconButton size="large" color="inherit">
+                      <Badge className="refresh">
+                        <Refresh />
+                      </Badge>
+                    </IconButton>
+                    <IconButton
+                      size="large"
+                      color="inherit"
+                    >
+                      <Badge className="view">
+                        <ViewStreamSharp />
+                      </Badge>
+                    </IconButton>
+                    <IconButton
+                      size="large"
+                      edge="end"
+                      color="inherit"
+                      className="settings"
+                    >
+                      <SettingsOutlined />
+                    </IconButton>
+                  </Box>
                 </Toolbar>
             </AppBar>
-            <SideNav variant="permanent" open={open}>
+            <Drawer variant="permanent" open={open}>
                 <DrawerHeader>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'rtl' ? <ChevronRight /> : <ChevronLeft />}
                     </IconButton>
                 </DrawerHeader>
                 <Divider />
-            <List>
+                <List>
                 {['Notes', 'Reminders', 'Edit Labels', 'Archive', 'Trash'].map((text, index) => (
                 <ListItem button key={text}>
                     <ListItemIcon>
-                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                      {index <= 0 ? <LightbulbOutlinedIcon/>: <InboxIcon/> && index <=1 ? <NotificationsNoneIcon/> : <InboxIcon/>
+                      && index <=2 ? <ModeEditOutlineOutlinedIcon/> : <InboxIcon/>
+                      && index <=3 ? <ArchiveOutlinedIcon/> : <InboxIcon/>
+                      && index <=4 ? <DeleteOutlineOutlinedIcon/> : <InboxIcon/>}
                     </ListItemIcon>
                     <ListItemText primary={text} />
                 </ListItem>
                 ))}
             </List>
-            </SideNav>
+            </Drawer>
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+              <DrawerHeader />
+       
+            </Box>
         </Box>
     );
 };
