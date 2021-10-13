@@ -66,6 +66,10 @@
     width: 27vw;
 }
 
+.css-1pysi21-MuiFormLabel-root-MuiInputLabel-root {
+    font-size: 0.8rem !important;
+}
+
 .blue_text1 {
     font-size: 0.9rem;
     font-weight: 600;

@@ -52,7 +52,7 @@ export class SignUp extends Component {
     }
 
     change = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         this.setState({
             [e.target.name] : e.target.value
         });
@@ -109,7 +109,7 @@ export class SignUp extends Component {
                         endAdornment={<InputAdornment position="end">@gmail.com</InputAdornment>}
                         error={this.state.emailError}
                         onChange={e => this.change(e)}
-                        FormHelperText={this.state.emailError ? "Sorry, your username must be between 6 and 30 characters long" : ''} 
+                        FormHelperText={this.state.emailError ? "Enter your Username" : ''} 
                         />
                     <div className='helper_text'>You can use letters, numbers & periods</div>
                 </div>
@@ -123,9 +123,6 @@ export class SignUp extends Component {
                         label="Password" 
                         variant="outlined" 
                         size='small'
-                        inputProps={{
-                            minLength: 8,
-                        }}                    
                         error={this.state.passError}
                         onChange={e => this.change(e)}
                         helperText={this.state.passError ? "Enter min 8 characters" : ''} 
@@ -138,7 +135,7 @@ export class SignUp extends Component {
                         size='small' 
                         error={this.state.confirmPasswordError}
                         onChange={e => this.change(e)}
-                        helperText={this.state.confirmPasswordError ? "Password didn't match" : ''} 
+                        helperText={this.state.confirmPasswordError ? "Confirm your password" : ''} 
                         />
                 </div>
                 <div className='para2'>
