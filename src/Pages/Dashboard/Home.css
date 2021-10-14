@@ -1,14 +1,14 @@
 .keep_logo {
     width: 40px;
     height: 40px;
-    margin-left: 1.2%;
+    margin-left: -2%;
 }
 
-.keep {
-    color: #5f6368;
-    padding-left: 0.8%;
-    font-family: 'Product Sans',Arial,sans-serif;
-    font-size: 22px;
+.css-8u39c-MuiTypography-root {
+    color: #5f6368 !important;
+    padding-left: 0.5% !important;
+    font-family: 'Product Sans',Arial,sans-serif !important;
+    font-size: 22px !important;
 }
 
 .MuiAppBar-root {
@@ -23,41 +23,26 @@
     color:black !important;
 }
 
-.div-root-9 {
-    left: -1% !important;
-}
-
-.div-root-6 {
-    position: absolute !important;
-    left: 19% !important;
-    width: 49vw !important;
-    height: 7vh !important;
-    margin-left: 0px !important;
-    background-color: rgb(241, 238, 238) !important;
-    text-indent: 8%;
+.css-96uuyl {
+    margin-left: 8% !important;
+    width: 41vw !important; 
+    height: 8vh !important;   
     border-radius: 8px !important;
-    padding-top: 0.2%;
+    background-color: lightgray !important;
 }
 
-.clear {
-    position: absolute !important;
-    top: 1.5% !important;
-    right: 0% !important;
+.css-1kcggdq-MuiInputBase-root {
+    padding-top: 1.4% !important;
 }
 
 .css-1guk29 {
     position: absolute !important;
-    right: 14% !important;
+    right: 5% !important;
 }
 
 .MuiBadge-root {
-    margin-right: 22px !important;
+    margin-right: 28px !important;
 }
-
-.MuiTypography-displayBlock {
-    /* display: none !important; */
-}
-
-.ForwardRef\(AppBar\)-root-3 {
-    /* width: calc(100% - 89px) !important; */
+.css-1191obr-MuiPaper-root-MuiAppBar-root {
+    color : #5f6368 !important; 
 }
