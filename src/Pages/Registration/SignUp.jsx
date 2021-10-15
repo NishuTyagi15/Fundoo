@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import React, { Component } from 'react'
 import '../Registration/SignUp.css'
+import signup from '../../services/AxiosService';
 import account from '../Registration/account.svg'
 import TextField from '@mui/material/TextField';
 import FormGroup from '@mui/material/FormGroup';
@@ -9,7 +10,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import InputAdornment from '@mui/material/InputAdornment';
 import Button from '@mui/material/Button';
-import signup from '../../services/AxiosService';
+import { Snackbar, IconButton } from '@mui/material';
 
 export class SignUp extends Component {
     constructor(props) {
@@ -26,8 +27,14 @@ export class SignUp extends Component {
             emailError: false,
             passError: false,
             confirmPasswordError: false,
+            snackbaropen: false, 
+            snackbarmsg: ""
         };
     }
+
+    snackbarClose = (event) => {
+        this.setState({snackbaropen: false});
+    };
 
     isValidated = () => {
         let isError = false;
@@ -48,7 +55,11 @@ export class SignUp extends Component {
         var isValid = this.isValidated();
         if(!isValid) {
             console.log("Validation Sucessfull!");
+            this.setState({snackbaropen:true, snackbarmsg: "This is a Success Message!"})
+        } else {
+            this.setState({snackbaropen:true, snackbarmsg: "This is a Failure Message!"})
         }
+
         let signupObj = {
             "firstName": this.state.fName,
             "lastName": this.state.lName, 
@@ -75,6 +86,19 @@ export class SignUp extends Component {
     render() {
         return (
             <div className='signup_main'>
+            <Snackbar
+            anchorOrigin= {{vertical:'bottom', horizontal:'left'}}
+            open = {this.state.snackbaropen}
+            autoHideDuration = {6000}
+            onClose = {this.snackbarClose}
+
+            message = {<span id= "message_id">{this.state.snackbarmsg}</span>}
+            action ={[
+            <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
+                X
+            </IconButton>
+            ]}
+            />
             <div className='left_div'>
                 <div className='Fundoo_signup'>
                     <p className='first'>F</p>

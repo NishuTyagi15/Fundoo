@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './ResetPass.css';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { Snackbar, IconButton } from '@mui/material';
 
 export class ResetPass extends Component {
 
@@ -13,9 +14,15 @@ export class ResetPass extends Component {
             confirmPassword: "",
             passError: false,
             confirmPassError: false,
+            snackbaropen: false, 
+            snackbarmsg: ""
         }
     }
     
+    snackbarClose = (event) => {
+        this.setState({snackbaropen: false});
+    };
+
     isValidated = () => {
         let isError = false;
         const errors = this.state;
@@ -31,6 +38,9 @@ export class ResetPass extends Component {
         var isValid = this.isValidated();
         if(!isValid) {
             console.log("Validation Sucessfull!");
+            this.setState({snackbaropen:true, snackbarmsg: "This is a Success Message!"})
+        } else {
+            this.setState({snackbaropen:true, snackbarmsg: "This is a Failure Message!"})
         }
     }
 
@@ -44,6 +54,19 @@ export class ResetPass extends Component {
     render() {
         return (
             <div className="reset_pass">
+            <Snackbar
+            anchorOrigin= {{vertical:'bottom', horizontal:'left'}}
+            open = {this.state.snackbaropen}
+            autoHideDuration = {6000}
+            onClose = {this.snackbarClose}
+
+            message = {<span id= "message_id">{this.state.snackbarmsg}</span>}
+            action ={[
+            <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
+                X
+            </IconButton>
+            ]}
+            />
             <div className='Fundoo_reset'>
                 <p className='first'>F</p>
                 <p className='second'>u</p>

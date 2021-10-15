@@ -70,6 +70,16 @@
     width: 5vw;
 }
 
+/* snackbar */
+.css-1exqwzz-MuiSnackbarContent-message {
+    padding: 8px 31px !important;
+    font-size: 1rem !important;
+}
+
+.css-1eqdgzv-MuiPaper-root-MuiSnackbarContent-root {
+    background-color: #000 !important;
+}
+
 /* media queries */
 
 @media only screen and (min-width: 768px) and (max-width:1024px) {

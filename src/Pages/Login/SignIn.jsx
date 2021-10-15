@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-
 import React, { Component } from 'react'
 import '../Login/SignIn.css';
+import signin from '../../services/AxiosSignin'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import signin from '../../services/AxiosSignin'
+import { Snackbar, IconButton } from '@mui/material';
 
 export class SignIn extends Component {
 
@@ -16,8 +16,14 @@ export class SignIn extends Component {
             password: "",
             emailError: false,
             passError: false,
+            snackbaropen: false, 
+            snackbarmsg: ""
         }
     }
+
+    snackbarClose = (event) => {
+        this.setState({snackbaropen: false});
+    };
     
     isValidated = () => {
         let isError = false;
@@ -35,7 +41,11 @@ export class SignIn extends Component {
         var isValid = this.isValidated();
         if(!isValid) {
             console.log("Validation Sucessfull!");
+            this.setState({snackbaropen:true, snackbarmsg: "This is a Success Message!"})
+        } else {
+            this.setState({snackbaropen:true, snackbarmsg: "This is a Failure Message!"})
         }
+
         let signinObj = {
             "email": this.state.email,
             "password": this.state.password,
@@ -58,6 +68,19 @@ export class SignIn extends Component {
     render() {
         return (
         <div className="signin_main">
+            <Snackbar
+            anchorOrigin= {{vertical:'bottom', horizontal:'left'}}
+            open = {this.state.snackbaropen}
+            autoHideDuration = {6000}
+            onClose = {this.snackbarClose}
+
+            message = {<span id= "message_id">{this.state.snackbarmsg}</span>}
+            action ={[
+            <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
+                X
+            </IconButton>
+            ]}
+            />
             <div className='Fundoo_signin'>
                 <p className='first'>F</p>
                 <p className='second'>u</p>
