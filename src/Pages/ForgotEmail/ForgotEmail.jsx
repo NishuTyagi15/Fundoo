@@ -42,7 +42,6 @@ export class ForgotEmail extends Component {
         }
         let forgotObj = {
             "email": this.state.email,
-            "service": "advance"
         }
         console.log(forgotObj);
         forgot(forgotObj).then(function(response){
@@ -63,7 +62,7 @@ export class ForgotEmail extends Component {
         return (
         <div className="forgot_email">
             <Snackbar
-            anchorOrigin= {{vertical:'bottom', horizontal:'left'}}
+            anchorOrigin= {{vertical:'bottom', horizontal:'right'}}
             open = {this.state.snackbaropen}
             autoHideDuration = {6000}
             onClose = {this.snackbarClose}

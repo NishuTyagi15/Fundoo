@@ -11,7 +11,7 @@
 .Fundoo_signin {
     display: flex;
     position: absolute;
-    top: 12%;
+    top: 10%;
     left: 47%;
     font-family: cursive;
     font-size: 1.5rem;
@@ -36,7 +36,7 @@
 .heading1 {
     font-size: 1.65rem;
     position: absolute;
-    top: 23%;
+    top: 21%;
     left: 47%;
 }
 
@@ -45,17 +45,22 @@
     font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
     font-weight: 600;
     position: absolute;
-    top: 30%;
+    top: 28%;
     left: 43%;
     color: #202124;
     letter-spacing: 0.1px;
 }
 
 .email_phone1 {
-    display: grid;
     position: absolute;
-    top: 39%;
+    top: 37%;
     left: 37%;
+}
+
+.pass_main {
+    position: absolute;
+    top: 53%;
+    left: 37%;   
 }
 
 .email1 {
@@ -75,17 +80,38 @@
     font-weight: 600;
     color: #1a73e8;
     cursor: pointer;
-    margin-bottom: 6%;
+    position: absolute;
+    top: 47%;
+    left: 37%;
+}
+
+.blue_text2 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1a73e8;
+    cursor: pointer;
+    position: absolute;
+    top: 63%;
+    left: 37%;
+}
+
+.blue_text3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1a73e8;
+    cursor: pointer;
+    position: absolute;
+    top: 73%;
+    left: 37%;
 }
 
 .para_guest {
     font-size: 0.8rem;
     font-weight: 600;
     color: #5f6368;
-}
-
-.para_private {
-    display: none;
+    position: absolute;
+    top: 70%;
+    left: 37%;
 }
 
 .options1 {
@@ -148,32 +174,40 @@
         left: 25%;
         width: 53vw;
     }
+    .pass_main {
+        top: 55%;
+        left: 25%;
+    }
     .email1 {
         width: 50.5vw;
     }
     .pass1 {
         width: 50.5vw;
     }
-    .para_guest {
-        display: none;
-    }
-    .para_private {
-        display: contents;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: #5f6368;
-    }
     .blue_text1 {
-        margin-bottom: 8%;
+        top: 51.2%;
+        left: 25%;
+    }    
+    .blue_text2 {
+        top: 61%;
+        left: 25%;
+    }   
+    .blue_text3 {
+        top: 70%;
+        left: 25%;
+    }
+    .para_guest {
+        top: 67%;
+        left: 25%;
+        width: 78vw;
     }
     .options1 {     
         grid-gap: 47%;
-        top: 77%;
+        top: 74%;
         left: 24%;
         width: 58vw;
     }
     .next1 {
-        /* width: 6vw; */
         height: 4vh;
     }
 }
@@ -198,7 +232,10 @@
     .email_phone1 {
         top: 25%;
         left: 7%;
-        width: 90vw;
+    }
+    .pass_main {
+        top: 39%;
+        left: 7%;
     }
     .email1 {
         width: 85vw;
@@ -207,20 +244,25 @@
         width: 85vw;
     }
     .para_guest {
-        display: none;
-    }
-    .para_private {
-        display: contents;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: #5f6368;
+        top: 55%;
+        left: 7%;
+        width: 78vw;
     }
     .blue_text1 {
-        margin-bottom: 7%;
+        top: 34%;
+        left: 7%;
+    }    
+    .blue_text2 {
+        top: 48%;
+        left: 7%;
+    }   
+    .blue_text3 {
+        top: 60%;
+        left: 7%;
     }
     .options1 {
         grid-gap: 36%;
-        top: 67%;
+        top: 65%;
         left: 6%;
         width: 100vw;
     }

@@ -58,6 +58,12 @@
     left: 37%;
 }
 
+.pass_confirm5 {
+    position: absolute;
+    top: 53%;
+    left: 37%;
+}
+
 .pass3 {
     width: 27vw;
 }
@@ -68,7 +74,7 @@
 
 .next3 {
     position: absolute;
-    top: 66%;
+    top: 68%;
     left: 74%;
     height: 5vh;
     width: 5vw;
@@ -99,6 +105,10 @@
     }
     .pass_confirm3 {
         top: 47%;
+        left: 26%;
+    }  
+    .pass_confirm5 {
+        top: 56%;
         left: 26%;
     }   
     .pass3 {
@@ -136,6 +146,10 @@
     .pass_confirm3 {
         top: 28%;
         left: 9%;
+    } 
+    .pass_confirm5 {
+        top: 40%;
+        left: 9%;
     }   
     .pass3 {
         width: 80vw;
@@ -145,7 +159,7 @@
         width: 80vw;
     }   
     .next3 {
-        top: 58%;
+        top: 60%;
         left: 107%;
     }
 }

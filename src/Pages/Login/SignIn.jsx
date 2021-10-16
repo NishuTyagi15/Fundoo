@@ -49,7 +49,6 @@ export class SignIn extends Component {
         let signinObj = {
             "email": this.state.email,
             "password": this.state.password,
-            "service": "advance"
         }
         console.log(signinObj);
         signin(signinObj).then(function(response){
@@ -69,7 +68,7 @@ export class SignIn extends Component {
         return (
         <div className="signin_main">
             <Snackbar
-            anchorOrigin= {{vertical:'bottom', horizontal:'left'}}
+            anchorOrigin= {{vertical:'bottom', horizontal:'right'}}
             open = {this.state.snackbaropen}
             autoHideDuration = {6000}
             onClose = {this.snackbarClose}
@@ -102,25 +101,26 @@ export class SignIn extends Component {
                     error={this.state.emailError}
                     onChange={e => this.change(e)}
                     helperText={this.state.emailError ? "Enter email or phone" : ''} 
-                    />
-                    {/* <div>  <br/>   </div>] */}
-                <Link to= {'/forgotemail'} className="blue_text1" underline="none">Forgot email?</Link>
-                <TextField 
-                    className="pass1" 
-                    name="password"
-                    id="pass" 
-                    label="Password" 
-                    variant="outlined" 
-                    size="small"
-                    error={this.state.passError}
-                    onChange={e => this.change(e)}
-                    helperText={this.state.passError ? "Enter a password" : ''} 
-                    />
-                <div className="blue_text1">Forgot password?</div>
-                <div className="para_guest">Not your computer? Use Guest mode to sign in privately.</div>
-                <div className="para_private">Not your computer? Use a private browsing window to sign in.</div>
-                <div className="blue_text1">Learn more</div>
+                />
             </div>
+            {/* <div>  <br/>   </div>] */}
+            <Link to= {'/forgotemail'} className="blue_text1" underline="none">Forgot email?</Link>
+            <div className="pass_main">
+            <TextField 
+                className="pass1" 
+                name="password"
+                id="pass" 
+                label="Password" 
+                variant="outlined" 
+                size="small"
+                error={this.state.passError}
+                onChange={e => this.change(e)}
+                helperText={this.state.passError ? "Enter a password" : ''} 
+                />
+                </div>
+                <div className="blue_text2">Forgot password?</div>
+                <div className="para_guest">Not your computer? Use Guest mode to sign in privately.</div>
+                <div className="blue_text3">Learn more</div>
             <div className="options1">
                 <Link to= {'/SignUp'} className="text1" underline="none">Create account</Link>
                 <Button className="next1" variant = "contained" onClick={this.next}>Next</Button>

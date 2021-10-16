@@ -87,7 +87,7 @@ export class SignUp extends Component {
         return (
             <div className='signup_main'>
             <Snackbar
-            anchorOrigin= {{vertical:'bottom', horizontal:'left'}}
+            anchorOrigin= {{vertical:'bottom', horizontal:'right'}}
             open = {this.state.snackbaropen}
             autoHideDuration = {6000}
             onClose = {this.snackbarClose}
