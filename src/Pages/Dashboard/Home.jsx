@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from "react";
 import '../Dashboard/Home.css'
 import keep from '../Dashboard/keep.png'
 import { styled, useTheme, alpha } from '@mui/material/styles';
@@ -16,6 +17,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
+import Button from "@mui/material/Button";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
@@ -32,6 +34,15 @@ import AppsIcon from '@mui/icons-material/Apps';
 import CheckBoxOutlined from '@mui/icons-material/CheckBoxOutlined';
 import BrushOutlined from '@mui/icons-material/BrushOutlined';
 import InsertPhotoOutlined from '@mui/icons-material/InsertPhotoOutlined'
+import PushPinOutlined from '@mui/icons-material/PushPinOutlined';
+import AddAlertOutlined from '@mui/icons-material/AddAlertOutlined';
+import PersonAddOutlined from '@mui/icons-material/PersonAddOutlined';
+import ColorLensOutlined from '@mui/icons-material/ColorLensOutlined';
+import ImageOutlined from '@mui/icons-material/ImageOutlined';
+import MoreVertOutlined from '@mui/icons-material/MoreVertOutlined';
+import ArchiveOutlined from '@mui/icons-material/ArchiveOutlined';
+import UndoOutlined from '@mui/icons-material/UndoOutlined';
+import RedoOutlined from '@mui/icons-material/RedoOutlined';
 
 
 const drawerWidth = 240;
@@ -142,6 +153,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 export default function Home() {
+
+  // Drawer
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -149,78 +162,153 @@ export default function Home() {
     setOpen(!open);
   };
 
+  // Notes
+  const [show, setShow] = useState(false); 
+  const expand = () => {
+    setShow(true);
+  };
+
+  const normal = () => {
+    setShow(false);
+  };
+
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-          >
-            <MenuIcon />
-          </IconButton>
-          <img src={keep} className='keep_logo' alt="keep image" />
-          <Typography variant="h6" noWrap component="div">
-            Fundoo Notes
-          </Typography>
-          <Search>
-            <SearchIconWrapper className='search'>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" color="inherit">
-              < Badge className = "refresh">         
-                <Refresh />
-                </Badge>
-                < Badge className = "list">
-                <ViewStreamOutlined/>
-                </Badge>
-                < Badge className = "settings">
-                <SettingsOutlined />
-                </Badge>       
-            </IconButton>
+    <div className = "dash">
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <AppBar position="fixed" open={open}>
+          <Toolbar>
             <IconButton
-              size="large"
-              edge="end"
               color="inherit"
-              className="apps"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
             >
-              <AppsIcon/>    
+              <MenuIcon />
             </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {['Notes', 'Reminders', 'Edit Labels', 'Archive', 'Bin'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index <= 0 ? <LightbulbOutlinedIcon /> : <InboxIcon /> && index <= 1 ? <NotificationsNoneIcon /> : <InboxIcon />
-                  && index <= 2 ? <ModeEditOutlineOutlinedIcon /> : <InboxIcon />
-                  && index <= 3 ? <ArchiveOutlinedIcon /> : <InboxIcon />
-                  && index <= 4 ? <DeleteOutlineOutlinedIcon /> : <InboxIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        
+            <img src={keep} className='keep_logo' alt="keep image" />
+            <Typography variant="h6" noWrap component="div">
+              Fundoo Notes
+            </Typography>
+            <Search>
+              <SearchIconWrapper className='search'>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+            <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+              <IconButton size="large" color="inherit">
+                <Badge className = "refresh">         
+                  <Refresh />
+                  </Badge>
+                  < Badge className = "list">
+                  <ViewStreamOutlined/>
+                  </Badge>
+                  <Badge className = "settings">
+                  <SettingsOutlined />
+                </Badge>       
+              </IconButton>
+              <IconButton
+                size="large"
+                edge="end"
+                color="inherit"
+                className="apps"
+              >
+                <AppsIcon/>    
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader>
+          </DrawerHeader>
+          <Divider />
+          <List>
+            {['Notes', 'Reminders', 'Edit Labels', 'Archive', 'Bin'].map((text, index) => (
+              <ListItem button key={text}>
+                <ListItemIcon>
+                  {index <= 0 ? <LightbulbOutlinedIcon /> : <InboxIcon /> && index <= 1 ? <NotificationsNoneIcon /> : <InboxIcon />
+                    && index <= 2 ? <ModeEditOutlineOutlinedIcon /> : <InboxIcon />
+                    && index <= 3 ? <ArchiveOutlinedIcon /> : <InboxIcon />
+                    && index <= 4 ? <DeleteOutlineOutlinedIcon /> : <InboxIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <DrawerHeader />
+
+        </Box>
       </Box>
-    </Box>
+      <div className="notes_main" >
+        <form id="form1">
+          {show && (
+            <input
+              className="forminput1"
+              type="text"
+              placeholder="Title"
+              name="title"
+            >
+            </input>
+          )}
+          <p>
+          <input className="forminput2" aria-label="empty textarea" placeholder="Take a Note..."  onDoubleClick={expand} />
+          <IconButton size="large" >
+            <CheckBoxOutlined className="check"/>
+            </IconButton>
+            <IconButton size="large" >
+            <BrushOutlined className="brush"/>
+            </IconButton>
+            <IconButton size="large" >
+            <InsertPhotoOutlined className="image"/>
+            </IconButton>
+          </p>
+          {show && (
+            <div id="icons">
+              <AddAlertOutlined
+                style={{ fontSize: "large" }}
+              >
+              </AddAlertOutlined>
+              <PersonAddOutlined
+                style={{ fontSize: "large" }}
+              >
+              </PersonAddOutlined>
+              <ColorLensOutlined
+                style={{ fontSize: "large" }}
+              >
+              </ColorLensOutlined>
+              <ImageOutlined
+                style={{ fontSize: "large" }}
+              >
+              </ImageOutlined>
+              <ArchiveOutlined
+                style={{ fontSize: "large" }}
+              >
+              </ArchiveOutlined>
+              <MoreVertOutlined
+                style={{ fontSize: "large" }}
+              >
+              </MoreVertOutlined>
+              <UndoOutlined style={{ fontSize: "large" }}></UndoOutlined>
+              <RedoOutlined style={{ fontSize: "large" }}></RedoOutlined>
+              <Button className="button" onClick = {normal}>Close</Button>
+            </div>
+          )}
+        </form>
+      </div>
+      <div className="note1">
+            <div className="note1_content">
+              <h4>Details</h4>
+              <div className="content1">email: tyaginis7@gmail.com</div>
+              <div className="content2">pass: n@123</div>
+            </div>
+      </div> 
+    </div>
   );
 }
