@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import '../ForgotEmail/ForgotEmail.css';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import forgot from '../../services/Axiosforgot';
+import UserServices from '../../services/UserServices';
 import { Snackbar, IconButton } from '@mui/material';
+
+const obj = new UserServices();
 
 export class ForgotEmail extends Component {
 
@@ -36,19 +38,25 @@ export class ForgotEmail extends Component {
         var isValid = this.isValidated();
         if(!isValid) {
             console.log("Validation Sucessfull!");
-            this.setState({snackbaropen:true, snackbarmsg: "This is a Success Message!"})
+        
+            let forgotObj = {
+                "email": this.state.email,
+            }
+            console.log(forgotObj);
+            obj.forgot(forgotObj).then((response)=>{
+                console.log(response);
+                this.setState({snackbaropen:true, snackbarmsg: "Sent link to email!"});
+                // var timer  = setTimeout(function(){
+                //     window.location = '/resetpassword'
+                // }, 2000);
+                // this.props.history.push("/resetpassword");
+            }).catch((error)=>{
+                console.log(error);
+                this.setState({snackbaropen:true, snackbarmsg: "Enter valid email!"})
+            })
         } else {
-            this.setState({snackbaropen:true, snackbarmsg: "This is a Failure Message!"})
+            this.setState({snackbaropen:true, snackbarmsg: "Please enter data!"})
         }
-        let forgotObj = {
-            "email": this.state.email,
-        }
-        console.log(forgotObj);
-        forgot(forgotObj).then(function(response){
-            console.log(response);
-        }).catch(function(error){
-            console.log(error);
-        })
     }
 
     change = (e) => {

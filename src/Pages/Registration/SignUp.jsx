@@ -1,9 +1,8 @@
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-
 import React, { Component } from 'react'
 import '../Registration/SignUp.css'
-import signup from '../../services/AxiosService';
 import account from '../Registration/account.svg'
+import UserServices from '../../services/UserServices';
 import TextField from '@mui/material/TextField';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -11,6 +10,8 @@ import Checkbox from '@mui/material/Checkbox';
 import InputAdornment from '@mui/material/InputAdornment';
 import Button from '@mui/material/Button';
 import { Snackbar, IconButton } from '@mui/material';
+
+const obj = new UserServices();
 
 export class SignUp extends Component {
     constructor(props) {
@@ -55,25 +56,29 @@ export class SignUp extends Component {
         var isValid = this.isValidated();
         if(!isValid) {
             console.log("Validation Sucessfull!");
-            this.setState({snackbaropen:true, snackbarmsg: "This is a Success Message!"})
+        
+            let signupObj = {
+                "firstName": this.state.fName,
+                "lastName": this.state.lName, 
+                "email": this.state.email,
+                "password": this.state.password,
+                "confirmpassword": this.state.confirmPassword,
+                "service": "advance"
+            }
+            console.log(signupObj);
+            obj.signup(signupObj).then((response)=>{
+                console.log(response);
+                this.setState({snackbaropen:true, snackbarmsg: "Signup Successfull!"});
+                var timer  = setTimeout(function(){
+                    window.location = '/'
+                }, 2000);
+            }).catch((error)=>{
+                console.log(error);
+                this.setState({snackbaropen:true, snackbarmsg: "Signup Failed! Enter valid data"});
+            })
         } else {
-            this.setState({snackbaropen:true, snackbarmsg: "This is a Failure Message!"})
+            this.setState({snackbaropen:true, snackbarmsg: "Please enter data!"})
         }
-
-        let signupObj = {
-            "firstName": this.state.fName,
-            "lastName": this.state.lName, 
-            "email": this.state.email,
-            "password": this.state.password,
-            "confirmpassword": this.state.confirmPassword,
-            "service": "advance"
-        }
-        console.log(signupObj);
-        signup(signupObj).then(function(response){
-            console.log(response);
-        }).catch(function(error){
-            console.log(error);
-        })
     }
 
     change = (e) => {

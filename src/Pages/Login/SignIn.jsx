@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import React, { Component } from 'react'
 import '../Login/SignIn.css';
-import signin from '../../services/AxiosSignin'
+import UserServices from '../../services/UserServices';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Snackbar, IconButton } from '@mui/material';
+
+const obj = new UserServices();
 
 export class SignIn extends Component {
 
@@ -19,6 +21,7 @@ export class SignIn extends Component {
             snackbaropen: false, 
             snackbarmsg: ""
         }
+
     }
 
     snackbarClose = (event) => {
@@ -41,21 +44,26 @@ export class SignIn extends Component {
         var isValid = this.isValidated();
         if(!isValid) {
             console.log("Validation Sucessfull!");
-            this.setState({snackbaropen:true, snackbarmsg: "This is a Success Message!"})
-        } else {
-            this.setState({snackbaropen:true, snackbarmsg: "This is a Failure Message!"})
-        }
 
-        let signinObj = {
-            "email": this.state.email,
-            "password": this.state.password,
+            let signinObj = {
+                "email": this.state.email,
+                "password": this.state.password,
+            }
+            console.log(signinObj);
+            obj.signin(signinObj).then((response)=>{
+                console.log(response);
+                localStorage.setItem("token", response.data.id);
+                this.setState({snackbaropen:true, snackbarmsg: "Signin Successful!"})
+                var timer  = setTimeout(function(){
+                    window.location = '/home'
+                }, 2000);
+            }).catch((error)=>{
+                console.log(error);
+                this.setState({snackbaropen:true, snackbarmsg: "Signin Failed! Enter valid data"})
+            })
+        }  else {
+            this.setState({snackbaropen:true, snackbarmsg: "Please enter data!"})
         }
-        console.log(signinObj);
-        signin(signinObj).then(function(response){
-            console.log(response);
-        }).catch(function(error){
-            console.log(error);
-        })
     }
 
     change = (e) => {

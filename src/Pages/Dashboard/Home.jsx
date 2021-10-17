@@ -18,8 +18,6 @@ import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 
 import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
@@ -27,11 +25,13 @@ import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import SearchIcon from '@mui/icons-material/Search';
-// import Clear from '@mui/icons-material/Clear';
 import Refresh from '@mui/icons-material/Refresh';
 import ViewStreamOutlined from '@mui/icons-material/ViewStreamOutlined';
 import SettingsOutlined from '@mui/icons-material/SettingsOutlined';
 import AppsIcon from '@mui/icons-material/Apps';
+import CheckBoxOutlined from '@mui/icons-material/CheckBoxOutlined';
+import BrushOutlined from '@mui/icons-material/BrushOutlined';
+import InsertPhotoOutlined from '@mui/icons-material/InsertPhotoOutlined'
 
 
 const drawerWidth = 240;
@@ -217,6 +217,10 @@ export default function Home() {
           ))}
         </List>
       </Drawer>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <DrawerHeader />
+        
+      </Box>
     </Box>
   );
 }

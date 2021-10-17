@@ -1,8 +1,9 @@
 import axios from "axios";
 
-const signup = async function(obj) {
-    let response = await axios.post("http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp", obj);
-    return response;
+class AxiosService {
+    postMeth(url, data, header=false) {
+        return axios.post(url, data, header);
+    }
 }
 
-export default signup
+export default AxiosService;
