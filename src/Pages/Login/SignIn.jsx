@@ -114,7 +114,6 @@ export class SignIn extends Component {
                     helperText={this.state.emailError ? "Enter email or phone" : ''} 
                 />
             </div>
-            {/* <div>  <br/>   </div>] */}
             <Link to= {'/forgotemail'} className="blue_text1" underline="none">Forgot email?</Link>
             <div className="pass_main">
             <TextField 

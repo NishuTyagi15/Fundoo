@@ -26,6 +26,14 @@ class UserServices {
         let response = obj.postMeth(`${baseurl}user/reset-password`, data, headerconfig);
         return response;
     }
+    notes(data) {
+        let response = obj.postMeth(`${baseurl}notes/addNotes`, data);
+        return response;
+    }
+    displayNotes(data) {
+        let response = obj.getMeth(`${baseurl}notes/getNotesList`, data);
+        return response;
+    }
 }
 
 export default UserServices
