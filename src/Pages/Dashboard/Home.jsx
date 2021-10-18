@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState } from "react";
 import '../Dashboard/Home.css'
 import keep from '../Dashboard/keep.png'
 import { styled, useTheme, alpha } from '@mui/material/styles';
@@ -17,7 +16,6 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
-import Button from "@mui/material/Button";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
@@ -31,18 +29,6 @@ import Refresh from '@mui/icons-material/Refresh';
 import ViewStreamOutlined from '@mui/icons-material/ViewStreamOutlined';
 import SettingsOutlined from '@mui/icons-material/SettingsOutlined';
 import AppsIcon from '@mui/icons-material/Apps';
-import CheckBoxOutlined from '@mui/icons-material/CheckBoxOutlined';
-import BrushOutlined from '@mui/icons-material/BrushOutlined';
-import InsertPhotoOutlined from '@mui/icons-material/InsertPhotoOutlined'
-import PushPinOutlined from '@mui/icons-material/PushPinOutlined';
-import AddAlertOutlined from '@mui/icons-material/AddAlertOutlined';
-import PersonAddOutlined from '@mui/icons-material/PersonAddOutlined';
-import ColorLensOutlined from '@mui/icons-material/ColorLensOutlined';
-import ImageOutlined from '@mui/icons-material/ImageOutlined';
-import MoreVertOutlined from '@mui/icons-material/MoreVertOutlined';
-import ArchiveOutlined from '@mui/icons-material/ArchiveOutlined';
-import UndoOutlined from '@mui/icons-material/UndoOutlined';
-import RedoOutlined from '@mui/icons-material/RedoOutlined';
 
 
 const drawerWidth = 240;
@@ -162,16 +148,6 @@ export default function Home() {
     setOpen(!open);
   };
 
-  // Notes
-  const [show, setShow] = useState(false); 
-  const expand = () => {
-    setShow(true);
-  };
-
-  const normal = () => {
-    setShow(false);
-  };
-
   return (
     <div className = "dash">
       <Box sx={{ display: 'flex' }}>
@@ -246,74 +222,6 @@ export default function Home() {
 
         </Box>
       </Box>
-      <div className="notes_main" >
-        <form id="form1">
-          {show && (
-            <input
-              className="forminput1"
-              type="text"
-              placeholder="Title"
-              name="title"
-            >
-            </input>
-          )}
-          <p>
-          <input className="forminput2" aria-label="empty textarea" placeholder="Take a note..."  onClick={expand} />
-          <IconButton size="large" >
-            <CheckBoxOutlined className="check"/>
-            </IconButton>
-            <IconButton size="large" >
-            <BrushOutlined className="brush"/>
-            </IconButton>
-            <IconButton size="large" >
-            <InsertPhotoOutlined className="image"/>
-            </IconButton>
-          </p>
-          {show && (
-            <div id="icons">
-              <AddAlertOutlined
-                style={{ fontSize: "large" }}
-              >
-              </AddAlertOutlined>
-              <PersonAddOutlined
-                style={{ fontSize: "large" }}
-              >
-              </PersonAddOutlined>
-              <ColorLensOutlined
-                style={{ fontSize: "large" }}
-              >
-              </ColorLensOutlined>
-              <ImageOutlined
-                style={{ fontSize: "large" }}
-              >
-              </ImageOutlined>
-              <ArchiveOutlined
-                style={{ fontSize: "large" }}
-              >
-              </ArchiveOutlined>
-              <MoreVertOutlined
-                style={{ fontSize: "large" }}
-              >
-              </MoreVertOutlined>
-              <UndoOutlined style={{ fontSize: "large" }}></UndoOutlined>
-              <RedoOutlined style={{ fontSize: "large" }}></RedoOutlined>
-              <Button className="button" onClick = {normal}>Close</Button>
-            </div>
-          )}
-        </form>
-      </div>
-      <div className="notes">
-        <div className="note1_content">
-          <h4>Details</h4>
-          <div className="content1">email: tyaginis7@gmail.com</div>
-          <div className="content2">pass: n@123</div>
-        </div>
-        <div className="note2_content">
-          <h4>Discuss</h4>
-          <div className="content3">1. Quantity</div>
-          <div className="content4">2. Quality</div>
-        </div>
-      </div> 
     </div>
   );
 }
