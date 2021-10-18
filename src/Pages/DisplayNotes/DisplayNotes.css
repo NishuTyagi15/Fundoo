@@ -1,7 +1,7 @@
 .note1_content {
     position: absolute;
     left: 15rem;
-    top: 11rem;
+    top: 17rem;
     border: 1px solid rgb(228, 225, 225);
     border-radius: 8px;
     height: 21vh;
@@ -27,7 +27,7 @@
 .note2_content {
     position: absolute;
     left: 31rem;
-    top: 11rem;
+    top: 17rem;
     border: 1px solid rgb(228, 225, 225);
     border-radius: 8px;
     height: 21vh;
@@ -41,7 +41,7 @@
         width: 30vw;
         height: 14vh;
         left: 10.5rem;
-        top: 12rem;
+        top: 18rem;
     }
     .note1_content > h4 {
         top: -0.6rem;
@@ -50,6 +50,21 @@
         width: 30vw;
         height: 14vh;
         left: 26rem;
-        top: 12rem;
+        top: 18rem;
+    }
+}
+
+@media only screen and (min-width: 360px) and (max-width:640px) {
+    .note1_content {
+        width: 100vw;
+        height: 18vh;
+        left: 6rem;
+        top: 11rem;
+    }
+    .note2_content {
+        width: 100vw;
+        height: 18vh;
+        left: 6rem;
+        top: 20rem;
     }
 }

@@ -64,6 +64,7 @@
     margin-right: 24px !important;
 
 }
+
 .css-1191obr-MuiPaper-root-MuiAppBar-root {
     color : #5f6368 !important; 
 }
@@ -76,118 +77,6 @@
 .css-11o2879-MuiDrawer-docked .MuiDrawer-paper {
     border: none;
 }
-
-/* notes */
-/* .notes_main {
-    position: absolute;
-    left: 22%;
-    top: 15%;
-}
-
-.css-mf1cb5-MuiButtonBase-root-MuiIconButton-root {
-    padding: 10px !important;
-}
-
-#form1 {
-    position: relative;
-    top: 20%;
-    left: 25%;
-    width: 38vw;
-    background: #fff;
-    border-radius: 7px;
-    box-shadow: 0 1px 7px rgb(128, 128, 128);
-}
- 
-.forminput1 {
-    left: 25%;
-    width: 35vw;
-    outline: none;
-    border: none;
-    font-size: 16px;
-    resize: none;
-    margin-left: 2%;
-    margin-top: 2%;
-}
-
-.forminput2 {
-    outline: none;
-    position: relative !important;
-    border: none;
-    font-size: 1rem;
-    width: 27vw;
-    color:black !important;
-    text-align: left;
-    margin-left: 2%;
-}
-
-.textarea{
-    color: black !important;
-}
- 
-#icons{
-    cursor: pointer;
-    width: 100%;
-    height: 1%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    color: rgba(0, 0, 0, 0.54);
-    cursor: pointer;
-    margin-left: -4%;
-}
-  
-.css-1e6y48t-MuiButtonBase-root-MuiButton-root{
-    color:black !important;
-    bottom: 0.5rem;
-    font-weight: 500 !important;
-    color: rgba(0,0,0,0.87) !important;
-    font-family: 'Google Sans',Roboto,Arial,sans-serif !important;
-    font-size: .875rem !important;
-    font-weight: 600 !important;
-    padding: 6px 24px !important;
-    margin-right: -9% !important;
-}
-
-.notes {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.note1_content {
-    position: absolute;
-    left: 15rem;
-    top: 16rem;
-    border: 1px solid rgb(228, 225, 225);
-    border-radius: 8px;
-    height: 21vh;
-    width: 17vw;
-}
-
-.note1_content > h4, .content1, .content2, .note2_content>h4, .content3, .content4 {
-    color: #000;
-    position: absolute;
-    left: 1rem;
-}
-
-.content1, .content3{
-    font-size: 0.875rem;
-    top: 3rem;
-}
-
-.content2, .content4{
-    font-size: 0.875rem;
-    top: 4rem;
-}
-
-.note2_content {
-    position: absolute;
-    left: 31rem;
-    top: 16rem;
-    border: 1px solid rgb(228, 225, 225);
-    border-radius: 8px;
-    height: 21vh;
-    width: 17vw;
-} */
 
 /* media queries */
 
@@ -221,7 +110,7 @@
         width: 4vw;
     }
     .css-1iz4iln {
-        margin-left: 26px;
+        margin-left: -20px;
     }
     .css-1guk29 {
         display: block !important;
@@ -229,18 +118,5 @@
     }
     .MuiBadge-root {
         margin-right: 32% !important;
-    }
-
-    .note1_content {
-        width: 100vw;
-        height: 18vh;
-        left: 6rem;
-        top: 11rem;
-    }
-    .note2_content {
-        width: 100vw;
-        height: 18vh;
-        left: 6rem;
-        top: 20rem;
     }
 }

@@ -1,7 +1,7 @@
 .notes_main {
     position: absolute;
     left: 22%;
-    top: 13%;
+    top: 16%;
 }
 
 .css-mf1cb5-MuiButtonBase-root-MuiIconButton-root {
@@ -90,7 +90,7 @@
         padding: 1.6rem !important;
     }
     .notes_main {
-        top: 5.5rem;
+        top: 7rem;
     }
 }
 
@@ -114,7 +114,7 @@
         left: 0rem;
     }
     .notes_main {
-        top: 4rem;
+        top: 5rem;
     }
     .css-mf1cb5-MuiButtonBase-root-MuiIconButton-root {
         padding: 1.3rem !important;
