@@ -1,6 +1,7 @@
 import * as React from 'react';
-import '../Dashboard/Home.css'
-import keep from '../Dashboard/keep.png'
+import '../Dashboard/Home.css';
+import TakeNotes from '../TakeNotes/TakeNotes';
+import keep from '../Dashboard/keep.png';
 import { styled, useTheme, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -222,6 +223,9 @@ export default function Home() {
 
         </Box>
       </Box>
+
+      <TakeNotes />
+
     </div>
   );
 }

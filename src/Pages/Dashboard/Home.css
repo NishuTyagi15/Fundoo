@@ -68,8 +68,17 @@
     color : #5f6368 !important; 
 }
 
+.css-1hsz34s-MuiDrawer-docked .MuiDrawer-paper {
+    border: none;
+    width: 200px !important;
+}
+
+.css-11o2879-MuiDrawer-docked .MuiDrawer-paper {
+    border: none;
+}
+
 /* notes */
-.notes_main {
+/* .notes_main {
     position: absolute;
     left: 22%;
     top: 15%;
@@ -178,7 +187,7 @@
     border-radius: 8px;
     height: 21vh;
     width: 17vw;
-}
+} */
 
 /* media queries */
 
@@ -198,30 +207,7 @@
     .css-1iz4iln {
         margin-left: 180px !important;
     }
-    .brush {
-        display: none !important;
-    }
-    #form1 {
-        left: -4%;
-        width: 75vw;
-    }
-    .forminput2 {
-        width: 53vw;
-    }
-    .check {
-        position: absolute;
-        left: 4rem;
-    }
-    .image {       
-        position: absolute;
-        left: 1rem;
-    }
-    .css-mf1cb5-MuiButtonBase-root-MuiIconButton-root {
-        padding: 1.6rem !important;
-    }
-    .notes_main {
-        top: 7rem;
-    }
+    
     .note1_content {
         width: 30vw;
         height: 14vh;
@@ -251,7 +237,7 @@
         width: 4vw;
     }
     .css-1iz4iln {
-        margin-left: -20px;
+        margin-left: 26px;
     }
     .css-1guk29 {
         display: block !important;
@@ -260,30 +246,7 @@
     .MuiBadge-root {
         margin-right: 32% !important;
     }
-    .image {
-        display: none !important;
-    }
-    #form1 {
-        left: -3%;
-        width: 100vw;
-    }
-    .forminput2 {
-        width: 50vw;
-    }
-    .check {
-        position: absolute;
-        left: 1rem;
-    }
-    .brush {
-        position: absolute;
-        left: 1rem;
-    }
-    .notes_main {
-        top: 5rem;
-    }
-    .css-mf1cb5-MuiButtonBase-root-MuiIconButton-root {
-        padding: 1.3rem !important;
-    }
+    
     .note1_content {
         width: 100vw;
         height: 18vh;

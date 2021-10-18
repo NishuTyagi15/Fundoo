@@ -81,7 +81,7 @@ export class SignIn extends Component {
             <Snackbar
             anchorOrigin= {{vertical:'bottom', horizontal:'right'}}
             open = {this.state.snackbaropen}
-            autoHideDuration = {6000}
+            autoHideDuration = {3000}
             onClose = {this.snackbarClose}
 
             message = {<span id= "message_id">{this.state.snackbarmsg}</span>}
