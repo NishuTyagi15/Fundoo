@@ -1,5 +1,7 @@
 import * as React from 'react';
 import '../Dashboard/Home.css'
+import TakeNotes from '../TakeNotes/TakeNotes';
+import DisplayNotes from '../DisplayNotes/DisplayNotes'
 import keep from '../Dashboard/keep.png'
 import { styled, useTheme, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -222,6 +224,9 @@ export default function Home() {
 
         </Box>
       </Box>
+
+      <TakeNotes />
+      <DisplayNotes />
     </div>
   );
 }
