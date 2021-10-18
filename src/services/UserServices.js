@@ -2,11 +2,11 @@ import AxiosService from './AxiosService';
 
 const obj = new AxiosService();
 const baseurl = "http://fundoonotes.incubation.bridgelabz.com/api/"
-var url = baseurl.split('/');
-const token = url[ url.length - 1 ];
-const header = {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json'
+const token = localStorage.getItem("token");
+const headerconfig = {
+    header: {
+    Authorization: {token},
+    }
 };
 
 class UserServices {
@@ -23,7 +23,7 @@ class UserServices {
         return response;
     }
     reset(data) {
-        let response = obj.postMeth(`${baseurl}user/reset-password`, data, header);
+        let response = obj.postMeth(`${baseurl}user/reset-password`, data, headerconfig);
         return response;
     }
 }
