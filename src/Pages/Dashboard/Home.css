@@ -207,22 +207,6 @@
     .css-1iz4iln {
         margin-left: 180px !important;
     }
-    
-    .note1_content {
-        width: 30vw;
-        height: 14vh;
-        left: 12rem;
-        top: 14rem;
-    }
-    .note1_content > h4 {
-        top: -0.6rem;
-    }
-    .note2_content {
-        width: 30vw;
-        height: 14vh;
-        left: 28rem;
-        top: 14rem;
-    }
 }
 
 @media only screen and (min-width: 360px) and (max-width:640px) {
@@ -246,7 +230,7 @@
     .MuiBadge-root {
         margin-right: 32% !important;
     }
-    
+
     .note1_content {
         width: 100vw;
         height: 18vh;
