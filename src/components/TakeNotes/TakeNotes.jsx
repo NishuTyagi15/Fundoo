@@ -67,17 +67,6 @@ export class TakeNotes extends Component {
             console.log(error);
             this.setState({snackbaropen:true, snackbarmsg: "Server failed!"})
         })
-
-        // let getnotesObj = {
-        //     "title": this.state.title,
-        //     "description": this.state.description,
-        // }
-        // console.log(getnotesObj);
-        // obj.displayNotes(getnotesObj).then((response)=>{
-        //     console.log(response);
-        // }).catch((error)=>{
-        //     console.log(error);
-        // })
     };
 
     change = (e) => {
@@ -149,7 +138,7 @@ export class TakeNotes extends Component {
                         >
                         </PersonAddOutlined>
                         <ColorPalette putColor={(Data) => {
-                            this.onSetColor(Data);
+                            // this.onSetColor(Data);
                         }} />
                         <ImageOutlined
                             style={{ fontSize: "large" }}
