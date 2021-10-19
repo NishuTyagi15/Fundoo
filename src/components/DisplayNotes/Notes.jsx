@@ -6,15 +6,12 @@ const Notes = (props) => {
   
     const [newNote, setNewNote] = useState(false);
 
-    const newNote2 = () => {
+    const newNotes = () => {
         setNewNote(!newNote);
     };
 
- 
-
     return (
-        <div className="notes_content">
-        <div className="notes" onMouseEnter={newNote2}>
+        <div className="notes" onMouseEnter={newNotes}>
             {newNote ? (
                 <div className="note1_content">
                     {" "}
@@ -23,12 +20,11 @@ const Notes = (props) => {
                 </div>
             ) : (
                 <div className="note1_content">
-                {" "}
-                <h4>{props.index.title}</h4>
-                <div className="content1">{props.index.description}</div>
-            </div>
+                    {" "}
+                    <h4>{props.index.title}</h4>
+                    <div className="content1">{props.index.description}</div>
+                </div>
             )}
-        </div>
         </div>
     );
 };
