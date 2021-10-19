@@ -4,8 +4,8 @@ const obj = new AxiosService();
 const baseurl = "http://fundoonotes.incubation.bridgelabz.com/api/"
 const token = localStorage.getItem("token");
 const headerconfig = {
-    header: {
-    Authorization: {token},
+    headers: {
+    Authorization: token,
     }
 };
 
@@ -27,11 +27,11 @@ class UserServices {
         return response;
     }
     notes(data) {
-        let response = obj.postMeth(`${baseurl}notes/addNotes`, data);
+        let response = obj.postMeth(`${baseurl}notes/addNotes`, data, headerconfig);
         return response;
     }
-    displayNotes(data) {
-        let response = obj.getMeth(`${baseurl}notes/getNotesList`, data);
+    displayNotes(data){
+        let response = obj.getMethod(`${baseurl}notes/getNotesList`, headerconfig);
         return response;
     }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import './TakeNotes.css';
+import '../TakeNotes/TakeNotes.css';
 import UserServices from '../../services/UserServices';
+import ColorPalette from './ColorPalette';
 import { Snackbar, IconButton, Button} from '@mui/material';
 import CheckBoxOutlined from '@mui/icons-material/CheckBoxOutlined';
 import BrushOutlined from '@mui/icons-material/BrushOutlined';
@@ -27,6 +28,7 @@ export class TakeNotes extends Component {
             hide: true,
             title: "",
             description: "",
+            current: null,
             snackbaropen: false, 
             snackbarmsg: ""
         }
@@ -66,18 +68,17 @@ export class TakeNotes extends Component {
             this.setState({snackbaropen:true, snackbarmsg: "Server failed!"})
         })
 
-        let getnotesObj = {
-            "title": this.state.title,
-            "description": this.state.description,
-        }
-        console.log(getnotesObj);
-        obj.displayNotes(getnotesObj).then((response)=>{
-            console.log(response);
-        }).catch((error)=>{
-            console.log(error);
-        })
+        // let getnotesObj = {
+        //     "title": this.state.title,
+        //     "description": this.state.description,
+        // }
+        // console.log(getnotesObj);
+        // obj.displayNotes(getnotesObj).then((response)=>{
+        //     console.log(response);
+        // }).catch((error)=>{
+        //     console.log(error);
+        // })
     };
-
 
     change = (e) => {
         // console.log(e.target.value);
@@ -92,7 +93,7 @@ export class TakeNotes extends Component {
             <Snackbar
             anchorOrigin= {{vertical:'bottom', horizontal:'right'}}
             open = {this.state.snackbaropen}
-            autoHideDuration = {6000}
+            autoHideDuration = {3000}
             onClose = {this.snackbarClose}
 
             message = {<span id= "message_id">{this.state.snackbarmsg}</span>}
@@ -147,10 +148,9 @@ export class TakeNotes extends Component {
                             style={{ fontSize: "large" }}
                         >
                         </PersonAddOutlined>
-                        <ColorLensOutlined
-                            style={{ fontSize: "large" }}
-                        >   
-                        </ColorLensOutlined>
+                        <ColorPalette putColor={(Data) => {
+                            this.onSetColor(Data);
+                        }} />
                         <ImageOutlined
                             style={{ fontSize: "large" }}
                         >
