@@ -137,9 +137,7 @@ export class TakeNotes extends Component {
                             style={{ fontSize: "large" }}
                         >
                         </PersonAddOutlined>
-                        <ColorPalette putColor={(Data) => {
-                            // this.onSetColor(Data);
-                        }} />
+                        <ColorPalette />
                         <ImageOutlined
                             style={{ fontSize: "large" }}
                         >
