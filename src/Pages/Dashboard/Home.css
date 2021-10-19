@@ -71,7 +71,7 @@
 
 .css-1hsz34s-MuiDrawer-docked .MuiDrawer-paper {
     border: none;
-    width: 200px !important;
+    /* width: 200px !important; */
 }
 
 .css-11o2879-MuiDrawer-docked .MuiDrawer-paper {

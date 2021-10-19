@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../TakeNotes/TakeNotes.css';
+import './TakeNotes.css';
 import UserServices from '../../services/UserServices';
 import { Snackbar, IconButton, Button} from '@mui/material';
 import CheckBoxOutlined from '@mui/icons-material/CheckBoxOutlined';
@@ -63,7 +63,7 @@ export class TakeNotes extends Component {
             this.setState({snackbaropen:true, snackbarmsg: "Data added!"})
         }).catch((error)=>{
             console.log(error);
-            this.setState({snackbaropen:true, snackbarmsg: "Server failed"})
+            this.setState({snackbaropen:true, snackbarmsg: "Server failed!"})
         })
 
         let getnotesObj = {

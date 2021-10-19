@@ -1,5 +1,5 @@
 import React from 'react'
-import '../DisplayNotes/DisplayNotes.css'
+import './DisplayNotes.css'
 
 const DisplayNotes = () => {
     return (
