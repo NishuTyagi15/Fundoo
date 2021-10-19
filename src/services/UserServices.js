@@ -4,8 +4,8 @@ const obj = new AxiosService();
 const baseurl = "http://fundoonotes.incubation.bridgelabz.com/api/"
 const token = localStorage.getItem("token");
 const headerconfig = {
-    header: {
-    Authorization: {token},
+    headers: {
+    Authorization: token,
     }
 };
 
@@ -24,6 +24,14 @@ class UserServices {
     }
     reset(data) {
         let response = obj.postMeth(`${baseurl}user/reset-password`, data, headerconfig);
+        return response;
+    }
+    notes(data) {
+        let response = obj.postMeth(`${baseurl}notes/addNotes`, data, headerconfig);
+        return response;
+    }
+    displayNotes(data){
+        let response = obj.getMethod(`${baseurl}notes/getNotesList`, headerconfig);
         return response;
     }
 }

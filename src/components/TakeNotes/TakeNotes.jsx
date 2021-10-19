@@ -1,0 +1,166 @@
+import React, { Component } from 'react'
+import '../TakeNotes/TakeNotes.css';
+import UserServices from '../../services/UserServices';
+import ColorPalette from './ColorPalette';
+import { Snackbar, IconButton, Button} from '@mui/material';
+import CheckBoxOutlined from '@mui/icons-material/CheckBoxOutlined';
+import BrushOutlined from '@mui/icons-material/BrushOutlined';
+import InsertPhotoOutlined from '@mui/icons-material/InsertPhotoOutlined'
+// import PushPinOutlined from '@mui/icons-material/PushPinOutlined';
+import AddAlertOutlined from '@mui/icons-material/AddAlertOutlined';
+import PersonAddOutlined from '@mui/icons-material/PersonAddOutlined';
+import ColorLensOutlined from '@mui/icons-material/ColorLensOutlined';
+import ImageOutlined from '@mui/icons-material/ImageOutlined';
+import MoreVertOutlined from '@mui/icons-material/MoreVertOutlined';
+import ArchiveOutlined from '@mui/icons-material/ArchiveOutlined';
+import UndoOutlined from '@mui/icons-material/UndoOutlined';
+import RedoOutlined from '@mui/icons-material/RedoOutlined';
+
+const obj = new UserServices();
+
+export class TakeNotes extends Component {
+
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            show: false,
+            hide: true,
+            title: "",
+            description: "",
+            current: null,
+            snackbaropen: false, 
+            snackbarmsg: ""
+        }
+
+    }
+
+    snackbarClose = (event) => {
+        this.setState({snackbaropen: false});
+    };
+
+    expand = () => {
+        this.setState({
+            show: true,
+            hide: false,
+        });
+    };
+
+    normal = () => {
+        this.setState({
+            show: false,
+            hide: true,           
+        });
+
+        let notesObj = {
+            "title": this.state.title,
+            "description": this.state.description,
+        }
+        console.log(notesObj);
+        obj.notes(notesObj).then((response)=>{
+            console.log(response);
+            localStorage.setItem("token", response.data.id);
+            localStorage.setItem("title", response.data.title);
+            localStorage.setItem("description", response.data.description);
+            this.setState({snackbaropen:true, snackbarmsg: "Data added!"})
+        }).catch((error)=>{
+            console.log(error);
+            this.setState({snackbaropen:true, snackbarmsg: "Server failed!"})
+        })
+    };
+
+    change = (e) => {
+        // console.log(e.target.value);
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+
+    render() {
+        return (
+            <div className="notes_main" >
+            <Snackbar
+            anchorOrigin= {{vertical:'bottom', horizontal:'right'}}
+            open = {this.state.snackbaropen}
+            autoHideDuration = {3000}
+            onClose = {this.snackbarClose}
+
+            message = {<span id= "message_id">{this.state.snackbarmsg}</span>}
+            action ={[
+            <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
+                X
+            </IconButton>
+            ]}
+            />
+            {this.state.hide && (
+                <form id="form1">         
+                    <p>
+                        <input className="forminput2" aria-label="empty textarea" placeholder="Take a note..."  onClick={this.expand} />
+                        <IconButton size="large" >
+                            <CheckBoxOutlined className="check"/>
+                        </IconButton>
+                        <IconButton size="large" >
+                            <BrushOutlined className="brush"/>
+                        </IconButton>
+                        <IconButton size="large" >
+                            <InsertPhotoOutlined className="image"/>
+                        </IconButton>
+                    </p>
+                </form>
+            )}
+            {this.state.show && (
+                <form id="form2">
+                    <p>
+                        <input
+                            className="forminput1"
+                            type="text"
+                            placeholder="Title"
+                            name="title"
+                            id="title"
+                            onChange={e => this.change(e)}
+                        />
+                        <input 
+                            className="forminput2" 
+                            name="description" 
+                            id="description" 
+                            aria-label="empty textarea" 
+                            placeholder="Take a Note..." 
+                            onChange={e => this.change(e)}
+                        />
+                    </p>
+                    <div id="icons">
+                        <AddAlertOutlined
+                            style={{ fontSize: "large" }}
+                        >
+                        </AddAlertOutlined>
+                        <PersonAddOutlined
+                            style={{ fontSize: "large" }}
+                        >
+                        </PersonAddOutlined>
+                        <ColorPalette putColor={(Data) => {
+                            // this.onSetColor(Data);
+                        }} />
+                        <ImageOutlined
+                            style={{ fontSize: "large" }}
+                        >
+                        </ImageOutlined>
+                        <ArchiveOutlined
+                            style={{ fontSize: "large" }}
+                        >
+                        </ArchiveOutlined>
+                        <MoreVertOutlined
+                            style={{ fontSize: "large" }}
+                        >
+                        </MoreVertOutlined>
+                        <UndoOutlined style={{ fontSize: "large" }}></UndoOutlined>
+                        <RedoOutlined style={{ fontSize: "large" }}></RedoOutlined>
+                        <Button className="button" onClick ={this.normal}>Close</Button>
+                    </div>
+                </form>
+            )}
+        </div>
+        )
+    }
+}
+
+export default TakeNotes
