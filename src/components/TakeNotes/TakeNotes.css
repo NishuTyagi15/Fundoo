@@ -67,6 +67,28 @@
     margin-right: -9% !important;
 }
 
+/* color palette */
+.pop {
+    border-radius: 3px;
+    max-width: 142px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    padding: 8px;
+    border: 1px solid lightgray;
+    background-color: white;
+}
+
+.palette_main {
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    margin: 3px;
+    border: 1px solid lightgray;
+    cursor: pointer;
+            
+}
+
 @media screen and (min-width: 768px) and (max-width: 1024px){
     .brush {
         display: none !important;
