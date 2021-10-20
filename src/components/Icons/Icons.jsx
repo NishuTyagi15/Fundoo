@@ -21,11 +21,9 @@ export class Icons extends Component {
             };
             obj.changeColor(Data).then((response) => {
                 console.log(response);
-                this.props.displayNotes();
             }).catch(error => {
                 console.log(error);
             });
-            console.log(color);
         } else {
             this.props.getColor(color.code);
         }
