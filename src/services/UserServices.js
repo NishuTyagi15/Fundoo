@@ -35,7 +35,7 @@ class UserServices {
         return response;
     }
     changeColor(data){
-        let response = obj.postMethod(`${baseurl}notes/changesColorNotes`, data, headerconfig);
+        let response = obj.postMeth(`${baseurl}notes/changesColorNotes`, data, headerconfig);
         return response;
     }
 }

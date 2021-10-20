@@ -12,14 +12,6 @@ import ArchiveOutlined from '@mui/icons-material/ArchiveOutlined';
 const obj = new UserServices();
 
 export class Icons extends Component {
-
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-             
-        }
-    }
     
     onSetColor = (color) => {
         if (this.props.colorval === "update") {
@@ -29,9 +21,11 @@ export class Icons extends Component {
             };
             obj.changeColor(Data).then((response) => {
                 console.log(response);
+                this.props.displayNotes();
             }).catch(error => {
                 console.log(error);
             });
+            console.log(color);
         } else {
             this.props.getColor(color.code);
         }

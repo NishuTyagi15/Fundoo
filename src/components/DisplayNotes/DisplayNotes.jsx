@@ -1,29 +1,12 @@
 import React, { useEffect } from "react";
 import "./DisplayNotes.css"
-import UserServices from "../../services/UserServices";
 import Notes from "./Notes";
 
-const obj = new UserServices();
 
-const DisplayNotes = () => {
-    const [notesArray, setArray] = React.useState([]);
-
-
-    useEffect(() => {
-      obj.displayNotes()
-        .then((response) => {
-          setArray(response.data.data.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    });
+const DisplayNotes = (props) => { 
+  const notesList = props.notesarr.map((index) => <Notes index={index} />);
   
-    console.log(notesArray);
-  
-    const notesList = notesArray.map((index) => <Notes index={index} />);
-  
-    return <div className="displayNotes_main">{notesList}</div>;
+  return <div className="displayNotes_main">{notesList}</div>;
 };
 
 export default DisplayNotes

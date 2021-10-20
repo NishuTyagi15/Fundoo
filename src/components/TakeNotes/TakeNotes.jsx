@@ -64,10 +64,11 @@ export class TakeNotes extends Component {
             localStorage.setItem("token", response.data.id);
             localStorage.setItem("title", response.data.title);
             localStorage.setItem("description", response.data.description);
+            this.props.displayNote();
             this.setState({snackbaropen:true, snackbarmsg: "Data added!"})
         }).catch((error)=>{
             console.log(error);
-            this.setState({snackbaropen:true, snackbarmsg: "Server failed!"})
+            this.setState({snackbaropen:true, snackbarmsg: "Data not Added!"})
         })
     };
 
