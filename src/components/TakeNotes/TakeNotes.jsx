@@ -134,7 +134,7 @@ export class TakeNotes extends Component {
                             placeholder="Take a Note..." 
                             onChange={e => this.change(e)}
                             style={{
-                                backgroundColor: this.state.color
+                                backgroundColor: this.state.color,
                             }}
                         />
                     </p>

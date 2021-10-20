@@ -27,12 +27,11 @@ export class Icons extends Component {
                 color: color.code,
                 noteIdList: [this.props.val.id]
             };
-            obj.changeColor(Data).then((data) => {
-                console.log('Color Note', data);
+            obj.changeColor(Data).then((response) => {
+                console.log(response);
             }).catch(error => {
-                console.log('Color error', error);
+                console.log(error);
             });
-            console.log("Color", Data);
         } else {
             this.props.getColor(color.code);
         }
