@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import "../TakeNotes/TakeNotes.css"
 import Popper from '@material-ui/core/Popper';
 import ColorLensOutlinedIcon from "@mui/icons-material/ColorLensOutlined";
@@ -47,7 +47,9 @@ const ColorPalette = (props) => {
                     backgroundColor:val.code,
                     color:val.code,
                     }}
-                >
+                    onClick={()=>{
+                        props.putColor(val);
+                        handleClick()}}>
                 </div>
             </div> )
     }

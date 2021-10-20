@@ -1,20 +1,14 @@
 import React, { Component } from 'react'
 import '../TakeNotes/TakeNotes.css';
 import UserServices from '../../services/UserServices';
-import ColorPalette from './ColorPalette';
+import Icons from '../Icons/Icons';
 import { Snackbar, IconButton, Button} from '@mui/material';
 import CheckBoxOutlined from '@mui/icons-material/CheckBoxOutlined';
 import BrushOutlined from '@mui/icons-material/BrushOutlined';
 import InsertPhotoOutlined from '@mui/icons-material/InsertPhotoOutlined'
 // import PushPinOutlined from '@mui/icons-material/PushPinOutlined';
-import AddAlertOutlined from '@mui/icons-material/AddAlertOutlined';
-import PersonAddOutlined from '@mui/icons-material/PersonAddOutlined';
-import ColorLensOutlined from '@mui/icons-material/ColorLensOutlined';
-import ImageOutlined from '@mui/icons-material/ImageOutlined';
-import MoreVertOutlined from '@mui/icons-material/MoreVertOutlined';
-import ArchiveOutlined from '@mui/icons-material/ArchiveOutlined';
-import UndoOutlined from '@mui/icons-material/UndoOutlined';
-import RedoOutlined from '@mui/icons-material/RedoOutlined';
+// import UndoOutlined from '@mui/icons-material/UndoOutlined';
+// import RedoOutlined from '@mui/icons-material/RedoOutlined';
 
 const obj = new UserServices();
 
@@ -28,7 +22,7 @@ export class TakeNotes extends Component {
             hide: true,
             title: "",
             description: "",
-            current: null,
+            color:"#ffffff",
             snackbaropen: false, 
             snackbarmsg: ""
         }
@@ -38,6 +32,13 @@ export class TakeNotes extends Component {
     snackbarClose = (event) => {
         this.setState({snackbaropen: false});
     };
+
+    handleColor=(data)=>{
+        this.setState({
+            color:data
+        });
+
+    }
 
     expand = () => {
         this.setState({
@@ -55,6 +56,7 @@ export class TakeNotes extends Component {
         let notesObj = {
             "title": this.state.title,
             "description": this.state.description,
+            "color": this.state.color,
         }
         console.log(notesObj);
         obj.notes(notesObj).then((response)=>{
@@ -109,7 +111,9 @@ export class TakeNotes extends Component {
                 </form>
             )}
             {this.state.show && (
-                <form id="form2">
+                <form id="form2"style={{
+                    backgroundColor: this.state.color
+                }}>
                     <p>
                         <input
                             className="forminput1"
@@ -118,6 +122,9 @@ export class TakeNotes extends Component {
                             name="title"
                             id="title"
                             onChange={e => this.change(e)}
+                            style={{
+                                backgroundColor: this.state.color
+                            }}
                         />
                         <input 
                             className="forminput2" 
@@ -126,32 +133,18 @@ export class TakeNotes extends Component {
                             aria-label="empty textarea" 
                             placeholder="Take a Note..." 
                             onChange={e => this.change(e)}
+                            style={{
+                                backgroundColor: this.state.color
+                            }}
                         />
                     </p>
                     <div id="icons">
-                        <AddAlertOutlined
-                            style={{ fontSize: "large" }}
-                        >
-                        </AddAlertOutlined>
-                        <PersonAddOutlined
-                            style={{ fontSize: "large" }}
-                        >
-                        </PersonAddOutlined>
-                        <ColorPalette />
-                        <ImageOutlined
-                            style={{ fontSize: "large" }}
-                        >
-                        </ImageOutlined>
-                        <ArchiveOutlined
-                            style={{ fontSize: "large" }}
-                        >
-                        </ArchiveOutlined>
-                        <MoreVertOutlined
-                            style={{ fontSize: "large" }}
-                        >
-                        </MoreVertOutlined>
-                        <UndoOutlined style={{ fontSize: "large" }}></UndoOutlined>
-                        <RedoOutlined style={{ fontSize: "large" }}></RedoOutlined>
+                        <Icons colorval="create"
+                        val={this.state}  
+                        getColor={this.handleColor}
+                        />
+                        {/* <UndoOutlined style={{ fontSize: "large" }}></UndoOutlined>
+                        <RedoOutlined style={{ fontSize: "large" }}></RedoOutlined> */}
                         <Button className="button" onClick ={this.normal}>Close</Button>
                     </div>
                 </form>

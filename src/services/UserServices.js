@@ -30,8 +30,12 @@ class UserServices {
         let response = obj.postMeth(`${baseurl}notes/addNotes`, data, headerconfig);
         return response;
     }
-    displayNotes(data){
+    displayNotes(){
         let response = obj.getMethod(`${baseurl}notes/getNotesList`, headerconfig);
+        return response;
+    }
+    changeColor(data){
+        let response = obj.postMethod(`${baseurl}notes/changesColorNotes`, data, headerconfig);
         return response;
     }
 }

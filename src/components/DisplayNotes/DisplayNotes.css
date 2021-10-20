@@ -15,13 +15,13 @@
 }
 
 .note1_content > h4 {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    color: black !important;
     margin-left: 1rem;
 }
 
 .content1 {
-    margin-left: 1rem;
-    margin-top: -1rem;
+    margin: -1rem 1rem 1.5rem;
     font-size: 0.875rem;
 }
 
