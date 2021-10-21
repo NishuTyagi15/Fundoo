@@ -30,10 +30,11 @@ const Notes = (props) => {
         });
     }
 
-    // const [(e.target.name), setTarget] = useState('')
-    // const handleInput = (e) => {
-    //     setTarget(e.target.value);
-    // }
+
+    const [value, setValue] = useState(null)
+    const handleInput = (e) => {
+        setValue(e.target.value);
+    }
         
     const onUpdate = () => {
         let updateData = {
@@ -64,7 +65,7 @@ const Notes = (props) => {
                             name="title"
                             defaultValue={props.index.title}
                             multiline
-                            // onChange={handleInput}
+                            onChange={handleInput}
                             style={{
                                 backgroundColor: props.index.color
                             }}
@@ -74,7 +75,7 @@ const Notes = (props) => {
                             name="description"
                             defaultValue={props.index.description}
                             multiline
-                            // onChange={handleInput}
+                            onChange={handleInput}
                             style={{
                                 backgroundColor: props.index.color
                             }}

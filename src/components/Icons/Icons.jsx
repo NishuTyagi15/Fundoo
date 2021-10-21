@@ -54,10 +54,10 @@ export class Icons extends Component {
         obj.archiveNotes(archive).then((response) => {
             console.log(response);
             this.props.displayNote();
-            this.setState({snackbaropen:true, snackbarmsg: "Data is Archived!"})
+            this.setState({snackbaropen:true, snackbarmsg: "Note is Archived!"})
         }).catch(error => {
             console.log(error);
-            this.setState({snackbaropen:true, snackbarmsg: "Data not Archived!"})
+            this.setState({snackbaropen:true, snackbarmsg: "Note is not Archived!"})
         })
         console.log(archive);
     }
@@ -71,8 +71,10 @@ export class Icons extends Component {
         obj.deleteNotes(deleteNote).then((response) => {
             console.log(response);
             this.props.displayNote();
+            this.setState({snackbaropen:true, snackbarmsg: "Note Deleted!"})
         }).catch(error => {
             console.log(error);
+            this.setState({snackbaropen:true, snackbarmsg: "Note is Not Deleted!"})
         })
         console.log(deleteNote);
     }
