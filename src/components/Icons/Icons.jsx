@@ -33,7 +33,6 @@ export class Icons extends Component {
             };
             obj.changeColor(colorData).then((response) => {
                 console.log(response);
-                window.location.reload();
                 this.props.displayNote();
             }).catch(error => {
                 console.log(error);
@@ -52,6 +51,7 @@ export class Icons extends Component {
         
         obj.archiveNotes(archive).then((response) => {
             console.log(response);
+            this.props.displayNote();
         }).catch(error => {
             console.log(error);
         })

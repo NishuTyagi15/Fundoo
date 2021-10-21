@@ -29,6 +29,7 @@ export class Notes extends Component {
                 <Icons colorval="update"
                 val = {this.props.index}
                 id= {this.props.index.id}
+                displayNote={this.props.displayNote}
                 />
             </div>
         </div>

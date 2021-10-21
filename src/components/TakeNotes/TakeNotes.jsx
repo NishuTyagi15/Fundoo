@@ -153,6 +153,7 @@ export class TakeNotes extends Component {
                         val={this.state}  
                         getColor={this.handleColor}
                         archiveCreate={this.handleClose}
+                        displayNote = {this.props.displayNote}
                         />
                         {/* <UndoOutlined style={{ fontSize: "large" }}></UndoOutlined>
                         <RedoOutlined style={{ fontSize: "large" }}></RedoOutlined> */}
