@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../Icons/Icons.css';
 import ColorPalette from './ColorPalette';
 import UserServices from '../../services/UserServices';
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
 import AddAlertOutlined from '@mui/icons-material/AddAlertOutlined';
 import PersonAddOutlined from '@mui/icons-material/PersonAddOutlined';
 // import ColorLensOutlined from '@mui/icons-material/ColorLensOutlined';
@@ -12,6 +14,16 @@ import ArchiveOutlined from '@mui/icons-material/ArchiveOutlined';
 const obj = new UserServices();
 
 export class Icons extends Component {
+
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            anchorEl: null,
+            openStatus: false,
+        }
+    }
+    
     
     onSetColor = (color) => {
         if (this.props.colorval === "update") {
@@ -46,26 +58,35 @@ export class Icons extends Component {
         console.log(archive);
     }
 
+    menuClick = (event) => {
+        this.setState({
+            anchorEl: event.currentTarget
+        })
+    }
+
+    handleClose = () => {
+        this.setState({
+            anchorEl: null
+        })
+    };
+
 
     render() {
         return (
             <>
                 <AddAlertOutlined
                     style={{ fontSize: "large" }}
-                >
-                </AddAlertOutlined>
+                />
                 <PersonAddOutlined
                     style={{ fontSize: "large" }}
-                >
-                </PersonAddOutlined>
+                />
                 <ColorPalette
                     putColor={(Data) => {
                     this.onSetColor(Data);
                 }} />
                 <ImageOutlined
                     style={{ fontSize: "large" }}
-                >
-                </ImageOutlined>
+                />
                 <ArchiveOutlined
                     style={{ fontSize: "large" }} onClick={() => {
                         if (this.props.colorval === "update") {
@@ -75,12 +96,34 @@ export class Icons extends Component {
                             this.props.archiveCreate()
                         }
                     }}
-                >
-                </ArchiveOutlined>
+                />
                 <MoreVertOutlined
                     style={{ fontSize: "large" }}
+                    onClick={this.menuClick}
+                />
+                <Menu
+                    id="simple-menu"
+                    keepMounted
+                    anchorEl={this.state.anchorEl}
+                    onClose={this.handleClose}
+                    open={Boolean(this.state.anchorEl)}
                 >
-                </MoreVertOutlined>
+                    <MenuItem className="popover" onClick={() => {
+                        if (this.props.deleteNote === "deleteUpdate") {
+                            this.props.delete()
+                            this.handleClose()
+                        }
+                        else{
+                            this.props.deleteCreate()
+                        }
+                    }
+                    }>Delete Node</MenuItem>
+                    <MenuItem >Add Label</MenuItem>
+                    <MenuItem >Add Drawing</MenuItem>
+                    <MenuItem >Make a Copy</MenuItem>
+                    <MenuItem >Show Checkboxes</MenuItem>
+                    <MenuItem >Copy to Google Docs</MenuItem>
+                </Menu>
             </>
         )
     }
