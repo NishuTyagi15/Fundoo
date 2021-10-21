@@ -17,8 +17,18 @@ export class Dashboard extends Component {
     displayNote = () => {
         obj.displayNotes()
         .then((response) => {
-            this.setState ({
-                notesarr: response.data.data.data
+            // this.setState ({
+            //     notesarr: response.data.data.data
+            // })
+
+            var newarr=[]
+            response.data.data.data.filter((index) => {
+                if(index.isArchived != true) {
+                    newarr.push(index)
+                }
+            })
+            this.setState({
+                notesarr: newarr
             })
         })
         .catch((error) => {
@@ -31,6 +41,7 @@ export class Dashboard extends Component {
 
 
     render() {
+        console.log(this.state.notesarr);
         return (
             <div>
                 <TakeNotes displayNote={this.displayNote}/>

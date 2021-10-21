@@ -23,7 +23,9 @@ export class Notes extends Component {
             <div className="notes" onMouseEnter={this.newNotes1}>
             <div className="note1_content" style={{
                 backgroundColor: this.props.index.color,
-            }}>
+                }}
+                onClick={this.handleDialogOpen}
+            >
                 <h4>{this.props.index.title}</h4>
                 <div className="content1">{this.props.index.description}</div>
                 <Icons colorval="update"
