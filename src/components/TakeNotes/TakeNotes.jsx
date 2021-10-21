@@ -24,6 +24,7 @@ export class TakeNotes extends Component {
             description: "",
             color:"#ffffff",
             isArchived: false,
+            isDeleted : false,
             snackbaropen: false, 
             snackbarmsg: "",
         }
@@ -67,6 +68,7 @@ export class TakeNotes extends Component {
             "description": this.state.description,
             "color": this.state.color,
             "isArchived": this.state.isArchived,
+            "isDeleted" : this.state.isDeleted,
         }
         console.log(notesObj);
         obj.notes(notesObj).then((response)=>{

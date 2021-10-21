@@ -23,7 +23,7 @@ export class Dashboard extends Component {
 
             var newarr=[]
             response.data.data.data.filter((index) => {
-                if(index.isArchived != true) {
+                if(index.isArchived != true && index.isDeleted !=true) {
                     newarr.push(index)
                 }
             })
