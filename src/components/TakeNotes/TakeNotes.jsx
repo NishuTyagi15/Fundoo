@@ -23,8 +23,9 @@ export class TakeNotes extends Component {
             title: "",
             description: "",
             color:"#ffffff",
+            isArchived: false,
             snackbaropen: false, 
-            snackbarmsg: ""
+            snackbarmsg: "",
         }
 
     }
@@ -40,6 +41,12 @@ export class TakeNotes extends Component {
 
     }
 
+    handleClose = () => {
+        this.setState({
+            isArchived: true
+        })
+    }
+
     expand = () => {
         this.setState({
             show: true,
@@ -53,22 +60,25 @@ export class TakeNotes extends Component {
             hide: true,           
         });
 
+        if(this.state.description != "" && this.state.title != "") {
+
         let notesObj = {
             "title": this.state.title,
             "description": this.state.description,
             "color": this.state.color,
+            "isArchived": this.state.isArchived,
         }
         console.log(notesObj);
         obj.notes(notesObj).then((response)=>{
             console.log(response);
             localStorage.setItem("token", response.data.id);
-            localStorage.setItem("title", response.data.title);
-            localStorage.setItem("description", response.data.description);
-            this.setState({snackbaropen:true, snackbarmsg: "Data added!"})
+            this.setState({snackbaropen:true, color:"#FFFFFF", title: "", description:"", snackbarmsg: "Data added!"});
+            this.props.displayNote();
         }).catch((error)=>{
             console.log(error);
             this.setState({snackbaropen:true, snackbarmsg: "Data not Added!"})
         })
+    }
     };
 
     change = (e) => {
@@ -142,6 +152,7 @@ export class TakeNotes extends Component {
                         <Icons colorval="create"
                         val={this.state}  
                         getColor={this.handleColor}
+                        archiveCreate={this.handleClose}
                         />
                         {/* <UndoOutlined style={{ fontSize: "large" }}></UndoOutlined>
                         <RedoOutlined style={{ fontSize: "large" }}></RedoOutlined> */}

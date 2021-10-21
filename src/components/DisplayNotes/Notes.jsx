@@ -1,30 +1,39 @@
-import React, { useState } from "react";
+import React, { Component } from 'react'
 import Icons from "../Icons/Icons";
+import UserServices from '../../services/UserServices';
 
-const Notes = (props) => {
-  
-    const [newNote, setNewNote] = useState(false);
+const obj = new UserServices();
 
-    const newNotes1 = () => {
-        setNewNote(!newNote);
+export class Notes extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            newNote: false,
+        }
+    }
+
+    newNotes1 = () => {
+        this.setState({newNote: true});
     };
-
-    const {classes} = props;
-
-    return (
-        <div className="notes" onMouseEnter={newNotes1}>
+    
+    render() {
+        const {classes} = this.props;
+        return (
+            <div className="notes" onMouseEnter={this.newNotes1}>
             <div className="note1_content" style={{
-                backgroundColor: props.index.color,
+                backgroundColor: this.props.index.color,
             }}>
-                <h4>{props.index.title}</h4>
-                <div className="content1">{props.index.description}</div>
+                <h4>{this.props.index.title}</h4>
+                <div className="content1">{this.props.index.description}</div>
                 <Icons colorval="update"
-                val = {props.index}
-                id= {props.index.id}
+                val = {this.props.index}
+                id= {this.props.index.id}
                 />
             </div>
         </div>
-    );
-};
+        )
+    }
+}
 
 export default Notes;

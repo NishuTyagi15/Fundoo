@@ -15,18 +15,35 @@ export class Icons extends Component {
     
     onSetColor = (color) => {
         if (this.props.colorval === "update") {
-            let Data = {
+            let colorData = {
                 color: color.code,
                 noteIdList: [this.props.val.id]
             };
-            obj.changeColor(Data).then((response) => {
+            obj.changeColor(colorData).then((response) => {
                 console.log(response);
+                window.location.reload();
+                this.props.displayNote();
             }).catch(error => {
                 console.log(error);
             });
+            console.log(color);
         } else {
             this.props.getColor(color.code);
         }
+    }
+
+    onArchive = () => {
+        let archive = {
+            noteIdList: [this.props.val.id],
+            isArchived: true,
+        };
+        
+        obj.archiveNotes(archive).then((response) => {
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+        })
+        console.log(archive);
     }
 
 
@@ -50,7 +67,14 @@ export class Icons extends Component {
                 >
                 </ImageOutlined>
                 <ArchiveOutlined
-                    style={{ fontSize: "large" }}
+                    style={{ fontSize: "large" }} onClick={() => {
+                        if (this.props.colorval === "update") {
+                            this.onArchive()
+                        }
+                        else {
+                            this.props.archiveCreate()
+                        }
+                    }}
                 >
                 </ArchiveOutlined>
                 <MoreVertOutlined

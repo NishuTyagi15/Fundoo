@@ -36,7 +36,10 @@
     }
     .note1_content {
         width: 32vw;
-        height: 15vh;
+        height: 19vh;
+    }
+    .content1 {
+        margin: -1rem 1rem 1rem;
     }
 }
 
