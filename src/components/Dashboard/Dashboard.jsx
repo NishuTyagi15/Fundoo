@@ -17,13 +17,9 @@ export class Dashboard extends Component {
     displayNote = () => {
         obj.displayNotes()
         .then((response) => {
-            // this.setState ({
-            //     notesarr: response.data.data.data
-            // })
-
             var newarr=[]
             response.data.data.data.filter((index) => {
-                if(index.isArchived != true) {
+                if(index.isArchived != true && index.isDeleted !=true) {
                     newarr.push(index)
                 }
             })

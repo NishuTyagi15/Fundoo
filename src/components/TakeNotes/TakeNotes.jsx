@@ -24,6 +24,7 @@ export class TakeNotes extends Component {
             description: "",
             color:"#ffffff",
             isArchived: false,
+            isDeleted : false,
             snackbaropen: false, 
             snackbarmsg: "",
         }
@@ -38,7 +39,6 @@ export class TakeNotes extends Component {
         this.setState({
             color:data
         });
-
     }
 
     handleClose = () => {
@@ -67,13 +67,14 @@ export class TakeNotes extends Component {
             "description": this.state.description,
             "color": this.state.color,
             "isArchived": this.state.isArchived,
+            "isDeleted" : this.state.isDeleted,
         }
         console.log(notesObj);
         obj.notes(notesObj).then((response)=>{
             console.log(response);
             localStorage.setItem("token", response.data.id);
-            this.setState({snackbaropen:true, color:"#FFFFFF", title: "", description:"", snackbarmsg: "Data added!"});
             this.props.displayNote();
+            this.setState({snackbaropen:true, color:"#FFFFFF", title: "", description:"", snackbarmsg: "Data Added!"});
         }).catch((error)=>{
             console.log(error);
             this.setState({snackbaropen:true, snackbarmsg: "Data not Added!"})
@@ -153,7 +154,7 @@ export class TakeNotes extends Component {
                         val={this.state}  
                         getColor={this.handleColor}
                         archiveCreate={this.handleClose}
-                        displayNote = {this.props.displayNote}
+                        // displayNote = {this.props.display}
                         />
                         {/* <UndoOutlined style={{ fontSize: "large" }}></UndoOutlined>
                         <RedoOutlined style={{ fontSize: "large" }}></RedoOutlined> */}

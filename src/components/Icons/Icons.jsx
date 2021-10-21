@@ -4,9 +4,10 @@ import ColorPalette from './ColorPalette';
 import UserServices from '../../services/UserServices';
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import { Snackbar, IconButton} from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
 import AddAlertOutlined from '@mui/icons-material/AddAlertOutlined';
 import PersonAddOutlined from '@mui/icons-material/PersonAddOutlined';
-// import ColorLensOutlined from '@mui/icons-material/ColorLensOutlined';
 import ImageOutlined from '@mui/icons-material/ImageOutlined';
 import MoreVertOutlined from '@mui/icons-material/MoreVertOutlined';
 import ArchiveOutlined from '@mui/icons-material/ArchiveOutlined';
@@ -21,10 +22,11 @@ export class Icons extends Component {
         this.state = {
             anchorEl: null,
             openStatus: false,
+            snackbaropen: false, 
+            snackbarmsg: "",
         }
     }
-    
-    
+      
     onSetColor = (color) => {
         if (this.props.colorval === "update") {
             let colorData = {
@@ -52,11 +54,32 @@ export class Icons extends Component {
         obj.archiveNotes(archive).then((response) => {
             console.log(response);
             this.props.displayNote();
+            this.setState({snackbaropen:true, snackbarmsg: "Data is Archived!"})
         }).catch(error => {
             console.log(error);
+            this.setState({snackbaropen:true, snackbarmsg: "Data not Archived!"})
         })
         console.log(archive);
     }
+
+    onDelete = () => {
+        let deleteNote = {
+            noteIdList: [this.props.val.id],
+            isDeleted: true,
+        };
+        
+        obj.deleteNotes(deleteNote).then((response) => {
+            console.log(response);
+            this.props.displayNote();
+        }).catch(error => {
+            console.log(error);
+        })
+        console.log(deleteNote);
+    }
+
+    snackbarClose = (event) => {
+        this.setState({snackbaropen: false});
+    };
 
     menuClick = (event) => {
         this.setState({
@@ -74,19 +97,29 @@ export class Icons extends Component {
     render() {
         return (
             <>
+                <Tooltip title="Reminder">
                 <AddAlertOutlined
                     style={{ fontSize: "large" }}
                 />
+                </Tooltip>
+                <Tooltip title="Collaborator">
+
                 <PersonAddOutlined
                     style={{ fontSize: "large" }}
                 />
+                </Tooltip>
+                <Tooltip title="Color">
                 <ColorPalette
                     putColor={(Data) => {
                     this.onSetColor(Data);
                 }} />
+                </Tooltip>
+                <Tooltip title="Image">
                 <ImageOutlined
                     style={{ fontSize: "large" }}
                 />
+                </Tooltip>
+                <Tooltip title="Archive">
                 <ArchiveOutlined
                     style={{ fontSize: "large" }} onClick={() => {
                         if (this.props.colorval === "update") {
@@ -97,10 +130,14 @@ export class Icons extends Component {
                         }
                     }}
                 />
+                </Tooltip>
+                <Tooltip title="Menu">
                 <MoreVertOutlined
                     style={{ fontSize: "large" }}
                     onClick={this.menuClick}
                 />
+                </Tooltip>
+
                 <Menu
                     id="simple-menu"
                     keepMounted
@@ -109,8 +146,8 @@ export class Icons extends Component {
                     open={Boolean(this.state.anchorEl)}
                 >
                     <MenuItem className="popover" onClick={() => {
-                        if (this.props.deleteNote === "deleteUpdate") {
-                            this.props.delete()
+                        if (this.props.colorval === "update") {
+                            this.onDelete()
                             this.handleClose()
                         }
                         else{
@@ -124,6 +161,18 @@ export class Icons extends Component {
                     <MenuItem >Show Checkboxes</MenuItem>
                     <MenuItem >Copy to Google Docs</MenuItem>
                 </Menu>
+                <Snackbar
+                    anchorOrigin= {{vertical:'bottom', horizontal:'right'}}
+                    open = {this.state.snackbaropen}
+                    autoHideDuration = {3000}
+                    onClose = {this.snackbarClose}
+                    message = {<span id= "message_id">{this.state.snackbarmsg}</span>}
+                    action ={[
+                    <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
+                        X
+                    </IconButton>
+                    ]}
+                />
             </>
         )
     }

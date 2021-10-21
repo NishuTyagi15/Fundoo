@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./DisplayNotes.css"
 import Notes from "./Notes";
 
