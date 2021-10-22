@@ -49,8 +49,8 @@
   
 /* color palette */
 .pop {
-    position: absolute;
-    z-index: 10000;
+    position: absolute !important;
+    z-index: 10000 !important;
     border-radius: 3px;
     width: 10.5vw;
     display: flex;

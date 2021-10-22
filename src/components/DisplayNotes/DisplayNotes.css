@@ -58,17 +58,17 @@
 }
 
 .dialog_icon {
-    position: absolute;
+    position: absolute !important;
     left: -1.5rem;
     top: 10rem;
     width: 40vw;
-    z-index: 2;
+    z-index: 2 !important;
     cursor: pointer;
 }
 
 .popup {
-    position: absolute;
-    z-index: 2;
+    position: absolute !important;
+    z-index: 2 !important;
 }
 
 .button {

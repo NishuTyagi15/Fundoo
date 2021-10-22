@@ -41,8 +41,8 @@ const Notes = (props) => {
     const onUpdate = () => {
         let updateData = {
             noteId: props.index.id,
-            title: {title},
-            description: {description},
+            title: title,
+            description: description,
         };
         obj.updateNotes(updateData).then((response) => {
             console.log(response);

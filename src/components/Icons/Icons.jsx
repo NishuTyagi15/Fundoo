@@ -21,7 +21,7 @@ export class Icons extends Component {
     
         this.state = {
             anchorEl: null,
-            openStatus: false,
+            open: false,
             snackbaropen: false, 
             snackbarmsg: "",
         }
@@ -60,7 +60,7 @@ export class Icons extends Component {
             this.setState({snackbaropen:true, snackbarmsg: "Note is not Archived!"})
         })
         console.log(archive);
-    } 
+    }
 
     onDelete = () => {
         let deleteNote = {
@@ -71,7 +71,7 @@ export class Icons extends Component {
         obj.deleteNotes(deleteNote).then((response) => {
             console.log(response);
             this.props.displayNote();
-            this.setState({snackbaropen:true, snackbarmsg: "Note Deleted!"})
+            this.setState({snackbaropen:true, open: false, snackbarmsg: "Note Deleted!"})
         }).catch(error => {
             console.log(error);
             this.setState({snackbaropen:true, snackbarmsg: "Note is Not Deleted!"})
@@ -151,6 +151,9 @@ export class Icons extends Component {
                         if (this.props.colorval === "update") {
                             this.onDelete()
                             this.handleClose()
+                            this.setState({
+                                open: false
+                            })
                         }
                         else{
                             this.props.deleteCreate()
