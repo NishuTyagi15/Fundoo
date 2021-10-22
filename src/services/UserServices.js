@@ -31,7 +31,7 @@ class UserServices {
         return response;
     }
     displayNotes(){
-        let response = obj.getMethod(`${baseurl}notes/getNotesList`, headerconfig);
+        let response = obj.getMeth(`${baseurl}notes/getNotesList`, headerconfig);
         return response;
     }
     changeColor(data){
@@ -51,11 +51,15 @@ class UserServices {
         return response;
     }
     getArchiveNotes(){
-        let response = obj.getMethod(`${baseurl}notes/getArchiveNotesList`, headerconfig);
+        let response = obj.getMeth(`${baseurl}notes/getArchiveNotesList`, headerconfig);
         return response;
     }
     getTrashNotes(){
-        let response = obj.getMethod(`${baseurl}notes/getTrashNotesList`, headerconfig);
+        let response = obj.getMeth(`${baseurl}notes/getTrashNotesList`, headerconfig);
+        return response;
+    }
+    signOut(data){
+        let response = obj.postMeth(`${baseurl}user/logout`, {}, headerconfig);
         return response;
     }
 }

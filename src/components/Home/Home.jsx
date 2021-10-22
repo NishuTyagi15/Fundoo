@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './Home.css';
-import Archive from '../../pages/Archive/Archive';
-import Trash from '../../pages/Trash/Trash';
-// import Notes from '../../components/DisplayNotes/Notes';
+import Popover from '../Home/Signout'
 import keep from './keep.png';
 import { styled, useTheme, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -147,10 +145,22 @@ export default function Home() {
   // Drawer
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleDrawerOpen = () => {
     setOpen(!open);
   };
+
+  // const handleClick = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
+
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
+
+  // const open1 = Boolean(anchorEl);
+  // const id = open1 ? 'simple-popover' : undefined;
 
   return (
     <div className = "dash">
@@ -199,6 +209,9 @@ export default function Home() {
                 className="apps"
               >
                 <AppsIcon/>    
+              </IconButton>
+              <IconButton>
+                <Popover/>
               </IconButton>
             </Box>
           </Toolbar>
