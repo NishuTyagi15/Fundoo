@@ -45,12 +45,9 @@
     margin-top: 20px;
 }
 
-.MuiButton-containedPrimary {
+.signout {
     color: #000 !important;
     background: transparent !important;
     border: 1px solid lightgray !important;
-}
-
-.MuiButton-contained {
     box-shadow: none !important;
 }
