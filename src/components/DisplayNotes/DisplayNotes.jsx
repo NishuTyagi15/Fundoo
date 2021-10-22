@@ -1,6 +1,6 @@
 import React from "react";
 import "./DisplayNotes.css"
-import Notes from "./Notes";
+import Notes from '../DisplayNotes/Notes'
 
 
 const DisplayNotes = (props) => { 

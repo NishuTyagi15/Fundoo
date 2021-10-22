@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import '../Dashboard/Home.css';
-import Dashboard from '../../components/Dashboard/Dashboard';
-import Archive from '../Archive/Archive';
-import Trash from '../Trash/Trash';
+import './Home.css';
+import Archive from '../../pages/Archive/Archive';
+import Trash from '../../pages/Trash/Trash';
 // import Notes from '../../components/DisplayNotes/Notes';
-import keep from '../Dashboard/keep.png';
+import keep from './keep.png';
 import { styled, useTheme, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -212,10 +211,10 @@ export default function Home() {
             {['Notes', 'Reminders', 'Edit Labels', 'Archive', 'Bin'].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
-                  {index <= 0 ? <LightbulbOutlinedIcon /> : <InboxIcon /> && index <= 1 ? <NotificationsNoneIcon /> : <InboxIcon />
+                  {index <= 0 ? <Link to="/home" ><LightbulbOutlinedIcon /></Link> : <InboxIcon /> && index <= 1 ? <NotificationsNoneIcon /> : <InboxIcon />
                     && index <= 2 ? <ModeEditOutlineOutlinedIcon /> : <InboxIcon />
-                    && index <= 3 ? <ArchiveOutlinedIcon /> : <InboxIcon />
-                    && index <= 4 ? <DeleteOutlineOutlinedIcon /> : <InboxIcon />}
+                    && index <= 3 ? <Link to="/archive" ><ArchiveOutlinedIcon /></Link> : <InboxIcon />
+                    && index <= 4 ? <Link to="/trash" ><DeleteOutlineOutlinedIcon /></Link> : <InboxIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
@@ -228,14 +227,8 @@ export default function Home() {
         </Box>
       </Box>
 
-      <Dashboard />
       <div className="nav_part">
-      <Router>
-        <Switch>
-          <Route path="/archive" component={Archive} />
-          <Route path="/trash" component={Trash} />
-        </Switch>
-      </Router>
+      
     </div>
 
     </div>
