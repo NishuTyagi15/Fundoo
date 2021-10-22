@@ -42,17 +42,23 @@
 .textarea{
     color: black !important;
 }
+
+.button1 {
+    left: 1rem;
+}
   
 /* color palette */
 .pop {
+    position: absolute;
+    z-index: 10000;
     border-radius: 3px;
-    max-width: 10.5vw;
+    width: 10.5vw;
     display: flex;
-    flex-direction: row;
     flex-flow: wrap;
     padding: 0.5rem;
     border: 1px solid lightgray;
     background-color: white;
+    top: -7rem;
 }
 
 .palette_main {

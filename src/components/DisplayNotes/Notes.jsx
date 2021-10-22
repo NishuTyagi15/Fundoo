@@ -9,12 +9,15 @@ const obj = new UserServices();
 const Notes = (props) => {
 
     const [newNote, setNewNote] = useState(false);
+    const [open, setOpen] = React.useState(false);
+    const [value, setValue] = useState(null);
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+
 
     const newNotes1 = () => {
         setNewNote(!newNote);
     };
-
-    const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -30,35 +33,37 @@ const Notes = (props) => {
         });
     }
 
-
-    const [value, setValue] = useState(null)
     const handleInput = (e) => {
         setValue(e.target.value);
+        console.log(e.target.value);
     }
         
     const onUpdate = () => {
         let updateData = {
             noteId: props.index.id,
-            title: props.index.title,
-            description: props.index.description
+            title: {title},
+            description: {description},
         };
         obj.updateNotes(updateData).then((response) => {
             console.log(response);
+            setOpen(false);
         }).catch(error => {
             console.log(error);
+            setOpen(false);
         })
-        setOpen(false);
     }
 
     const {classes} = props;
 
     return (
-        <div className="notes" onMouseEnter={newNotes1} onClick={handleClickOpen}>
+        <div className="notes" onMouseEnter={newNotes1}>
             <div>
                 <Dialog open={open} onClose={handleClose}>
                     <div style={{
                         backgroundColor: props.index.color,
-                    }}>
+                    }}
+                    className="popup"
+                    >
                     <p>
                         <input
                             className="input1"
@@ -85,6 +90,11 @@ const Notes = (props) => {
                         <Icons
                             archive={() => {
                                 this.onArchive();
+                                setOpen(false);
+                            }}
+                            delete = {() => {
+                                this.onDelete();
+                                setOpen(false);
                             }}
                             colorval="update"
                             val = {props.index}
@@ -102,8 +112,9 @@ const Notes = (props) => {
                 backgroundColor: props.index.color,
                 }}
             >
-                <h4>{props.index.title}</h4>
-                <div className="content1">{props.index.description}</div>
+                <div onClick={handleClickOpen}>
+                <h4 className="head">{props.index.title}</h4>
+                <div className="content1">{props.index.description}</div></div>
                 <Icons colorval="update"
                 val = {props.index}
                 id= {props.index.id}

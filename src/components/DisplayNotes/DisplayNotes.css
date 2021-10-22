@@ -28,9 +28,11 @@
 /* dialog box */
 .MuiDialog-paperWidthSm {
     width: 45vw !important;
-    height: 36vh !important;
+    height: 32.9vh !important;
     border-radius: 15px !important;
     overflow: hidden !important;
+    position: absolute !important;
+    z-index: 1 !important;
 }
 
 .input1 {
@@ -51,10 +53,28 @@
     margin: 2% 3% 12%;
 }
 
+.head {
+    margin-left: 1rem !important;
+}
+
 .dialog_icon {
-    position: relative;
-    left: -1.8rem;
+    position: absolute;
+    left: -1.5rem;
+    top: 10rem;
+    width: 40vw;
+    z-index: 2;
     cursor: pointer;
+}
+
+.popup {
+    position: absolute;
+    z-index: 2;
+}
+
+.button {
+    position: absolute !important;
+    left: 29rem !important;
+    top: 0rem;
 }
 
 /* .button1 {

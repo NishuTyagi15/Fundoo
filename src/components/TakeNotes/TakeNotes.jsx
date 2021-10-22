@@ -158,7 +158,7 @@ export class TakeNotes extends Component {
                         />
                         {/* <UndoOutlined style={{ fontSize: "large" }}></UndoOutlined>
                         <RedoOutlined style={{ fontSize: "large" }}></RedoOutlined> */}
-                        <Button className="button" onClick ={this.normal}>Close</Button>
+                        <Button className="button1" onClick ={this.normal}>Close</Button>
                     </div>
                 </form>
             )}

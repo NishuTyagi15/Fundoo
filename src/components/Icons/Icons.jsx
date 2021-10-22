@@ -60,7 +60,7 @@ export class Icons extends Component {
             this.setState({snackbaropen:true, snackbarmsg: "Note is not Archived!"})
         })
         console.log(archive);
-    }
+    } 
 
     onDelete = () => {
         let deleteNote = {
@@ -156,7 +156,7 @@ export class Icons extends Component {
                             this.props.deleteCreate()
                         }
                     }
-                    }>Delete Node</MenuItem>
+                    }>Delete Note</MenuItem>
                     <MenuItem >Add Label</MenuItem>
                     <MenuItem >Add Drawing</MenuItem>
                     <MenuItem >Make a Copy</MenuItem>
