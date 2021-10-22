@@ -10,9 +10,9 @@ const Notes = (props) => {
 
     const [newNote, setNewNote] = useState(false);
     const [open, setOpen] = React.useState(false);
-    const [value, setValue] = useState(null);
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
+    // const [value, setValue] = useState(null);
+    const [title, setTitle] = React.useState(props.index.title);
+    const [description, setDescription] = React.useState(props.index.description);
 
 
     const newNotes1 = () => {
@@ -33,23 +33,24 @@ const Notes = (props) => {
         });
     }
 
-    const handleInput = (e) => {
-        setValue(e.target.value);
-        console.log(e.target.value);
-    }
+    // const handleInput = (e) => {
+    //     setValue(e.target.value);
+    //     console.log(e.target.value);
+    // }
         
     const onUpdate = () => {
         let updateData = {
             noteId: props.index.id,
-            title: title,
-            description: description,
+            "title": title,
+            "description": description,
         };
         obj.updateNotes(updateData).then((response) => {
             console.log(response);
-            setOpen(false);
+            handleClose();
+            props.displayNote();
         }).catch(error => {
             console.log(error);
-            setOpen(false);
+            handleClose();
         })
     }
 
@@ -70,8 +71,9 @@ const Notes = (props) => {
                             name="title"
                             defaultValue={props.index.title}
                             multiline
-                            onChange={handleInput}
-                            style={{
+                            onChange= {(e) => 
+                                setTitle(e.target.value)   
+                            }                            style={{
                                 backgroundColor: props.index.color
                             }}
                         />
@@ -80,7 +82,9 @@ const Notes = (props) => {
                             name="description"
                             defaultValue={props.index.description}
                             multiline
-                            onChange={handleInput}
+                            onChange= { (e) => 
+                                setDescription(e.target.value)
+                            }                            
                             style={{
                                 backgroundColor: props.index.color
                             }}
@@ -90,11 +94,11 @@ const Notes = (props) => {
                         <Icons
                             archive={() => {
                                 this.onArchive();
-                                setOpen(false);
+                                // setOpen(false);
                             }}
                             delete = {() => {
                                 this.onDelete();
-                                setOpen(false);
+                                // setOpen(false);
                             }}
                             colorval="update"
                             val = {props.index}

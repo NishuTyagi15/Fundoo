@@ -6,6 +6,8 @@ import SignIn from '../src/pages/Login/SignIn';
 import ResetPass from './pages/ResetPassword/ResetPass';
 import ForgotEmail from '../src/pages/ForgotEmail/ForgotEmail';
 import Home from '../src/pages/Dashboard/Home';
+import Archive from '../src/pages/Archive/Archive';
+import Trash from '../src/pages/Trash/Trash';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/SignUp" component={SignUp} />
           <Route path="/forgotemail" component={ForgotEmail} />
           <Route path="/home" component={Home} />
+          <Route path="/archive" component={Archive} />]
+          <Route path="/trash" component={Trash} />
         </Switch>
       </Router>
     </div>

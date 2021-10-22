@@ -2,8 +2,9 @@ import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import '../Dashboard/Home.css';
 import Dashboard from '../../components/Dashboard/Dashboard';
-import Archive from '../Archive/Archive'
-import Notes from '../../components/DisplayNotes/Notes';
+import Archive from '../Archive/Archive';
+import Trash from '../Trash/Trash';
+// import Notes from '../../components/DisplayNotes/Notes';
 import keep from '../Dashboard/keep.png';
 import { styled, useTheme, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -231,7 +232,8 @@ export default function Home() {
       <div className="nav_part">
       <Router>
         <Switch>
-          <Route path="Archive" component={Archive} />
+          <Route path="/archive" component={Archive} />
+          <Route path="/trash" component={Trash} />
         </Switch>
       </Router>
     </div>

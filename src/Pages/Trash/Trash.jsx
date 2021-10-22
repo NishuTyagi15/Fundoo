@@ -9,16 +9,16 @@ export class Archive extends Component {
         super(props)
 
         this.state = {
-            notesarr: []
+             notesarr: []
         }
     }
 
-    archiveNote = () => {
-        obj.getArchiveNotes()
+    trashNote = () => {
+        obj.getTrashNotes()
         .then((response) => {
             var newarr=[]
             response.data.data.data.filter((index) => {
-                if(index.isArchived === true && index.isDeleted !=true) {
+                if(index.isArchived !=true && index.isDeleted === true) {
                     newarr.push(index)
                 }
             })
@@ -31,15 +31,14 @@ export class Archive extends Component {
         });
     }
     componentDidMount() {
-        this.archiveNote();
+        this.trashNote();
     }
-
 
     render() {
         console.log(this.state.notesarr);
         return (
             <div>
-                <DisplayNotes notesarr = {this.state.notesarr} displayNote={this.archiveNote}/>
+                <DisplayNotes notesarr = {this.state.notesarr} displayNote={this.trashNote}/>
             </div>
         )
     }
