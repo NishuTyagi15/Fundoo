@@ -10,8 +10,14 @@
 .note1_content {
     border: 1px solid rgb(228, 225, 225);
     border-radius: 8px;
-    height: 21vh;
-    width: 17vw;
+    min-height: 22vh;
+    min-width: 17vw;
+    display: block;
+}
+
+.notes :hover .d_icons {
+    display: block;
+    color: #0f0f0f;
 }
 
 .note1_content > h4 {
@@ -23,6 +29,11 @@
 .content1 {
     margin: -1rem 1rem 1.5rem;
     font-size: 0.875rem;
+}
+
+.d_icons {
+    display: none;
+    margin-top: 2.3rem;    
 }
 
 /* dialog box */
@@ -66,6 +77,10 @@
     cursor: pointer;
 }
 
+textarea:focus, input:focus{
+    outline: none;
+}
+
 .popup {
     position: absolute !important;
     z-index: 2 !important;
@@ -91,11 +106,23 @@
         top: 19rem;
     }
     .note1_content {
-        width: 32vw;
-        height: 19vh;
+        min-width: 32vw;
+        min-height: 19vh;
     }
     .content1 {
         margin: -1rem 1rem 1rem;
+    }
+    .MuiDialog-paperWidthSm {
+        width: 45vw !important;
+        height: 25.5vh !important;
+    }
+    .dialog_icon {
+        top: 8rem;
+        left: -0.7rem;
+        width: 46vw;        
+    }
+    .button {
+        left: 18rem !important;        
     }
 }
 
@@ -106,7 +133,7 @@
         top: 15rem;
     }
     .note1_content {
-        width: 100vw;
-        height: 18vh;
+        min-width: 100vw;
+        min-height: 20vh;
     }
 }

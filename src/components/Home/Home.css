@@ -78,6 +78,10 @@
     border: none;
 }
 
+.MuiListItem-gutters {
+    padding-left: 21px !important;
+}
+
 /* media queries */
 
 @media only screen and (min-width: 768px) and (max-width:1024px) {
@@ -99,6 +103,12 @@
     .MuiAvatar-root {
         margin-left: 1rem;
     }
+    .MuiBadge-root {
+        margin-right: 15px !important;
+    }
+    .MuiListItem-gutters {
+        padding-left: 19px !important;
+    }
 }
 
 @media only screen and (min-width: 360px) and (max-width:640px) {
@@ -108,6 +118,7 @@
     .css-96uuyl {
         height: 0vh !important;
         width: 0vw !important;
+        margin-left: 6% !important;
     }
     .css-8u39c-MuiTypography-root {
         width: 4vw;
@@ -117,11 +128,18 @@
     }
     .css-1guk29 {
         display: block !important;
-        margin-right: 9% !important;
+        margin-right: 5% !important;
     }
     .MuiBadge-root {
         margin-right: 32% !important;
     }
-    .MuiAvatar-root {
+    .MuiBadge-root {
+        margin-right: 26px !important;
+    }
+    .list {
+        display: none !important;
+    }
+    .MuiListItem-gutters {
+        padding-left: 10px !important;
     }
 }

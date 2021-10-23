@@ -112,6 +112,7 @@ export class Icons extends Component {
                 </Tooltip>
                 <Tooltip title="Color">
                 <ColorPalette
+                    className="colorpalette"
                     putColor={(Data) => {
                     this.onSetColor(Data);
                 }} />

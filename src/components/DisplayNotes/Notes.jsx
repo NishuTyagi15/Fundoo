@@ -10,7 +10,6 @@ const Notes = (props) => {
 
     const [newNote, setNewNote] = useState(false);
     const [open, setOpen] = React.useState(false);
-    // const [value, setValue] = useState(null);
     const [title, setTitle] = React.useState(props.index.title);
     const [description, setDescription] = React.useState(props.index.description);
 
@@ -32,11 +31,6 @@ const Notes = (props) => {
             color:data
         });
     }
-
-    // const handleInput = (e) => {
-    //     setValue(e.target.value);
-    //     console.log(e.target.value);
-    // }
         
     const onUpdate = () => {
         let updateData = {
@@ -70,7 +64,7 @@ const Notes = (props) => {
                             className="input1"
                             name="title"
                             defaultValue={props.index.title}
-                            multiline
+                            multiline={true}
                             onChange= {(e) => 
                                 setTitle(e.target.value)   
                             }                            style={{
@@ -80,6 +74,7 @@ const Notes = (props) => {
                         <input
                             className="input2" 
                             name="description"
+                            multiline={true}
                             defaultValue={props.index.description}
                             multiline
                             onChange= { (e) => 
@@ -119,11 +114,13 @@ const Notes = (props) => {
                 <div onClick={handleClickOpen}>
                 <h4 className="head">{props.index.title}</h4>
                 <div className="content1">{props.index.description}</div></div>
+                <div className="d_icons">
                 <Icons colorval="update"
                 val = {props.index}
                 id= {props.index.id}
                 displayNote={props.displayNote}
                 />
+                </div>
             </div>
         </div>
     )

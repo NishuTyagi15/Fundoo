@@ -108,7 +108,7 @@ export class TakeNotes extends Component {
             {this.state.hide && (
                 <form id="form1">         
                     <p>
-                        <input className="forminput2" aria-label="empty textarea" placeholder="Take a note..."  onClick={this.expand} />
+                        <input className="forminput2" multiline aria-label="empty textarea" placeholder="Take a note..."  onClick={this.expand} />
                         <IconButton size="large" >
                             <CheckBoxOutlined className="check"/>
                         </IconButton>
@@ -130,6 +130,7 @@ export class TakeNotes extends Component {
                             className="forminput1"
                             type="text"
                             placeholder="Title"
+                            multiline
                             name="title"
                             id="title"
                             onChange={e => this.change(e)}
@@ -141,6 +142,7 @@ export class TakeNotes extends Component {
                             className="forminput2" 
                             name="description" 
                             id="description" 
+                            multiline
                             aria-label="empty textarea" 
                             placeholder="Take a Note..." 
                             onChange={e => this.change(e)}

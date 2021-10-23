@@ -23,7 +23,7 @@
 }
 
 .css-i4bv87-MuiSvgIcon-root {
-    margin-left: 8%;
+    margin-left: 7%;
     color: rgb(73, 68, 68) !important;
 }
 
@@ -36,6 +36,17 @@
     font-size: 0.9rem !important;
 }
 
+.colorpalette {
+    font-size: 1.25rem !important;
+} 
+
 /* .MuiMenu-paper {
     top: 24.8rem !important;
 } */
+
+@media only screen and (min-width: 360px) and (max-width:640px) {
+    #icons{
+        margin-left: 7%;
+        width: 57vw;
+    }
+}

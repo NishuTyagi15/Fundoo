@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "../TakeNotes/TakeNotes.css"
 import Popper from '@material-ui/core/Popper';
+import Tooltip from '@mui/material/Tooltip';
 import ColorLensOutlinedIcon from "@mui/icons-material/ColorLensOutlined";
 
   
@@ -56,7 +57,8 @@ const ColorPalette = (props) => {
   
     return (
         <>
-        <ColorLensOutlinedIcon  onClick={handleClick}/>
+        <Tooltip title="Color Palette">
+        <ColorLensOutlinedIcon className="colorpalette" onClick={handleClick}/></Tooltip>
             <Popper  open={open} anchorEl={anchorEl} placement={'top-start'} transition>
                 <div className="pop">{colors.map(colordemo)}</div>
             </Popper>
