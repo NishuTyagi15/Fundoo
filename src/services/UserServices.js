@@ -58,8 +58,12 @@ class UserServices {
         let response = obj.getMeth(`${baseurl}notes/getTrashNotesList`, headerconfig);
         return response;
     }
-    signOut(data){
+    signOut(){
         let response = obj.postMeth(`${baseurl}user/logout`, {}, headerconfig);
+        return response;
+    }
+    searchCollab(data){
+        let response = obj.postMeth(`${baseurl}user/searchUserList`, data, headerconfig);
         return response;
     }
 }

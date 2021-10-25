@@ -103,6 +103,7 @@ const Notes = (props) => {
                             getColor={handleColor}
                             displayNote={props.displayNote}
                             archiveNotes="archiveUpdate"
+                            handleClose={handleClose}
                         />
                         <Button className="button" onClick ={onUpdate}>Close</Button>
                     </div>

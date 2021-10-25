@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import TakeNotes from '../../components/TakeNotes/TakeNotes';
-import DisplayNotes from '../../components/DisplayNotes/DisplayNotes'
+import TakeNotes from '../TakeNotes/TakeNotes';
+import DisplayNotes from '../DisplayNotes/DisplayNotes'
 import UserServices from '../../services/UserServices';
 
 const obj = new UserServices();

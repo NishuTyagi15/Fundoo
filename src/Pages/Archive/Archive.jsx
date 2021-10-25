@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DisplayNotes from '../../components/DisplayNotes/DisplayNotes';
-import Home from '../../components/Home/Home';
+import Home from '../Home/Home';
 import UserServices from "../../services/UserServices";
 import '../Archive/Archive.css';
 

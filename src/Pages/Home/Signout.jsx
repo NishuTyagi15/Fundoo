@@ -1,6 +1,6 @@
 import React from 'react';
-import '../Home/Signout.css';
-import pic from '../Home/pic.jpg';
+import './Signout.css';
+import pic from './pic.jpg';
 import UserServices from '../../services/UserServices';
 import Popper from '@material-ui/core/Popper';
 import Avatar from '@material-ui/core/Avatar';

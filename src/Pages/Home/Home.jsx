@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './Home.css';
-import Popover from '../Home/Signout'
-import Dashboard from '../../pages/Dashboard/Dashboard';
-import Archive from '../../pages/Archive/Archive';
-import Trash from '../../pages/Trash/Trash'
+import Popover from './Signout'
+import Dashboard from '../../components/Dashboard/Dashboard';
+import Archive from '../Archive/Archive';
+import Trash from '../Trash/Trash'
 import keep from './keep.png';
 import { styled, useTheme, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';

@@ -1,0 +1,91 @@
+@mixin  input($size) {
+    font-size: $size;
+    margin-left: 20px;
+}
+@mixin  align($width,$justify-content) {
+    display: flex;
+    width: $width;
+    justify-content: $justify-content;
+    align-items: center;
+}
+
+.dialog_body {
+    width: 570px;
+    min-height: 160px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.collab {
+    border-bottom: 1px solid #e4d6d6;
+    font-weight: 1000;
+    font-size: 1.4rem;
+}
+
+.owner {
+    display: flex;
+    margin: 0.9rem 0rem 0rem -3rem;
+}
+
+.avatar_img {
+    margin-left: 22px;
+    margin-top: 7px;
+}
+.name_txt {
+    @include input(15px);
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.email_txt {
+    @include input(0.8rem);
+}
+
+.plus_person {
+    margin-top: 1rem;
+    margin-left: 6px;
+    width: 38px;
+    height: 38px;
+    border: 2px solid #BDBDBD;
+    border-radius: 29px;
+    padding: 5px;
+    color: #BDBDBD;
+}
+
+.search1 {
+    @include align(300px, space-between);
+}
+
+.search_text {
+    text-decoration: none;
+    margin-left: 16px !important;
+    width: 300px;
+}
+
+.MuiInputBase-multiline {
+    padding: 20px 0 7px !important;
+}
+
+.MuiInputBase-inputMultiline {
+    font-size: 0.8rem !important;
+}
+
+.collab_btn {
+    margin-top: 0rem;
+    display: flex;
+    flex-direction: row-reverse;
+    cursor: pointer;
+}
+
+.cancel_btn {
+    margin-right: 3rem;
+}
+
+.email_list {
+    position: absolute !important;
+    top: 9rem !important;
+    left: 3.4rem;
+    z-index: 100 !important;
+}

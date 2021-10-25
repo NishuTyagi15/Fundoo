@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../Icons/Icons.css';
 import ColorPalette from './ColorPalette';
 import UserServices from '../../services/UserServices';
+import Collaborators from '../Collaborators/Collaborator'
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { Snackbar, IconButton} from '@mui/material';
@@ -22,6 +23,7 @@ export class Icons extends Component {
         this.state = {
             anchorEl: null,
             open: false,
+            openStatus: false,
             snackbaropen: false, 
             snackbarmsg: "",
         }
@@ -60,12 +62,12 @@ export class Icons extends Component {
         obj.archiveNotes(archive).then((response) => {
             console.log(response);
             this.props.displayNote();
-            this.handleClose()
+            this.props.handleClose()
             this.setState({snackbaropen:true, snackbarmsg: "Note is Archived!"})
         }).catch(error => {
             console.log(error);
             this.setState({snackbaropen:true, snackbarmsg: "Note is not Archived!"})
-            this.handleClose()
+            this.props.handleClose()
         })
         console.log(archive);
     }
@@ -79,12 +81,12 @@ export class Icons extends Component {
         obj.deleteNotes(deleteNote).then((response) => {
             console.log(response);
             this.props.displayNote();
-            this.handleClose()
+            this.props.handleClose()
             this.setState({snackbaropen:true, open: false, snackbarmsg: "Note Deleted!"})
         }).catch(error => {
             console.log(error);
             this.setState({snackbaropen:true, snackbarmsg: "Note is Not Deleted!"})
-            this.handleClose()
+            this.props.handleClose()
         })
         console.log(deleteNote);
     }
@@ -105,6 +107,17 @@ export class Icons extends Component {
         })
     };
 
+    dialogopen = () => {
+        this.setState({
+            openStatus: true
+        });
+    }
+
+    onSetStatus = (val) => {
+        this.setState({
+            openStatus: val
+        });
+    }
 
     render() {
         return (
@@ -117,6 +130,7 @@ export class Icons extends Component {
                 <Tooltip title="Collaborator">
 
                 <PersonAddOutlined
+                    onClick={this.dialogopen}
                     style={{ fontSize: "large" }}
                 />
                 </Tooltip>
@@ -188,6 +202,12 @@ export class Icons extends Component {
                         X
                     </IconButton>
                     ]}
+                />
+                <Collaborators
+                    open={this.state.openStatus}
+                    getCloseStatus={(Data) => {
+                        this.onSetStatus(Data);
+                    }}
                 />
             </>
         )
