@@ -5,22 +5,23 @@ import pic from '../../pages/Home/pic.jpg';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import Button from "@material-ui/core/Button";
 import Dialog from '@material-ui/core/Dialog';
 import Avatar from '@material-ui/core/Avatar';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import { Paper, Menu } from '@material-ui/core';
+import { Paper, Menu, Stack} from '@mui/material';
 
 const obj = new UserServices();
 
 class Collaborator extends Component {
 
     constructor(props) {
-        super(props);
+        super(props)
+
         this.state = {
             open: false,
             collaborators: '',
             collabData: [],
-            anchorEl: null,
         }
     }
 
@@ -49,13 +50,13 @@ class Collaborator extends Component {
 
     render() {
         const { classes } = this.props;
-        const userData = this.state.collabData.map((values, index) => {
+        const userData = this.state.collabData.map((val, index) => {
             return (
                 <MenuItem key={index}>
-                    {values.email}
+                    {val.email}
                 </MenuItem>
             )
-        })
+        });
         return (
             <div>
                 <Dialog
@@ -69,7 +70,7 @@ class Collaborator extends Component {
                                 <div className="avatar_img">
                                     <Avatar alt="" src={pic} />
                                 </div>
-                                <div className="owner-title">
+                                <div className="owner_title">
                                     <div className="name_txt">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}  (Owner)</div>
                                     <div className="email_txt">{localStorage.getItem('email')}</div>
                                 </div>
@@ -85,16 +86,22 @@ class Collaborator extends Component {
                                     placeholder="Person or email to share with"
                                     onChange={this.handleInput}
                                 />
-                                <div>
-                                    <Paper elevation={24}>
-                                        <MenuList className="email_list">{userData}</MenuList>
-                                    </Paper>
-                                </div>
                             </div>
+                            <Stack direction="row" spacing={2}>
+                                <Paper>
+                                    <MenuList
+                                        id="composition-menu"
+                                        aria-labelledby="composition-button"
+                                        className="email_list"
+                                    >
+                                    {userData}        
+                                    </MenuList> 
+                                </Paper>
+                            </Stack>
                         </div>
                         <div className='collab_btn'>
-                            <span className="save">Save</span>
-                            <span className="cancel_btn" onClick={this.closeDialog}>Cancel</span>
+                            <Button>Save</Button>
+                            <Button onClick={this.closeDialog}>Cancel</Button>
                         </div>
                     </div>
                 </Dialog>
