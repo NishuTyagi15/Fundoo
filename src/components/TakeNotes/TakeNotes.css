@@ -13,9 +13,14 @@
     top: 20%;
     left: 25%;
     width: 42vw;
+    min-height: 6vh;
     background: #fff;
     border-radius: 7px;
     box-shadow: 0 1px 7px rgb(128, 128, 128);
+}
+
+#form2 {
+    min-height: 21vh;    
 }
  
 .forminput1 {
@@ -33,10 +38,11 @@
     position: relative !important;
     border: none;
     font-size: 1rem;
+    font-family: sans-serif;
     width: 30vw;
     color:black !important;
     text-align: left;
-    margin: 2% 2% 2%;
+    margin: 2% 2% -3%;
 }
 
 .textarea{
@@ -67,8 +73,7 @@
     border-radius: 15px;
     margin: 3px;
     border: 1px solid lightgray;
-    cursor: pointer;
-            
+    cursor: pointer;       
 }
 
 /* .css-i4bv87-MuiSvgIcon-root {
@@ -82,6 +87,12 @@
     #form1, #form2 {
         left: -9%;
         width: 77vw;
+    }
+    #form1 {
+        min-height: 4vh;        
+    }
+    #form2 {
+        min-height: 13vh;        
     }
     .forminput2 {
         width: 53vw;
@@ -102,7 +113,24 @@
     }
 }
 
-@media screen and (min-width: 360px) and (max-width: 640px){
+@media only screen and (min-width: 630px) and (max-width:733px) {
+    #form1, #form2 {
+        left: -10%;
+        width: 80vw;
+    }
+    .forminput1 {
+        width: 44vw;        
+    }
+    .forminput2 {
+        width: 58vw;        
+    }
+    .pop {
+        width: 13.5vw; 
+        top: -5rem;       
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 630px){
     .image {
         display: none !important;
     }
@@ -110,8 +138,12 @@
         left: -3%;
         width: 100vw;
     }
-    .forminput2, .forminput2 {
+    #form2 {
+        min-height: 20vh;
+    }
+    .forminput2{
         width: 56vw;
+        margin: 2% 2% -5%;
     }
     .check {
         position: absolute;

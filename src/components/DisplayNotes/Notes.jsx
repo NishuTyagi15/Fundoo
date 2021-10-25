@@ -3,6 +3,7 @@ import Icons from "../Icons/Icons";
 import UserServices from '../../services/UserServices';
 import Dialog from '@material-ui/core/Dialog';
 import Button from '@mui/material/Button';
+import { TextareaAutosize } from '@material-ui/core';
 
 const obj = new UserServices();
 
@@ -71,7 +72,7 @@ const Notes = (props) => {
                                 backgroundColor: props.index.color
                             }}
                         />
-                        <input
+                        <TextareaAutosize
                             className="input2" 
                             name="description"
                             multiline={true}
@@ -89,6 +90,7 @@ const Notes = (props) => {
                         <Icons
                             archive={() => {
                                 this.onArchive();
+                                
                                 // setOpen(false);
                             }}
                             delete = {() => {

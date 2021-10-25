@@ -62,8 +62,6 @@
     color: #000;
   }
 
-  
-
   .user_name {
     position: absolute;
     top: 42%;
@@ -73,8 +71,8 @@
 
   .user2 {
     width : 25vw;
-  }
-  
+  } 
+
   .helper_text {
     font-size: 0.75rem;
     margin-top: 4%;
@@ -82,7 +80,7 @@
     color: gray;
   }
   
-  .button1 {
+  .button1, .button2 {
     position: absolute;
     top: 54%;
     left: 27.8%;
@@ -92,7 +90,7 @@
     cursor: pointer;
   }
   
-  .button1:hover {
+  .button1:hover, .button2:hover {
     background-color: lightblue;
     color: blue;
   }
@@ -206,7 +204,7 @@
     height: 4vh;
     width: 48vw;
   }
-  .button1 {
+  .button1, .button2 {
     left: 26%;
     top: 53%;
     font-size: 0.9rem;
@@ -240,7 +238,36 @@
   }
 }
 
-@media only screen and (min-width: 360px) and (max-width:640px) {
+@media only screen and (min-width: 630px) and (max-width:733px) {
+  .signup_main {
+    height: 85vh;
+    width: 70vw;
+    margin-left: 17%;
+    margin-top: 8%;
+  }
+  .Fundoo_signup, .title, .name_textbox, .user_name, .password_text, .para2, .checkbox, .options2 {
+    left: 23%;
+  }
+  .button2 {
+    left: 22.8%;
+    top: 55%;
+  }
+  .right_div {
+    display: none;
+  }
+  .name_textbox, .password_text, .user2 {
+    width: 59vw;    
+  }
+  .para2 {
+    font-size: 0.87rem;
+    width: 63%;
+  }
+  .options2 {
+    width: 71%;
+  }
+}
+
+@media only screen and (min-width: 360px) and (max-width:630px) {
   .right_div {
     display: none;
   }
@@ -274,7 +301,7 @@
     height: 5.5vh;
     width: 86vw;
   }
-  .button1 {
+  .button1, .button2 {
     left: 5%;
     top: 52%;
     font-size: 1rem;

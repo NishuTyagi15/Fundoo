@@ -46,7 +46,7 @@
 
 @media only screen and (min-width: 360px) and (max-width:640px) {
     #icons{
-        margin-left: 7%;
-        width: 57vw;
+        margin-left: -3%;
+        width: 80vw;
     }
 }

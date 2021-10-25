@@ -26,6 +26,12 @@ export class Icons extends Component {
             snackbarmsg: "",
         }
     }
+
+    handleClose = () => {
+        this.setState({
+            open: false
+        })
+    };
       
     onSetColor = (color) => {
         if (this.props.colorval === "update") {
@@ -54,10 +60,12 @@ export class Icons extends Component {
         obj.archiveNotes(archive).then((response) => {
             console.log(response);
             this.props.displayNote();
+            this.handleClose()
             this.setState({snackbaropen:true, snackbarmsg: "Note is Archived!"})
         }).catch(error => {
             console.log(error);
             this.setState({snackbaropen:true, snackbarmsg: "Note is not Archived!"})
+            this.handleClose()
         })
         console.log(archive);
     }
@@ -71,10 +79,12 @@ export class Icons extends Component {
         obj.deleteNotes(deleteNote).then((response) => {
             console.log(response);
             this.props.displayNote();
+            this.handleClose()
             this.setState({snackbaropen:true, open: false, snackbarmsg: "Note Deleted!"})
         }).catch(error => {
             console.log(error);
             this.setState({snackbaropen:true, snackbarmsg: "Note is Not Deleted!"})
+            this.handleClose()
         })
         console.log(deleteNote);
     }
@@ -152,9 +162,9 @@ export class Icons extends Component {
                         if (this.props.colorval === "update") {
                             this.onDelete()
                             this.handleClose()
-                            this.setState({
-                                open: false
-                            })
+                            // this.setState({
+                            //     open1: false
+                            // })
                         }
                         else{
                             this.props.deleteCreate()

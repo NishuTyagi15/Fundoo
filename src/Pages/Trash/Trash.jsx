@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import DisplayNotes from '../../components/DisplayNotes/DisplayNotes';
-import Home from '../../components/Home/Home';
 import UserServices from "../../services/UserServices";
+import '../Trash/Trash.css'
 
 const obj = new UserServices();
 
@@ -39,8 +39,9 @@ export class Archive extends Component {
         console.log(this.state.notesarr);
         return (
             <div>
-                <Home/>
-                <DisplayNotes notesarr = {this.state.notesarr} displayNote={this.trashNote}/>
+                <div className="trash_display">
+                    <DisplayNotes notesarr = {this.state.notesarr} displayNote={this.trashNote}/>
+                </div>
             </div>
         )
     }

@@ -119,7 +119,35 @@
     }
 }
 
-@media only screen and (min-width: 360px) and (max-width:640px) {
+@media only screen and (min-width: 630px) and (max-width:733px) {
+    .forgot_email {
+        height: 72vh;
+        width: 62vw;
+        margin-left: 21%;
+        margin-top: 9%;
+    }
+    .Fundoo_forgot {
+        top: 12%;
+    }
+    .heading4 {
+        top: 22%;
+        left: 40%;
+    }
+    .sub_heading4 {
+        top: 30%;
+        left: 32%;
+    }
+    .email_confirm4 {
+        top: 40%;
+        left: 27%;
+    }
+    .email4 {
+        width: 51vw;
+    }
+}
+
+
+@media only screen and (min-width: 360px) and (max-width:630px) {
     .forgot_email {
         border: none;
     }

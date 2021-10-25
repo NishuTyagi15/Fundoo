@@ -149,6 +149,7 @@ export class SignUp extends Component {
                         name="email"
                         label= "Username"
                         size='small'
+                        variant="outlined" 
                         endAdornment={<InputAdornment position="end">@gmail.com</InputAdornment>}
                         error={this.state.emailError}
                         onChange={e => this.change(e)}
@@ -157,7 +158,7 @@ export class SignUp extends Component {
                     <div className='helper_text'>You can use letters, numbers & periods</div>
                 </div>
                 <div>
-                    <button className='button1'>Use my current email address instead</button>
+                    <button className='button2'>Use my current email address instead</button>
                 </div>
                 <div className='password_text'>
                     <TextField 

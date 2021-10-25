@@ -6,6 +6,7 @@ import { Snackbar, IconButton, Button} from '@mui/material';
 import CheckBoxOutlined from '@mui/icons-material/CheckBoxOutlined';
 import BrushOutlined from '@mui/icons-material/BrushOutlined';
 import InsertPhotoOutlined from '@mui/icons-material/InsertPhotoOutlined'
+import { TextareaAutosize } from '@material-ui/core';
 // import PushPinOutlined from '@mui/icons-material/PushPinOutlined';
 // import UndoOutlined from '@mui/icons-material/UndoOutlined';
 // import RedoOutlined from '@mui/icons-material/RedoOutlined';
@@ -138,11 +139,13 @@ export class TakeNotes extends Component {
                                 backgroundColor: this.state.color
                             }}
                         />
-                        <input 
+                        <TextareaAutosize 
                             className="forminput2" 
                             name="description" 
                             id="description" 
-                            multiline
+                            type="text"
+                            multiline={true}
+                            numberOfLines={5}
                             aria-label="empty textarea" 
                             placeholder="Take a Note..." 
                             onChange={e => this.change(e)}

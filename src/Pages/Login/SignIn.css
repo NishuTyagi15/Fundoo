@@ -148,11 +148,11 @@
 
 /* media queries */
 
-@media only screen and (min-width: 768px) and (max-width:1024px) {
+@media only screen and (min-width: 801px) and (max-width:1024px) {
     .signin_main {
-        margin-top: 28%;
+        margin-top: 34%;
         margin-left: 21%;
-        height: 60vh;
+        height: 55vh;
         width: 58vw;
     }
     .Fundoo_signin {
@@ -212,7 +212,88 @@
     }
 }
 
-@media only screen and (min-width: 360px) and (max-width:640px) {
+@media only screen and (min-width: 718px) and (max-width:800px) {
+    .signin_main {
+        width: 67vw;
+        height: 51vh;
+        margin-left: 20%;
+        margin-top: 32%;
+    }
+    .Fundoo_signin, .heading1 {
+        left: 50%;
+    }
+    .Fundoo_signin {
+        top: 23%;
+    }
+    .heading1 {
+        top: 28%;
+    }
+    .sub_heading1 {
+        left: 44%;
+        top: 33%;
+    }
+    .email_phone1, .blue_text1, .blue_text2, .blue_text3, .pass_main, .para_guest, .options1 {
+        left: 26%;
+    }
+    .email_phone1 {
+        top: 40%;
+    }
+    .blue_text1 {
+        top: 45%;
+    }
+    .blue_text2 {
+        top: 55%;
+    }
+    .blue_text3 {
+        top: 61%;
+    } 
+    .pass_main {
+        top: 50%;
+    }
+    .para_guest {
+        top: 60%;
+    }
+    .email1, .pass1 {
+        width: 50vw;        
+    }
+    .options1 {
+        width: 60%;
+        top: 65%;
+    }
+    .next1 {
+        height: 3vh;        
+    }
+}
+
+@media only screen and (min-width: 630px) and (max-width:733px) {
+    .signin_main {
+        width: 68vw;
+        height: 85vh;        
+        margin-left: 16%;
+        margin-top: 7%;
+    }
+    .Fundoo_signin {
+        left: 45%;
+    }
+    .heading1 {
+        left: 45%;
+    }
+    .sub_heading1 {
+        left: 37%;
+    }
+    .email_phone1, .blue_text1, .blue_text2, .blue_text3, .pass_main, .para_guest, .options1 {
+        left: 24%;
+    }
+    .email1, .pass1 {
+        width: 54vw;        
+    }
+    .options1 {
+        width: 63%;
+    }
+}
+
+
+@media only screen and (min-width: 360px) and (max-width:630px) {
     .signin_main {
         border: none;
     }

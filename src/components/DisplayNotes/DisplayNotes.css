@@ -58,6 +58,7 @@
     position: relative !important;
     border: none;
     font-size: 1rem;
+    font-family: sans-serif;
     width: 30vw;
     color:black !important;
     text-align: left;
@@ -103,11 +104,11 @@ textarea:focus, input:focus{
     .displayNotes_main {
         grid-template-columns: 1fr 1fr;
         left: 10rem;
-        top: 19rem;
+        top: 18rem;
     }
     .note1_content {
         min-width: 32vw;
-        min-height: 19vh;
+        min-height: 13vh;
     }
     .content1 {
         margin: -1rem 1rem 1rem;
@@ -126,7 +127,31 @@ textarea:focus, input:focus{
     }
 }
 
-@media only screen and (min-width: 360px) and (max-width:640px) {
+@media only screen and (min-width: 630px) and (max-width:733px) {
+    .displayNotes_main {
+        grid-template-columns: 1fr 1fr;
+        left: 8rem;
+        top: 17rem;
+    }
+    .note1_content {
+        min-width: 32vw;        
+    }
+    .popup {
+        min-height: 30vh;
+    }
+    .dialog_icon {
+        left: -0.2rem;
+    }
+    .MuiDialog-paperWidthSm {
+        width: 80vw !important;
+        height: 30vh !important;
+    }
+    .button {
+        left: 27rem !important;        
+    }
+}
+
+@media only screen and (min-width: 360px) and (max-width:630px) {
     .displayNotes_main {
         grid-template-columns: 1fr;
         left: 6rem;
@@ -135,5 +160,8 @@ textarea:focus, input:focus{
     .note1_content {
         min-width: 100vw;
         min-height: 20vh;
+    }
+    .d_icons {
+        margin-left: -1rem;
     }
 }

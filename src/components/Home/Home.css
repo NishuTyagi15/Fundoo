@@ -91,6 +91,7 @@
     .css-96uuyl {
         height: 0vh !important;
         width: 0vw !important;
+        margin-left: 10% !important;
     }
     .css-1guk29 {
         display: block !important;
@@ -111,7 +112,21 @@
     }
 }
 
-@media only screen and (min-width: 360px) and (max-width:640px) {
+@media only screen and (min-width: 630px) and (max-width:733px) {
+    .css-1kcggdq-MuiInputBase-root {
+        display: none !important;
+    }
+    .css-96uuyl {
+        height: 0vh !important;
+        width: 0vw !important;
+        margin-left: 20% !important;
+    }
+    .css-1guk29 {
+        display: block !important;
+    }
+}
+
+@media only screen and (min-width: 360px) and (max-width:630px) {
     .css-1kcggdq-MuiInputBase-root {
         display: none !important;
     }

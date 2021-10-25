@@ -2,6 +2,9 @@ import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './Home.css';
 import Popover from '../Home/Signout'
+import Dashboard from '../../pages/Dashboard/Dashboard';
+import Archive from '../../pages/Archive/Archive';
+import Trash from '../../pages/Trash/Trash'
 import keep from './keep.png';
 import { styled, useTheme, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -226,8 +229,8 @@ export default function Home() {
                 <ListItemIcon>
                   {index <= 0 ? <Link to="/home" ><LightbulbOutlinedIcon /></Link> : <InboxIcon /> && index <= 1 ? <NotificationsNoneIcon /> : <InboxIcon />
                     && index <= 2 ? <ModeEditOutlineOutlinedIcon /> : <InboxIcon />
-                    && index <= 3 ? <Link to="/archive" ><ArchiveOutlinedIcon /></Link> : <InboxIcon />
-                    && index <= 4 ? <Link to="/trash" ><DeleteOutlineOutlinedIcon /></Link> : <InboxIcon />}
+                    && index <= 3 ? <Link to="/home/archive" ><ArchiveOutlinedIcon /></Link> : <InboxIcon />
+                    && index <= 4 ? <Link to="/home/trash" ><DeleteOutlineOutlinedIcon /></Link> : <InboxIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
@@ -240,10 +243,12 @@ export default function Home() {
         </Box>
       </Box>
 
-      <div className="nav_part">
-      
-    </div>
-
+      <Switch>
+          <Route exact path="/home" component={Dashboard} />
+          <Route exact path="/home/archive" component={Archive} />
+          <Route exact path="/home/trash" component={Trash} />
+      </Switch>
+    
     </div>
   );
 }

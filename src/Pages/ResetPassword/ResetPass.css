@@ -126,7 +126,34 @@
     }
 }
 
-@media only screen and (min-width: 360px) and (max-width:640px) {
+@media only screen and (min-width: 630px) and (max-width:733px) {
+    .reset_pass {
+        height: 72vh;
+        width: 62vw;
+        margin-left: 21%;
+        margin-top: 9%;
+    }
+    .Fundoo_reset {
+        top: 12%;
+    }
+    .heading3 {
+        left: 37%;
+    }
+    .sub_heading3 {
+        left: 41%;
+    }
+    .pass_confirm3, .pass_confirm5 {
+        left: 27%;
+    }
+    .pass3 {
+        width: 51vw;
+    }
+    .next3 {
+        top: 75%;
+    }
+}
+
+@media only screen and (min-width: 360px) and (max-width:630px) {
     .reset_pass {
         border: none;
     }
