@@ -64,21 +64,6 @@ class Collaborator extends Component {
         });
     }
 
-    colabArr = () => {
-        const userList = this.state.collabarr.map((val, index) => {
-        return (
-            <div className="owner">
-                <div className="avatar_img">
-                    <Avatar alt="" src={pic} />
-                </div>
-                <div className="owner_title">
-                    <div className="name_txt">{val.name}</div>
-                    <div className="email_txt">{val.email}</div>
-                </div>
-            </div>
-        )
-    })}
-
     userDetails = (val) => {
         var newArray = this.state.collabData.slice();    
         newArray.push(val);   
