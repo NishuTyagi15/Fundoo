@@ -9,7 +9,7 @@
 .note1_content {
     border: 1px solid rgb(228, 225, 225);
     border-radius: 8px;
-    height: 22vh;
+    min-height: 22vh;
     min-width: 17vw;
     display: block;
 }
@@ -82,11 +82,6 @@ textarea:focus, input:focus{
     outline: none;
 }
 
-.popup {
-    position: absolute !important;
-    z-index: 2 !important;
-}
-
 .button {
     position: absolute !important;
     left: 29rem !important;
@@ -98,10 +93,17 @@ textarea:focus, input:focus{
     display: flex;
     flex-direction: row;
     margin-top: -6.5rem;
+    margin-left: 1.2rem;
+}
+
+.avatar_img2>.MuiAvatar-root {
+    margin-left: -0.4rem !important;
+    height: 4vh !important;
+    width: 4vh !important;
 }
 
 .notes :hover .img_main {
-    margin-top: -8.5rem;
+    margin-top: -8.45rem;
 }
 
 
@@ -110,8 +112,7 @@ textarea:focus, input:focus{
 @media only screen and (min-width: 768px) and (max-width:1024px) {
     .displayNotes_main {
         grid-template-columns: 1fr 1fr;
-        left: 10rem;
-        top: 18rem;
+        margin-left: -1rem;
     }
     .note1_content {
         min-width: 32vw;
@@ -125,20 +126,35 @@ textarea:focus, input:focus{
         min-height: 25.5vh !important;
     }
     .dialog_icon {
-        top: 8rem;
+        top: 12rem;
         left: -0.7rem;
         width: 46vw;        
     }
     .button {
-        left: 18rem !important;        
+        left: 30rem !important;        
+    }
+    .popup {
+        height: 21vh;        
+    }
+    .MuiDialog-paperWidthSm {
+        min-height: 15vh !important;
+        width: 100vw !important;
+    } 
+    .input1 {
+        width: 65vw;        
+    }
+    .email_list {
+        width: 52vw;
+        overflow-x: scroll;
+        overflow-y: scroll;
+        margin-left: -1px !important;
     }
 }
 
 @media only screen and (min-width: 630px) and (max-width:733px) {
     .displayNotes_main {
         grid-template-columns: 1fr 1fr;
-        left: 8rem;
-        top: 17rem;
+        margin-top: 1.5rem;        
     }
     .note1_content {
         min-width: 32vw;        
@@ -161,8 +177,7 @@ textarea:focus, input:focus{
 @media only screen and (min-width: 360px) and (max-width:630px) {
     .displayNotes_main {
         grid-template-columns: 1fr;
-        left: 6rem;
-        top: 15rem;
+        margin-top: 0.5rem;        
     }
     .note1_content {
         min-width: 100vw;
@@ -170,5 +185,34 @@ textarea:focus, input:focus{
     }
     .d_icons {
         margin-left: -1rem;
+    }
+    .MuiDialog-paperWidthSm {
+        margin: 0 !important;
+        width: 100vw !important;
+    }
+    .collab_btn {
+        margin-right: 14rem;        
+    }
+    .dialog_icon {
+        left: -0.8rem;
+        width: 80vw;
+    }
+    .popup {
+        height: 27vh;        
+    }
+    .MuiDialog-paperWidthSm {
+        min-height: 27vh !important;
+    } 
+    .button {
+        left: 15rem !important;        
+    }
+    .input1 {
+        width: 65vw;        
+    }
+    .email_list {
+        width: 52vw;
+        overflow-x: scroll;
+        overflow-y: scroll;
+        margin-left: -1px !important;
     }
 }

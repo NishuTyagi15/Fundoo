@@ -59,7 +59,7 @@ const Notes = (props) => {
     const userDetails = collabDetails.map((val, index) => {
         const chars = val.firstName.split('');
         return (
-            <div className="avatar_img1">
+            <div className="avatar_img2">
                 <Avatar alt={chars[0]} src={chars[0]} />
             </div>
         );

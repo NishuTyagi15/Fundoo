@@ -68,8 +68,8 @@
 
 @media only screen and (min-width: 630px) and (max-width:733px) {
     .MuiAvatar-root {
-        width: 3.5vw !important;
-        height: 4vh !important;        
+        width: 4.5vw !important;
+        height: 4.5vh !important;      
     } 
     .signout_main {
         top: 1.4rem;

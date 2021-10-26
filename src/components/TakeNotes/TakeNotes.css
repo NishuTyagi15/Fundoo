@@ -75,12 +75,13 @@
 }
 
 .av_main {
+    margin-left: 1.7rem;
     display: flex;
     flex-direction: row;
 }
 
-.avatar_img1 {
-    margin-left: -1rem;
+.avatar_img1>.MuiAvatar-root {
+    margin-left: -0.6rem !important;
 }
 
 .main_div {
@@ -96,7 +97,7 @@
         display: none !important;
     }
     #form1, #form2 {
-        left: -9%;
+        margin-left: -3rem;
         width: 77vw;
     }
     #form1 {
@@ -119,15 +120,12 @@
     .css-mf1cb5-MuiButtonBase-root-MuiIconButton-root {
         padding: 1.6rem !important;
     }
-    .notes_main {
-        top: 7rem;
-    }
 }
 
 @media only screen and (min-width: 630px) and (max-width:733px) {
     #form1, #form2 {
-        left: -10%;
-        width: 80vw;
+        margin-left: -3rem;
+        width: 83vw;
     }
     .forminput1 {
         width: 44vw;        
@@ -146,15 +144,14 @@
         display: none !important;
     }
     #form1, #form2 {
-        left: -3%;
+        margin-left: -0.7rem;
         width: 100vw;
     }
     #form2 {
-        min-height: 20vh;
+        min-height: 12vh;
     }
     .forminput2{
         width: 56vw;
-        margin: 2% 2% -5%;
     }
     .check {
         position: absolute;
@@ -163,9 +160,6 @@
     .brush {
         position: absolute;
         left: 0rem;
-    }
-    .notes_main {
-        top: 5rem;
     }
     .css-mf1cb5-MuiButtonBase-root-MuiIconButton-root {
         padding: 1.3rem !important;
