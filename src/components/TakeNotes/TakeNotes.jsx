@@ -7,6 +7,7 @@ import CheckBoxOutlined from '@mui/icons-material/CheckBoxOutlined';
 import BrushOutlined from '@mui/icons-material/BrushOutlined';
 import InsertPhotoOutlined from '@mui/icons-material/InsertPhotoOutlined'
 import { TextareaAutosize } from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
 // import PushPinOutlined from '@mui/icons-material/PushPinOutlined';
 // import UndoOutlined from '@mui/icons-material/UndoOutlined';
 // import RedoOutlined from '@mui/icons-material/RedoOutlined';
@@ -25,7 +26,8 @@ export class TakeNotes extends Component {
             description: "",
             color:"#ffffff",
             isArchived: false,
-            isDeleted : false,
+            isDeleted: false,
+            collabDetails: [],
             snackbaropen: false, 
             snackbarmsg: "",
         }
@@ -84,13 +86,29 @@ export class TakeNotes extends Component {
     };
 
     change = (e) => {
-        // console.log(e.target.value);
         this.setState({
             [e.target.name] : e.target.value
         });
     }
 
+    getNotes =(val) => {
+        this.setState({
+            collabDetails: val
+        })
+        console.log(val);
+    }
+
     render() {
+
+        const userDetails = this.state.collabDetails.map((val, index) => {
+            const chars = val.firstName.split('');
+            return (
+                <div className="avatar_img1">
+                    <Avatar alt={chars[0]} src={chars[0]} />
+                </div>
+            );
+        });
+
         return (
             <div className="notes_main" >
             <Snackbar
@@ -153,13 +171,16 @@ export class TakeNotes extends Component {
                                 backgroundColor: this.state.color,
                             }}
                         />
+                        <div className="av_main">
+                            {userDetails}
+                        </div>
                     </p>
                     <div id="icons">
                         <Icons colorval="create"
                         val={this.state}  
                         getColor={this.handleColor}
-                        archiveCreate={this.handleClose}
-                        // displayNote = {this.props.display}
+                        archiveCreate={this.handleClose}    
+                        getNotes={this.getNotes}                    
                         />
                         {/* <UndoOutlined style={{ fontSize: "large" }}></UndoOutlined>
                         <RedoOutlined style={{ fontSize: "large" }}></RedoOutlined> */}

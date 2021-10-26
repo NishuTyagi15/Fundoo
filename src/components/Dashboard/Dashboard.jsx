@@ -39,7 +39,7 @@ export class Dashboard extends Component {
     render() {
         console.log(this.state.notesarr);
         return (
-            <div>
+            <div className="main_div">
                 <TakeNotes displayNote={this.displayNote}/>
                 <DisplayNotes notesarr = {this.state.notesarr} displayNote={this.displayNote}/>
             </div>

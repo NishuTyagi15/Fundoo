@@ -1,8 +1,6 @@
 .notes_main {
-    position: absolute;
-    left: 22%;
-    top: 16%;
-    height: 5%;
+    /* display: flex; */
+    margin-top: -2%;
 }
 
 .css-mf1cb5-MuiButtonBase-root-MuiIconButton-root {
@@ -10,22 +8,22 @@
 }
 
 #form1, #form2 {
-    position: relative;
-    top: 20%;
-    left: 25%;
+    margin-left: 10rem;
     width: 42vw;
-    min-height: 6vh;
     background: #fff;
     border-radius: 7px;
     box-shadow: 0 1px 7px rgb(128, 128, 128);
 }
 
+#form1 {
+    height: 60%;
+}
+
 #form2 {
-    min-height: 21vh;    
+    min-height: 22vh;    
 }
  
 .forminput1 {
-    left: 25%;
     width: 38vw;
     outline: none;
     border: none;
@@ -36,14 +34,13 @@
 
 .forminput2 {
     outline: none;
-    position: relative !important;
     border: none;
     font-size: 1rem;
     font-family: sans-serif;
     width: 30vw;
     color:black !important;
     text-align: left;
-    margin: 2% 2% -3%;
+    margin: 2% 2% 2%;
 }
 
 .textarea{
@@ -77,9 +74,22 @@
     cursor: pointer;       
 }
 
-/* .css-i4bv87-MuiSvgIcon-root {
-    font-size: 1.2rem !important;
-} */
+.av_main {
+    display: flex;
+    flex-direction: row;
+}
+
+.avatar_img1 {
+    margin-left: -1rem;
+}
+
+.main_div {
+    display: flex;
+    flex-direction: column;
+    float: right;
+    height: 100vh;
+    width: 80%;
+}
 
 @media screen and (min-width: 768px) and (max-width: 1024px){
     .brush {

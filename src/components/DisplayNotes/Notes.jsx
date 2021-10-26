@@ -4,6 +4,7 @@ import UserServices from '../../services/UserServices';
 import Dialog from '@material-ui/core/Dialog';
 import Button from '@mui/material/Button';
 import { TextareaAutosize } from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
 
 const obj = new UserServices();
 
@@ -13,6 +14,7 @@ const Notes = (props) => {
     const [open, setOpen] = React.useState(false);
     const [title, setTitle] = React.useState(props.index.title);
     const [description, setDescription] = React.useState(props.index.description);
+    const [collabDetails, setCollabDetails] = React.useState([]);
 
 
     const newNotes1 = () => {
@@ -48,6 +50,20 @@ const Notes = (props) => {
             handleClose();
         })
     }
+
+    const getNotes =(val) => {
+        setCollabDetails(val)
+        console.log(val);
+    }
+
+    const userDetails = collabDetails.map((val, index) => {
+        const chars = val.firstName.split('');
+        return (
+            <div className="avatar_img1">
+                <Avatar alt={chars[0]} src={chars[0]} />
+            </div>
+        );
+    });
 
     const {classes} = props;
 
@@ -90,12 +106,9 @@ const Notes = (props) => {
                         <Icons
                             archive={() => {
                                 this.onArchive();
-                                
-                                // setOpen(false);
                             }}
                             delete = {() => {
                                 this.onDelete();
-                                // setOpen(false);
                             }}
                             colorval="update"
                             val = {props.index}
@@ -104,6 +117,7 @@ const Notes = (props) => {
                             displayNote={props.displayNote}
                             archiveNotes="archiveUpdate"
                             handleClose={handleClose}
+                            getNotes={getNotes}                    
                         />
                         <Button className="button" onClick ={onUpdate}>Close</Button>
                     </div>
@@ -115,14 +129,19 @@ const Notes = (props) => {
                 }}
             >
                 <div onClick={handleClickOpen}>
-                <h4 className="head">{props.index.title}</h4>
-                <div className="content1">{props.index.description}</div></div>
+                    <h4 className="head">{props.index.title}</h4>
+                    <div className="content1">{props.index.description}</div>
+                </div>
                 <div className="d_icons">
-                <Icons colorval="update"
-                val = {props.index}
-                id= {props.index.id}
-                displayNote={props.displayNote}
-                />
+                    <Icons colorval="update"
+                    val = {props.index}
+                    id= {props.index.id}
+                    displayNote={props.displayNote}
+                    getNotes={getNotes}                    
+                    />
+                </div>
+                <div className="img_main">
+                    {userDetails}
                 </div>
             </div>
         </div>

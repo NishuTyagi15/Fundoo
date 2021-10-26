@@ -1,9 +1,10 @@
 $display: flex;
 $border: 1px solid #e4d6d6;
+$margin-left: 20px;
 
 @mixin  input($size) {
     font-size: $size;
-    margin-left: 20px;
+    margin-left: $margin-left;
 }
 @mixin  align($width,$justify-content) {
     display: $display;
@@ -37,12 +38,27 @@ $border: 1px solid #e4d6d6;
 
 .avatar_img {
     margin-left: 22px;
-    margin-top: 7px;
+    margin-top: 6px;
 }
+
+.owner_title {
+    margin-top: 0.4rem;
+}
+
+.avatar_img> .MuiAvatar-root {
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.MuiAvatar-colorDefault {
+    color: #000 !important;
+    background-color: #de483d !important;
+}
+
 .name_txt {
     @include input(15px);
     font-weight: bold;
-    margin-left: 20px;
+    margin-left: $margin-left;
 }
 
 .email_txt {
@@ -66,12 +82,12 @@ $border: 1px solid #e4d6d6;
 
 .search_text {
     text-decoration: none;
-    margin-left: 16px !important;
+    margin-left: $margin-left !important;
     width: 300px;
 }
 
 .MuiInputBase-multiline {
-    padding: 20px 0 7px !important;
+    padding: $margin-left 0 7px !important;
 }
 
 .MuiInputBase-inputMultiline {
@@ -86,11 +102,9 @@ $border: 1px solid #e4d6d6;
 
 .email_list {
     position: fixed !important;
-    top: 23rem !important;
-    left: 28.8rem;
+    margin-left: 65px !important;
     z-index: 100 !important;
     background-color: #fff;
-    border: $border;
     // height: 40vh !important;
     // width: 20%;
     // overflow-y: scroll;
@@ -99,6 +113,7 @@ $border: 1px solid #e4d6d6;
 
 .email_list>.MuiMenuItem-root {
     border-bottom: $border;
+    border: $border;
 }
 
 .on_close {
@@ -109,14 +124,15 @@ $border: 1px solid #e4d6d6;
     opacity: 0.2;
 }
 
+.MuiDialog-paperWidthSm {
+    min-height: 30vh !important;
+}
+
 @media only screen and (min-width: 630px) and (max-width:733px) {
     .dialog_body {
         width: 540px;
     }
-    .email_list {
-        top: 26rem;
-        left: 9rem;
-        // height: 40vh !important;
-        // width: 41%;
+    .on_close {
+        left: 31rem;        
     }
 }

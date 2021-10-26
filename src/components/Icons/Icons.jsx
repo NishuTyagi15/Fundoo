@@ -208,6 +208,7 @@ export class Icons extends Component {
                     getCloseStatus={(Data) => {
                         this.onSetStatus(Data);
                     }}
+                    getNotes= {this.props.getNotes}
                 />
             </>
         )

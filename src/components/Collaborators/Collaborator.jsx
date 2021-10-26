@@ -25,8 +25,10 @@ class Collaborator extends Component {
             cancel: false,
             collabarr: [
                 {
-                    name: localStorage.getItem('firstname') +''+ localStorage.getItem('lastname'),
-                    email: localStorage.getItem('email')
+                    firstName: localStorage.getItem('firstname'),
+                    lastName: localStorage.getItem('lastname'),
+                    email: localStorage.getItem('email'),
+                    id: localStorage.getItem('token')
                 }
             ],
         }
@@ -37,7 +39,7 @@ class Collaborator extends Component {
             searchWord: e.target.value
         }
         this.setState({
-            cancel: true,
+            cancel: true
         });
         if (e.target.value != "") {
             obj.searchCollab(colabData).then((response) => {
@@ -64,35 +66,47 @@ class Collaborator extends Component {
         });
     }
 
-    userDetails = (val) => {
-        var newArray = this.state.collabData.slice();    
-        newArray.push(val);   
-        this.setState({collabData:newArray})
+    getDetails = (e) => {
+        var newArray = this.state.collabarr.slice();    
+        newArray.push(e);   
+        this.setState({collabarr:newArray})
+        console.log(this.state.collabData);
+    }
+
+    saveCollab = () => {
+        let get = this.state.collabarr.slice(1)
+        this.props.getNotes(get)
+        this.setState({
+            collabData: []
+        });
+        this.props.getCloseStatus(false);
     }
 
     render() {
         const { classes } = this.props;
         const userData = this.state.collabData.map((val, index) => {
             return (
-                <MenuItem key={index} onClick={this.userDetails}>
+                <MenuItem key={index} onClick={(e) => this.getDetails(val)}>
                     {val.email}
                 </MenuItem>
             )
         });
 
         const userList = this.state.collabarr.map((val, index) => {
+            const chars = val.firstName.split('');
             return (
                 <div className="owner">
                     <div className="avatar_img">
-                        <Avatar alt="" src={pic} />
+                    <Avatar alt={chars[0]} src={chars[0]} />
                     </div>
                     <div className="owner_title">
-                        <div className="name_txt">{val.name}</div>
+                        <div className="name_txt">{val.firstName} {val.lastName}</div>
                         <div className="email_txt">{val.email}</div>
                     </div>
                 </div>
             )
-        })
+        });
+
         return (
             <div>
                 <Dialog
@@ -133,6 +147,7 @@ class Collaborator extends Component {
                                         id="composition-menu"
                                         aria-labelledby="composition-button"
                                         className="email_list"
+                                        List={this.state.collabData}
                                     >
                                     {userData}        
                                     </MenuList> 
@@ -140,7 +155,7 @@ class Collaborator extends Component {
                             </Stack>
                         </div>
                         <div className='collab_btn'>
-                            <Button>Save</Button>
+                            <Button onClick={this.saveCollab}>Save</Button>
                             <Button onClick={this.closeDialog}>Cancel</Button>
                         </div>
                     </div>
