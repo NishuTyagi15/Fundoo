@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import UserServices from '../../services/UserServices';
 import '../Collaborators/Collaborators.scss';
 import pic from '../../pages/Home/pic.jpg';
+import { Paper, Stack} from '@mui/material';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
@@ -9,7 +10,7 @@ import Button from "@material-ui/core/Button";
 import Dialog from '@material-ui/core/Dialog';
 import Avatar from '@material-ui/core/Avatar';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import { Paper, Menu, Stack} from '@mui/material';
+import CloseIcon from '@material-ui/icons/Close';
 
 const obj = new UserServices();
 
@@ -20,8 +21,14 @@ class Collaborator extends Component {
 
         this.state = {
             open: false,
-            collaborators: '',
             collabData: [],
+            cancel: false,
+            collabarr: [
+                {
+                    name: localStorage.getItem('firstname') +''+ localStorage.getItem('lastname'),
+                    email: localStorage.getItem('email')
+                }
+            ],
         }
     }
 
@@ -30,17 +37,19 @@ class Collaborator extends Component {
             searchWord: e.target.value
         }
         this.setState({
-            collaborators: e.target.value,
+            cancel: true,
         });
-        if (e.target.value !== "") {
+        if (e.target.value != "") {
             obj.searchCollab(colabData).then((response) => {
                 this.setState({
-                    collabData: response.data.data.details
+                    collabData: response.data.data.details,
                 });
                 console.log(response);
             }).catch(error => {
                 console.log(error);
             });
+        } else if(e.target.value === "") {
+            this.onCancel()
         }
     }
 
@@ -48,15 +57,57 @@ class Collaborator extends Component {
         this.props.getCloseStatus(false);
     }
 
+    onCancel = () => {
+        this.setState({
+            collabData: [],
+            cancel: false
+        });
+    }
+
+    colabArr = () => {
+        const userList = this.state.collabarr.map((val, index) => {
+        return (
+            <div className="owner">
+                <div className="avatar_img">
+                    <Avatar alt="" src={pic} />
+                </div>
+                <div className="owner_title">
+                    <div className="name_txt">{val.name}</div>
+                    <div className="email_txt">{val.email}</div>
+                </div>
+            </div>
+        )
+    })}
+
+    userDetails = (val) => {
+        var newArray = this.state.collabData.slice();    
+        newArray.push(val);   
+        this.setState({collabData:newArray})
+    }
+
     render() {
         const { classes } = this.props;
         const userData = this.state.collabData.map((val, index) => {
             return (
-                <MenuItem key={index}>
+                <MenuItem key={index} onClick={this.userDetails}>
                     {val.email}
                 </MenuItem>
             )
         });
+
+        const userList = this.state.collabarr.map((val, index) => {
+            return (
+                <div className="owner">
+                    <div className="avatar_img">
+                        <Avatar alt="" src={pic} />
+                    </div>
+                    <div className="owner_title">
+                        <div className="name_txt">{val.name}</div>
+                        <div className="email_txt">{val.email}</div>
+                    </div>
+                </div>
+            )
+        })
         return (
             <div>
                 <Dialog
@@ -66,7 +117,8 @@ class Collaborator extends Component {
                             Collaborators
                         </div>
                         <div className="collab_details">
-                            <div className="owner">
+                            {userList}
+                            {/* <div className="owner">
                                 <div className="avatar_img">
                                     <Avatar alt="" src={pic} />
                                 </div>
@@ -74,7 +126,7 @@ class Collaborator extends Component {
                                     <div className="name_txt">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}  (Owner)</div>
                                     <div className="email_txt">{localStorage.getItem('email')}</div>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="search1">
                                 <div className="plus_person">
                                     <PersonAddIcon /></div>
@@ -87,8 +139,11 @@ class Collaborator extends Component {
                                     onChange={this.handleInput}
                                 />
                             </div>
+                            <div className="on_close" style={{ display: this.state.cancel ? 'block' : 'none' }}>
+                                    <CloseIcon onClick={this.onCancel} />
+                            </div>
                             <Stack direction="row" spacing={2}>
-                                <Paper>
+                                <Paper className="main_list">
                                     <MenuList
                                         id="composition-menu"
                                         aria-labelledby="composition-button"
