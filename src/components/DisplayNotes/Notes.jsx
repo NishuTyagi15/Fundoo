@@ -40,6 +40,7 @@ const Notes = (props) => {
             noteId: props.index.id,
             "title": title,
             "description": description,
+            "collaborators": JSON.stringify([collabDetails])
         };
         obj.updateNotes(updateData).then((response) => {
             console.log(response);

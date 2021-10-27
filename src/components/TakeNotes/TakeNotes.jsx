@@ -70,7 +70,8 @@ export class TakeNotes extends Component {
             "description": this.state.description,
             "color": this.state.color,
             "isArchived": this.state.isArchived,
-            "isDeleted" : this.state.isDeleted,
+            "isDeleted": this.state.isDeleted,
+            "collaborators": JSON.stringify([this.state.collabDetails])
         }
         console.log(notesObj);
         obj.notes(notesObj).then((response)=>{

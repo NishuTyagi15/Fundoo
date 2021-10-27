@@ -70,6 +70,9 @@ class Collaborator extends Component {
         var newArray = this.state.collabarr.slice();    
         newArray.push(e);   
         this.setState({collabarr:newArray})
+        this.setState({
+            collabData: []
+        });
         console.log(this.state.collabData);
     }
 

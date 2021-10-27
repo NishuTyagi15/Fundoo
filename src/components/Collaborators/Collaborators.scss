@@ -51,10 +51,10 @@ $margin-left: 20px;
     height: 40px !important;
 }
 
-.MuiAvatar-colorDefault {
-    color: #000 !important;
-    background-color: #de483d !important;
-}
+// .MuiAvatar-colorDefault {
+//     // color: #000 !important;
+//     // background-color: #de483d !important;
+// }
 
 .name_txt {
     @include input(15px);

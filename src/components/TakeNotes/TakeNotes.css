@@ -75,13 +75,15 @@
 }
 
 .av_main {
-    margin-left: 1.7rem;
+    margin-left: 0.8rem;
     display: flex;
     flex-direction: row;
 }
 
 .avatar_img1>.MuiAvatar-root {
-    margin-left: -0.6rem !important;
+    margin-left: 0.4rem !important;
+    height: 4.5vh !important;
+    width: 4.5vh !important;
 }
 
 .main_div {
